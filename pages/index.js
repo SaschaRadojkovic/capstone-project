@@ -1,3 +1,9 @@
+import AllergenCard from "@/components/AllergeneCard";
+
 export default function HomePage() {
-  return <h1>Hello from Next.js</h1>;
+  return (
+    <>
+      <AllergenCard />
+    </>
+  );
 }
