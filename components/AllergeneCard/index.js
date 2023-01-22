@@ -3,7 +3,7 @@ import allergens from "../../allergens.json";
 
 export default function App() {
   const [searchInput, setSearchInput] = useState("");
-  const [selectedAllergens, setSelectedAllergenes] = useState([]);
+  const [selectedAllergens, setSelectedAllergens] = useState([]);
 
   const filteredAllergens = allergens.tags.filter(
     (allergen) => allergen.name.indexOf(searchInput) === 0
@@ -17,6 +17,7 @@ export default function App() {
           const formData = new FormData(event.target);
           const data = Object.fromEntries(formData);
           setSearchInput(data.list);
+          setSearchInput("");
           const selectedAllergen = filteredAllergens.find(
             (allergen) => allergen.name === data.list
           );
@@ -26,7 +27,7 @@ export default function App() {
               (item) => item.name === selectedAllergen.name
             )
           )
-            setSelectedAllergenes([...selectedAllergens, selectedAllergen]);
+            setSelectedAllergens([...selectedAllergens, selectedAllergen]);
         }}
       >
         <input
