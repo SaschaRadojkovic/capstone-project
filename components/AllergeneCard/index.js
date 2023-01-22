@@ -1,92 +1,74 @@
-const allergens = [
-  {
-    id: 1,
-    name: "milk",
-  },
-  {
-    id: 2,
-    name: "eggs",
-  },
-  {
-    id: 3,
-    name: "fish",
-  },
-  {
-    id: 4,
-    name: "shellfish",
-  },
-  {
-    id: 5,
-    name: "tree nuts",
-  },
-  {
-    id: 6,
-    name: "peanuts",
-  },
-  {
-    id: 7,
-    name: "wheat",
-  },
-  {
-    id: 8,
-    name: "soybeans",
-  },
-  {
-    id: 9,
-    name: "gluten",
-  },
-  {
-    id: 10,
-    name: "sesame",
-  },
-  {
-    id: 11,
-    name: "mustard",
-  },
-  {
-    id: 12,
-    name: "celery",
-  },
-  {
-    id: 13,
-    name: "lupin",
-  },
-  {
-    id: 14,
-    name: "molluscs",
-  },
-  {
-    id: 15,
-    name: "sulfites",
-  },
-  {
-    id: 16,
-    name: "casein",
-  },
-  {
-    id: 17,
-    name: "potato",
-  },
-  {
-    id: 18,
-    name: "corn",
-  },
-  {
-    id: 19,
-    name: "lactose",
-  },
-  {
-    id: 20,
-    name: "vanillin",
-  },
-];
+import { useState } from "react";
+import allergens from "../../allergens.json";
 
-export default function AllergenCard() {
+export default function App() {
+  const [searchInput, setSearchInput] = useState("");
+  const [selectedAllergens, setSelectedAllergenes] = useState([]);
+
+  const filteredAllergens = allergens.tags.filter(
+    (allergen) => allergen.name.indexOf(searchInput) === 0
+  );
+
   return (
     <>
-      <ul>
-        {allergens.map((allergen) => {
-          return <li key={allergen.id}>{allergen.name}</li>;
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const data = Object.fromEntries(formData);
+          setSearchInput(data.list);
+          const selectedAllergen = filteredAllergens.find(
+            (allergen) => allergen.name === data.list
+          );
+          if (
+            selectedAllergen &&
+            !selectedAllergens.find(
+              (item) => item.name === selectedAllergen.name
+            )
+          )
+            setSelectedAllergenes([...selectedAllergens, selectedAllergen]);
+        }}
+      >
+        <input
+          name="list"
+          type="text"
+          value={searchInput}
+          onChange={(event) => {
+            setSearchInput(event.target.value);
+          }}
+        />
+        <button type="submit">Add</button>
+      </form>
+      {filteredAllergens.length === 0 && searchInput.length > 0
+        ? "No search results"
+        : null}
+      {searchInput.length > 0 && (
+        <ul style={{ position: "relative" }}>
+          {filteredAllergens
+            .filter((allergen) => allergen.name.includes(searchInput))
+            .map((allergen, name) => {
+              return (
+                <div
+                  key={name}
+                  style={{
+                    position: "absolut",
+                    marginLeft: "-40px",
+                    color: "grey",
+                    maxWidth: "150px",
+                  }}
+                  onClick={() => {
+                    setSearchInput(allergen.name);
+                  }}
+                >
+                  {allergen.name}
+                </div>
+              );
+            })}
+        </ul>
+      )}
+      <ul style={{ listStyle: "none" }}>
+        {selectedAllergens.map((selectedAllergen, name) => {
+          return <li key={name}>{selectedAllergen.name} </li>;
         })}
       </ul>
     </>
