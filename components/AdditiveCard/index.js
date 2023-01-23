@@ -1,13 +1,12 @@
 import { useState } from "react";
-import allergens from "../../allergens.json";
+import additives from "../../additives.json";
 
-export default function AllergenCard() {
+export default function AdditiveCard() {
   const [searchInput, setSearchInput] = useState("");
-  const [selectedAllergens, setSelectedAllergens] = useState([]);
+  const [selectedAdditives, setSelectedAdditives] = useState([]);
 
-  const filteredAllergens = allergens.tags.filter(
-    (allergen) =>
-      allergen.name.toLowerCase().indexOf(searchInput.toLowerCase()) === 0
+  const filteredAdditives = additives.tags.filter((additive) =>
+    additive.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   return (
@@ -19,17 +18,17 @@ export default function AllergenCard() {
           const data = Object.fromEntries(formData);
           setSearchInput(data.list);
           setSearchInput("");
-          const selectedAllergen = filteredAllergens.find(
-            (allergen) => allergen.name === data.list
+          const selectedAdditive = filteredAdditives.find(
+            (additive) => additive.name === data.list
           );
           if (
             //makes reselection impossible
-            selectedAllergen &&
-            !selectedAllergens.find(
-              (item) => item.name === selectedAllergen.name
+            selectedAdditive &&
+            !selectedAdditives.find(
+              (item) => item.name === selectedAdditive.name
             )
           )
-            setSelectedAllergens([...selectedAllergens, selectedAllergen]);
+            setSelectedAdditives([...selectedAdditives, selectedAdditive]);
         }}
       >
         <input
@@ -42,15 +41,15 @@ export default function AllergenCard() {
         />
         <button type="submit">Add</button>
       </form>
-      {filteredAllergens.length === 0 && searchInput.length > 0
+      {filteredAdditives.length === 0 && searchInput.length > 0
         ? "No search results"
         : null}
       {searchInput.length > 0 && (
         <ul style={{ position: "relative" }}>
-          {filteredAllergens.map((allergen) => {
+          {filteredAdditives.map((additive) => {
             return (
               <div
-                key={allergen.name}
+                key={additive.name}
                 style={{
                   position: "absolut",
                   marginLeft: "-40px",
@@ -58,18 +57,18 @@ export default function AllergenCard() {
                   maxWidth: "150px",
                 }}
                 onClick={() => {
-                  setSearchInput(allergen.name);
+                  setSearchInput(additive.name);
                 }}
               >
-                {allergen.name}
+                {additive.name}
               </div>
             );
           })}
         </ul>
       )}
       <ul style={{ listStyle: "none" }}>
-        {selectedAllergens.map((selectedAllergen) => {
-          return <li key={selectedAllergen.name}>{selectedAllergen.name} </li>;
+        {selectedAdditives.map((selectedAdditive) => {
+          return <li key={selectedAdditive.name}>{selectedAdditive.name} </li>;
         })}
       </ul>
     </>
