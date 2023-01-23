@@ -1,4 +1,4 @@
-import AllergenCard from "@/components/AllergeneCard";
+import AllergenCard from "@/components/AllergenCard";
 
 export default function HomePage() {
   return (
