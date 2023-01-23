@@ -1,9 +1,12 @@
+import { atom, useAtom } from "jotai";
 import { useState } from "react";
 import additives from "../../additives.json";
 
+const initialAdditives = atom([]);
+
 export default function AdditiveCard() {
   const [searchInput, setSearchInput] = useState("");
-  const [selectedAdditives, setSelectedAdditives] = useState([]);
+  const [selectedAdditives, setSelectedAdditives] = useAtom(initialAdditives);
 
   const filteredAdditives = additives.tags.filter((additive) =>
     additive.name.toLowerCase().includes(searchInput.toLowerCase())

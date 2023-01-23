@@ -1,9 +1,12 @@
+import { useAtom, atom } from "jotai";
 import { useState } from "react";
 import allergens from "../../allergens.json";
 
+const initialAllergenes = atom([]);
+
 export default function AllergenCard() {
   const [searchInput, setSearchInput] = useState("");
-  const [selectedAllergens, setSelectedAllergens] = useState([]);
+  const [selectedAllergens, setSelectedAllergens] = useAtom(initialAllergenes);
 
   const filteredAllergens = allergens.tags.filter(
     (allergen) =>
