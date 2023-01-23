@@ -22,6 +22,7 @@ export default function App() {
             (allergen) => allergen.name === data.list
           );
           if (
+            //makes reselection impossible
             selectedAllergen &&
             !selectedAllergens.find(
               (item) => item.name === selectedAllergen.name
