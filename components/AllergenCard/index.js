@@ -23,7 +23,6 @@ export default function AllergenCard() {
           event.preventDefault();
           const formData = new FormData(event.target);
           const data = Object.fromEntries(formData);
-          setSearchInput(data.list);
           setSearchInput("");
           const selectedAllergen = filteredAllergens.find(
             (allergen) => allergen.name === data.list
@@ -39,7 +38,7 @@ export default function AllergenCard() {
         }}
       >
         <input
-          name="list"
+          name="search"
           type="text"
           value={searchInput}
           onChange={(event) => {

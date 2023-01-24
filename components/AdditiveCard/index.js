@@ -23,7 +23,6 @@ export default function AdditiveCard() {
           event.preventDefault();
           const formData = new FormData(event.target);
           const data = Object.fromEntries(formData);
-          setSearchInput(data.list);
           setSearchInput("");
           const selectedAdditive = filteredAdditives.find(
             (additive) => additive.name === data.list
@@ -40,7 +39,7 @@ export default function AdditiveCard() {
       >
         {/* <div>{filteredAdditives.length}</div> */}
         <input
-          name="list"
+          name="search"
           type="text"
           value={searchInput}
           onChange={(event) => {
