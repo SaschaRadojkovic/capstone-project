@@ -7,18 +7,20 @@ export default function HomePage() {
   return (
     <>
       <button
-        onClick={() => {
-          setShowAdditives(false);
-        }}
-      >
-        Allergens
-      </button>
-      <button
+        style={{ fontWeight: showAdditives ? "bold" : "normal" }}
         onClick={() => {
           setShowAdditives(true);
         }}
       >
         Additives
+      </button>
+      <button
+        style={{ fontWeight: !showAdditives ? "bold" : "normal" }}
+        onClick={() => {
+          setShowAdditives(false);
+        }}
+      >
+        Allergens
       </button>
 
       {showAdditives ? <AdditiveCard /> : <AllergenCard />}

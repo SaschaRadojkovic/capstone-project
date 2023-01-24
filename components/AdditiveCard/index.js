@@ -1,8 +1,12 @@
 import { atom, useAtom } from "jotai";
 import { useState } from "react";
 import additives from "../../additives.json";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
-const initialAdditives = atom([]);
+const initialAdditives = atomWithStorage("additives", [], {
+  ...createJSONStorage(() => localStorage),
+  delayInit: true,
+});
 
 export default function AdditiveCard() {
   const [searchInput, setSearchInput] = useState("");
@@ -34,6 +38,7 @@ export default function AdditiveCard() {
             setSelectedAdditives([...selectedAdditives, selectedAdditive]);
         }}
       >
+        {/* <div>{filteredAdditives.length}</div> */}
         <input
           name="list"
           type="text"

@@ -1,9 +1,12 @@
 import { useAtom, atom } from "jotai";
 import { useState } from "react";
 import allergens from "../../allergens.json";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
-const initialAllergenes = atom([]);
-
+const initialAllergenes = atomWithStorage("allergenes", [], {
+  ...createJSONStorage(() => localStorage),
+  delayInit: true,
+});
 export default function AllergenCard() {
   const [searchInput, setSearchInput] = useState("");
   const [selectedAllergens, setSelectedAllergens] = useAtom(initialAllergenes);
