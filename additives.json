@@ -1,0 +1,2883 @@
+{
+  "count": 364,
+  "tags": [
+    {
+      "id": "en:e330",
+      "known": 1,
+      "name": "E330 - Citronensäure",
+      "products": 8210,
+      "sameAs": ["https://www.wikidata.org/wiki/Q159683"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E330%20-%20Citronens%C3%A4ure"
+    },
+    {
+      "id": "en:e322",
+      "known": 1,
+      "name": "E322 - Lecithine",
+      "products": 3938,
+      "sameAs": ["https://www.wikidata.org/wiki/Q241595"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e322-lecithine"
+    },
+    {
+      "id": "en:e14xx",
+      "known": 1,
+      "name": "E14XX - Modifizierte Stärke",
+      "products": 3293,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E14XX%20-%20Modifizierte%20St%C3%A4rke"
+    },
+    {
+      "id": "en:e412",
+      "known": 1,
+      "name": "E412 - Guarkernmehl",
+      "products": 2973,
+      "sameAs": ["https://www.wikidata.org/wiki/Q422071"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e412-guarkernmehl"
+    },
+    {
+      "id": "en:e300",
+      "known": 1,
+      "name": "E300 - Ascorbinsäure",
+      "products": 2856,
+      "sameAs": ["https://www.wikidata.org/wiki/Q193598"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E300%20-%20Ascorbins%C3%A4ure"
+    },
+    {
+      "id": "en:e500",
+      "known": 1,
+      "name": "E500 - Natriumcarbonate",
+      "products": 2767,
+      "sameAs": ["https://www.wikidata.org/wiki/Q190227"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e500-natriumcarbonate"
+    },
+    {
+      "id": "en:e250",
+      "known": 1,
+      "name": "E250 - Natriumnitrit",
+      "products": 2633,
+      "sameAs": ["https://www.wikidata.org/wiki/Q339975"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e250-natriumnitrit"
+    },
+    {
+      "id": "en:e471",
+      "known": 1,
+      "name": "E471 - Mono- und Diglyceride von Speisefettsäuren",
+      "products": 2153,
+      "sameAs": ["https://www.wikidata.org/wiki/Q416711"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E471%20-%20Mono-%20und%20Diglyceride%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e450",
+      "known": 1,
+      "name": "E450 - Diphosphate",
+      "products": 2090,
+      "sameAs": ["https://www.wikidata.org/wiki/Q290828"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e450-diphosphate"
+    },
+    {
+      "id": "en:e415",
+      "known": 1,
+      "name": "E415 - Xanthan",
+      "products": 1911,
+      "sameAs": ["https://www.wikidata.org/wiki/Q410768"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e415-xanthan"
+    },
+    {
+      "id": "en:e440",
+      "known": 1,
+      "name": "E440 - Pektine",
+      "products": 1896,
+      "sameAs": ["https://www.wikidata.org/wiki/Q188154"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e440-pektine"
+    },
+    {
+      "id": "en:e301",
+      "known": 1,
+      "name": "E301 - Natriumascorbat",
+      "products": 1578,
+      "sameAs": ["https://www.wikidata.org/wiki/Q424551"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e301-natriumascorbat"
+    },
+    {
+      "id": "en:e331",
+      "known": 1,
+      "name": "E331 - Natriumcitraten",
+      "products": 1561,
+      "sameAs": ["https://www.wikidata.org/wiki/Q6460572"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e331-natriumcitraten"
+    },
+    {
+      "id": "en:e290",
+      "known": 1,
+      "name": "E290 - Kohlendioxid",
+      "products": 1508,
+      "sameAs": ["https://www.wikidata.org/wiki/Q1997"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e290-kohlendioxid"
+    },
+    {
+      "id": "en:e262",
+      "known": 1,
+      "name": "E262 - Natriumacetate",
+      "products": 1480,
+      "sameAs": ["https://www.wikidata.org/wiki/Q339940"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e262-natriumacetate"
+    },
+    {
+      "id": "en:e160a",
+      "known": 1,
+      "name": "E160a - Carotine",
+      "products": 1353,
+      "sameAs": ["https://www.wikidata.org/wiki/Q190156"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e160a-carotine"
+    },
+    {
+      "id": "en:e202",
+      "known": 1,
+      "name": "E202 - Kaliumsorbat",
+      "products": 1233,
+      "sameAs": ["https://www.wikidata.org/wiki/Q410744"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e202-kaliumsorbat"
+    },
+    {
+      "id": "en:e407",
+      "known": 1,
+      "name": "E407 - Carrageen",
+      "products": 1229,
+      "sameAs": ["https://www.wikidata.org/wiki/Q421991"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e407-carrageen"
+    },
+    {
+      "id": "en:e270",
+      "known": 1,
+      "name": "E270 - Milchsäure",
+      "products": 1207,
+      "sameAs": ["https://www.wikidata.org/wiki/Q161249"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E270%20-%20Milchs%C3%A4ure"
+    },
+    {
+      "id": "en:e500ii",
+      "known": 1,
+      "name": "E500ii - Natriumhydrogencarbonat",
+      "products": 1147,
+      "sameAs": ["https://www.wikidata.org/wiki/Q190227"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e500ii-natriumhydrogencarbonat"
+    },
+    {
+      "id": "en:e422",
+      "known": 1,
+      "name": "E422 - Glycerin",
+      "products": 879,
+      "sameAs": ["https://www.wikidata.org/wiki/Q132501"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e422-glycerin"
+    },
+    {
+      "id": "en:e420",
+      "known": 1,
+      "name": "E420 - Sorbit",
+      "products": 866,
+      "sameAs": ["https://www.wikidata.org/wiki/Q245280"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e420-sorbit"
+    },
+    {
+      "id": "en:e428",
+      "known": 1,
+      "name": "E428 - Gelatine",
+      "products": 852,
+      "sameAs": ["https://www.wikidata.org/wiki/Q179254"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e428-gelatine"
+    },
+    {
+      "id": "en:e322i",
+      "known": 1,
+      "name": "E322i - Lecithin",
+      "products": 852,
+      "sameAs": ["https://www.wikidata.org/wiki/Q241595"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e322i-lecithin"
+    },
+    {
+      "id": "en:e950",
+      "known": 1,
+      "name": "E950 - Acesulfam-K",
+      "products": 808,
+      "sameAs": ["https://www.wikidata.org/wiki/Q132037"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e950-acesulfam-k"
+    },
+    {
+      "id": "en:e503",
+      "known": 1,
+      "name": "E503 - Ammoniumcarbonaten",
+      "products": 790,
+      "sameAs": ["https://www.wikidata.org/wiki/Q204873"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e503-ammoniumcarbonaten"
+    },
+    {
+      "id": "en:e955",
+      "known": 1,
+      "name": "E955 - Sucralose",
+      "products": 705,
+      "sameAs": ["https://www.wikidata.org/wiki/Q410209"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e955-sucralose"
+    },
+    {
+      "id": "en:e414",
+      "known": 1,
+      "name": "E414 - Gummi arabicum",
+      "products": 651,
+      "sameAs": ["https://www.wikidata.org/wiki/Q535814"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e414-gummi-arabicum"
+    },
+    {
+      "id": "en:e621",
+      "known": 1,
+      "name": "E621 - Mononatriumglutamat",
+      "products": 650,
+      "sameAs": ["https://www.wikidata.org/wiki/Q179678"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e621-mononatriumglutamat"
+    },
+    {
+      "id": "en:e296",
+      "known": 1,
+      "name": "E296 - Äpfelsäure",
+      "products": 644,
+      "sameAs": ["https://www.wikidata.org/wiki/Q190143"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E296%20-%20%C3%84pfels%C3%A4ure"
+    },
+    {
+      "id": "en:e260",
+      "known": 1,
+      "name": "E260 - Essigsäure",
+      "products": 581,
+      "sameAs": ["https://www.wikidata.org/wiki/Q47512"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E260%20-%20Essigs%C3%A4ure"
+    },
+    {
+      "id": "en:e451",
+      "known": 1,
+      "name": "E451 - Tripolyphosphat",
+      "products": 496,
+      "sameAs": ["https://www.wikidata.org/wiki/Q29145"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e451-tripolyphosphat"
+    },
+    {
+      "id": "en:e903",
+      "known": 1,
+      "name": "E903 - Carnaubawachs",
+      "products": 460,
+      "sameAs": ["https://www.wikidata.org/wiki/Q839494"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e903-carnaubawachs"
+    },
+    {
+      "id": "en:e951",
+      "known": 1,
+      "name": "E951 - Aspartam",
+      "products": 457,
+      "sameAs": ["https://www.wikidata.org/wiki/Q182040"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e951-aspartam"
+    },
+    {
+      "id": "en:e211",
+      "known": 1,
+      "name": "E211 - Natriumbenzoat",
+      "products": 424,
+      "sameAs": ["https://www.wikidata.org/wiki/Q423971"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e211-natriumbenzoat"
+    },
+    {
+      "id": "en:e392",
+      "known": 1,
+      "name": "E392 - Extrakt aus Rosmarin",
+      "products": 385,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e392-extrakt-aus-rosmarin"
+    },
+    {
+      "id": "en:e160ai",
+      "known": 1,
+      "name": "E160ai - Beta-Carotin",
+      "products": 376,
+      "sameAs": ["https://www.wikidata.org/wiki/Q306135"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e160ai-beta-carotin"
+    },
+    {
+      "id": "en:e503ii",
+      "known": 1,
+      "name": "E503ii - Ammoniumhydrogencarbonat",
+      "products": 353,
+      "sameAs": ["https://www.wikidata.org/wiki/Q204873"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e503ii-ammoniumhydrogencarbonat"
+    },
+    {
+      "id": "en:e150d",
+      "known": 1,
+      "name": "E150d - Ammoniumsulfit-Zuckerkulör",
+      "products": 351,
+      "sameAs": ["https://www.wikidata.org/wiki/Q13081740"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E150d%20-%20Ammoniumsulfit-Zuckerkul%C3%B6r"
+    },
+    {
+      "id": "en:e100",
+      "known": 1,
+      "name": "E100 - Kurkumin",
+      "products": 350,
+      "sameAs": ["https://www.wikidata.org/wiki/Q312266"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e100-kurkumin"
+    },
+    {
+      "id": "en:e466",
+      "known": 1,
+      "name": "E466 - Carboxymethylcellulose",
+      "products": 338,
+      "sameAs": ["https://www.wikidata.org/wiki/Q411030"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e466-carboxymethylcellulose"
+    },
+    {
+      "id": "en:e461",
+      "known": 1,
+      "name": "E461 - Methylcellulose",
+      "products": 336,
+      "sameAs": ["https://www.wikidata.org/wiki/Q416312"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e461-methylcellulose"
+    },
+    {
+      "id": "en:e120",
+      "known": 1,
+      "name": "E120 - Echtes Karmin",
+      "products": 332,
+      "sameAs": ["https://www.wikidata.org/wiki/Q416860"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e120-echtes-karmin"
+    },
+    {
+      "id": "en:e503i",
+      "known": 1,
+      "name": "E503i - Ammoniumcarbonat",
+      "products": 331,
+      "sameAs": ["https://www.wikidata.org/wiki/Q204873"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e503i-ammoniumcarbonat"
+    },
+    {
+      "id": "en:e452",
+      "known": 1,
+      "name": "E452 - Polyphosphate",
+      "products": 328,
+      "sameAs": ["https://www.wikidata.org/wiki/Q11867365"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e452-polyphosphate"
+    },
+    {
+      "id": "en:e901",
+      "known": 1,
+      "name": "E901 - Bienenwachs weiß und gelb",
+      "products": 314,
+      "sameAs": ["https://www.wikidata.org/wiki/Q143739"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E901%20-%20Bienenwachs%20wei%C3%9F%20und%20gelb"
+    },
+    {
+      "id": "en:e954",
+      "known": 1,
+      "name": "E954 - Saccharin",
+      "products": 307,
+      "sameAs": ["https://www.wikidata.org/wiki/Q191381"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e954-saccharin"
+    },
+    {
+      "id": "en:e965",
+      "known": 1,
+      "name": "E965 - Maltit",
+      "products": 280,
+      "sameAs": ["https://www.wikidata.org/wiki/Q423882"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e965-maltit"
+    },
+    {
+      "id": "en:e472e",
+      "known": 1,
+      "name": "E472e - Mono- und Diacetylweinsäureester von Mono- und Diglyceriden von Speisefettsäuren",
+      "products": 274,
+      "sameAs": ["https://www.wikidata.org/wiki/Q409406"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E472e%20-%20Mono-%20und%20Diacetylweins%C3%A4ureester%20von%20Mono-%20und%20Diglyceriden%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e223",
+      "known": 1,
+      "name": "E223 - Natriummetabisulfit",
+      "products": 268,
+      "sameAs": ["https://www.wikidata.org/wiki/Q284549"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e223-natriummetabisulfit"
+    },
+    {
+      "id": "en:e101",
+      "known": 1,
+      "name": "E101 - Riboflavin",
+      "products": 263,
+      "sameAs": ["https://www.wikidata.org/wiki/Q130365"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e101-riboflavin"
+    },
+    {
+      "id": "en:e334",
+      "known": 1,
+      "name": "E334 - L(+)-Weinsäure",
+      "products": 261,
+      "sameAs": ["https://www.wikidata.org/wiki/Q194322"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E334%20-%20L(%2B)-Weins%C3%A4ure"
+    },
+    {
+      "id": "en:e150c",
+      "known": 1,
+      "name": "E150c - Ammoniak-Zuckerkulör",
+      "products": 255,
+      "sameAs": ["https://www.wikidata.org/wiki/Q11735907"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E150c%20-%20Ammoniak-Zuckerkul%C3%B6r"
+    },
+    {
+      "id": "en:e338",
+      "known": 1,
+      "name": "E338 - Phosphorsäure",
+      "products": 254,
+      "sameAs": ["https://www.wikidata.org/wiki/Q184782"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E338%20-%20Phosphors%C3%A4ure"
+    },
+    {
+      "id": "en:e476",
+      "known": 1,
+      "name": "E476 - Polyglycerin-Polyricinoleat",
+      "products": 251,
+      "sameAs": ["https://www.wikidata.org/wiki/Q168686"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e476-polyglycerin-polyricinoleat"
+    },
+    {
+      "id": "en:e252",
+      "known": 1,
+      "name": "E252 - Kaliumnitrat",
+      "products": 250,
+      "sameAs": ["https://www.wikidata.org/wiki/Q177836"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e252-kaliumnitrat"
+    },
+    {
+      "id": "en:e1103",
+      "known": 1,
+      "name": "E1103 - Invertase",
+      "products": 248,
+      "sameAs": ["https://www.wikidata.org/wiki/Q419189"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1103-invertase"
+    },
+    {
+      "id": "en:e306",
+      "known": 1,
+      "name": "E306 - Stark tocopherolhaltige Extrakte",
+      "products": 238,
+      "sameAs": ["https://www.wikidata.org/wiki/Q141180"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e306-stark-tocopherolhaltige-extrakte"
+    },
+    {
+      "id": "en:e150a",
+      "known": 1,
+      "name": "E150a - Zuckerkulör",
+      "products": 233,
+      "sameAs": ["https://www.wikidata.org/wiki/Q227816"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E150a%20-%20Zuckerkul%C3%B6r"
+    },
+    {
+      "id": "en:e160c",
+      "known": 1,
+      "name": "E160c - Paprikaextrakt (Capsanthin und Capsorubin)",
+      "products": 232,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e160c-paprikaextrakt-capsanthin-und-capsorubin"
+    },
+    {
+      "id": "en:e631",
+      "known": 1,
+      "name": "E631 - Dinatriuminosinat",
+      "products": 224,
+      "sameAs": ["https://www.wikidata.org/wiki/Q905782"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e631-dinatriuminosinat"
+    },
+    {
+      "id": "en:e200",
+      "known": 1,
+      "name": "E200 - Sorbinsäure",
+      "products": 223,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407131"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E200%20-%20Sorbins%C3%A4ure"
+    },
+    {
+      "id": "en:e509",
+      "known": 1,
+      "name": "E509 - Calciumchlorid",
+      "products": 219,
+      "sameAs": ["https://www.wikidata.org/wiki/Q208451"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e509-calciumchlorid"
+    },
+    {
+      "id": "en:e401",
+      "known": 1,
+      "name": "E401 - Natriumalginat",
+      "products": 217,
+      "sameAs": ["https://www.wikidata.org/wiki/Q1187513"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e401-natriumalginat"
+    },
+    {
+      "id": "en:e160b",
+      "known": 1,
+      "name": "E160b - Annatto (Bixin und Norbixin)",
+      "products": 216,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e160b-annatto-bixin-und-norbixin"
+    },
+    {
+      "id": "en:e524",
+      "known": 1,
+      "name": "E524 - Natriumhydroxid",
+      "products": 215,
+      "sameAs": ["https://www.wikidata.org/wiki/Q102769"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e524-natriumhydroxid"
+    },
+    {
+      "id": "en:e501",
+      "known": 1,
+      "name": "E501 - Kaliumcarbonaten",
+      "products": 203,
+      "sameAs": ["https://www.wikidata.org/wiki/Q379885"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e501-kaliumcarbonaten"
+    },
+    {
+      "id": "en:e627",
+      "known": 1,
+      "name": "E627 - Dinatriumguanylat",
+      "products": 198,
+      "sameAs": ["https://www.wikidata.org/wiki/Q905776"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e627-dinatriumguanylat"
+    },
+    {
+      "id": "en:e418",
+      "known": 1,
+      "name": "E418 - Gellan",
+      "products": 197,
+      "sameAs": ["https://www.wikidata.org/wiki/Q416694"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e418-gellan"
+    },
+    {
+      "id": "en:e551",
+      "known": 1,
+      "name": "E551 - Siliciumdioxid",
+      "products": 195,
+      "sameAs": ["https://www.wikidata.org/wiki/Q116269"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e551-siliciumdioxid"
+    },
+    {
+      "id": "en:e1510",
+      "known": 1,
+      "name": "E1510 - Ethanol",
+      "products": 194,
+      "sameAs": ["https://www.wikidata.org/wiki/Q153"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1510-ethanol"
+    },
+    {
+      "id": "en:e450i",
+      "known": 1,
+      "name": "E450i - Dinatriumdiphosphat",
+      "products": 193,
+      "sameAs": ["https://www.wikidata.org/wiki/Q290828"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e450i-dinatriumdiphosphat"
+    },
+    {
+      "id": "en:e500i",
+      "known": 1,
+      "name": "E500i - Natriumcarbonat",
+      "products": 185,
+      "sameAs": ["https://www.wikidata.org/wiki/Q190227"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e500i-natriumcarbonat"
+    },
+    {
+      "id": "en:e171",
+      "known": 1,
+      "name": "E171 - Titandioxid",
+      "products": 184,
+      "sameAs": ["https://www.wikidata.org/wiki/Q193521"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e171-titandioxid"
+    },
+    {
+      "id": "en:e341",
+      "known": 1,
+      "name": "E341 - Calciumphosphate",
+      "products": 180,
+      "sameAs": ["https://www.wikidata.org/wiki/Q426664"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e341-calciumphosphate"
+    },
+    {
+      "id": "en:e333",
+      "known": 1,
+      "name": "E333 - Calciumcitrat",
+      "products": 178,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420280"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e333-calciumcitrat"
+    },
+    {
+      "id": "en:e406",
+      "known": 1,
+      "name": "E406 - Agar-Agar",
+      "products": 176,
+      "sameAs": ["https://www.wikidata.org/wiki/Q177998"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e406-agar-agar"
+    },
+    {
+      "id": "en:e220",
+      "known": 1,
+      "name": "E220 - Schwefeldioxid",
+      "products": 174,
+      "sameAs": ["https://www.wikidata.org/wiki/Q5282"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e220-schwefeldioxid"
+    },
+    {
+      "id": "en:e133",
+      "known": 1,
+      "name": "E133 - Brilliantblau FCF",
+      "products": 170,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420093"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e133-brilliantblau-fcf"
+    },
+    {
+      "id": "en:e331iii",
+      "known": 1,
+      "name": "E331iii - Trinatriumcitrat",
+      "products": 170,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e331iii-trinatriumcitrat"
+    },
+    {
+      "id": "en:e420ii",
+      "known": 1,
+      "name": "E420ii - Sorbitsirup",
+      "products": 166,
+      "sameAs": ["https://www.wikidata.org/wiki/Q245280"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e420ii-sorbitsirup"
+    },
+    {
+      "id": "en:e410",
+      "known": 1,
+      "name": "E410 - Johannisbrotgummi",
+      "products": 164,
+      "sameAs": ["https://www.wikidata.org/wiki/Q221391"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e410-johannisbrotgummi"
+    },
+    {
+      "id": "en:e101i",
+      "known": 1,
+      "name": "E101i - Riboflavin",
+      "products": 162,
+      "sameAs": ["https://www.wikidata.org/wiki/Q130365"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e101i-riboflavin"
+    },
+    {
+      "id": "en:e262i",
+      "known": 1,
+      "name": "E262i - Natriumacetat",
+      "products": 162,
+      "sameAs": ["https://www.wikidata.org/wiki/Q339940"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e262i-natriumacetat"
+    },
+    {
+      "id": "en:e960",
+      "known": 1,
+      "name": "E960 - Steviolglycoside",
+      "products": 162,
+      "sameAs": ["https://www.wikidata.org/wiki/Q2805600"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e960-steviolglycoside"
+    },
+    {
+      "id": "en:e325",
+      "known": 1,
+      "name": "E325 - Natriumlactat",
+      "products": 160,
+      "sameAs": ["https://www.wikidata.org/wiki/Q418235"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e325-natriumlactat"
+    },
+    {
+      "id": "en:e481",
+      "known": 1,
+      "name": "E481 - Natriumstearoyl-2-lactylat",
+      "products": 158,
+      "sameAs": ["https://www.wikidata.org/wiki/Q416058"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e481-natriumstearoyl-2-lactylat"
+    },
+    {
+      "id": "en:e953",
+      "known": 1,
+      "name": "E953 - Isomalt",
+      "products": 157,
+      "sameAs": ["https://www.wikidata.org/wiki/Q412068"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e953-isomalt"
+    },
+    {
+      "id": "en:e472b",
+      "known": 1,
+      "name": "E472b - Milchsäureester von Mono- und Diglyceriden von Speisefettsäuren",
+      "products": 156,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967238"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E472b%20-%20Milchs%C3%A4ureester%20von%20Mono-%20und%20Diglyceriden%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e904",
+      "known": 1,
+      "name": "E904 - Schellack",
+      "products": 155,
+      "sameAs": ["https://www.wikidata.org/wiki/Q429659"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e904-schellack"
+    },
+    {
+      "id": "en:e316",
+      "known": 1,
+      "name": "E316 - Natriumisoascorbat",
+      "products": 155,
+      "sameAs": ["https://www.wikidata.org/wiki/Q417003"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e316-natriumisoascorbat"
+    },
+    {
+      "id": "en:e460",
+      "known": 1,
+      "name": "E460 - Cellulose",
+      "products": 150,
+      "sameAs": ["https://www.wikidata.org/wiki/Q80294"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e460-cellulose"
+    },
+    {
+      "id": "en:e339",
+      "known": 1,
+      "name": "E339 - Natriumphosphaten",
+      "products": 142,
+      "sameAs": ["https://www.wikidata.org/wiki/Q3249706"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e339-natriumphosphaten"
+    },
+    {
+      "id": "en:e340",
+      "known": 1,
+      "name": "E340 - Kaliumphosphate",
+      "products": 140,
+      "sameAs": ["https://www.wikidata.org/wiki/Q3381491"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e340-kaliumphosphate"
+    },
+    {
+      "id": "en:e163",
+      "known": 1,
+      "name": "E163 - Anthocyane",
+      "products": 140,
+      "sameAs": ["https://www.wikidata.org/wiki/Q262547"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e163-anthocyane"
+    },
+    {
+      "id": "en:e385",
+      "known": 1,
+      "name": "E385 - Calcium-Dinatrium-Ethylendiamintetraacetat",
+      "products": 139,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967194"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e385-calcium-dinatrium-ethylendiamintetraacetat"
+    },
+    {
+      "id": "en:e952",
+      "known": 1,
+      "name": "E952 - Cyclamat",
+      "products": 139,
+      "sameAs": ["https://www.wikidata.org/wiki/Q2130929"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e952-cyclamat"
+    },
+    {
+      "id": "en:e1400",
+      "known": 1,
+      "name": "E1400 - Dextrine",
+      "products": 135,
+      "sameAs": ["https://www.wikidata.org/wiki/Q191978"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1400-dextrine"
+    },
+    {
+      "id": "en:e224",
+      "known": 1,
+      "name": "E224 - Kaliummetabisulfit",
+      "products": 131,
+      "sameAs": ["https://www.wikidata.org/wiki/Q417881"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e224-kaliummetabisulfit"
+    },
+    {
+      "id": "en:e967",
+      "known": 1,
+      "name": "E967 - Xylit",
+      "products": 130,
+      "sameAs": ["https://www.wikidata.org/wiki/Q212093"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e967-xylit"
+    },
+    {
+      "id": "en:e235",
+      "known": 1,
+      "name": "E235 - Natamycin",
+      "products": 128,
+      "sameAs": ["https://www.wikidata.org/wiki/Q248466"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e235-natamycin"
+    },
+    {
+      "id": "en:e941",
+      "known": 1,
+      "name": "E941 - Stickstoff",
+      "products": 125,
+      "sameAs": ["https://www.wikidata.org/wiki/Q627"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e941-stickstoff"
+    },
+    {
+      "id": "en:e475",
+      "known": 1,
+      "name": "E475 - Polyglycerinester von Speisefettsäuren",
+      "products": 122,
+      "sameAs": ["https://www.wikidata.org/wiki/Q4037764"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E475%20-%20Polyglycerinester%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e170",
+      "known": 1,
+      "name": "E170 - Calciumcarbonate",
+      "products": 121,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e170-calciumcarbonate"
+    },
+    {
+      "id": "en:e162",
+      "known": 1,
+      "name": "E162 - Betanin",
+      "products": 119,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420138"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e162-betanin"
+    },
+    {
+      "id": "en:e327",
+      "known": 1,
+      "name": "E327 - Calciumlactat",
+      "products": 116,
+      "sameAs": ["https://www.wikidata.org/wiki/Q419693"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e327-calciumlactat"
+    },
+    {
+      "id": "en:e968",
+      "known": 1,
+      "name": "E968 - Erythrit",
+      "products": 111,
+      "sameAs": ["https://www.wikidata.org/wiki/Q421873"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e968-erythrit"
+    },
+    {
+      "id": "en:e1105",
+      "known": 1,
+      "name": "E1105 - Lysozym",
+      "products": 110,
+      "sameAs": ["https://www.wikidata.org/wiki/Q21114915"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1105-lysozym"
+    },
+    {
+      "id": "en:e304",
+      "known": 1,
+      "name": "E304 - Fettsäureester der Ascorbinsäure",
+      "products": 108,
+      "sameAs": ["https://www.wikidata.org/wiki/Q424521"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E304%20-%20Fetts%C3%A4ureester%20der%20Ascorbins%C3%A4ure"
+    },
+    {
+      "id": "en:e153",
+      "known": 1,
+      "name": "E153 - Pflanzenkohle",
+      "products": 107,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18944671"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e153-pflanzenkohle"
+    },
+    {
+      "id": "en:e262ii",
+      "known": 1,
+      "name": "E262ii - Natriumdiacetat",
+      "products": 105,
+      "sameAs": ["https://www.wikidata.org/wiki/Q409655"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e262ii-natriumdiacetat"
+    },
+    {
+      "id": "en:e501i",
+      "known": 1,
+      "name": "E501i - Kaliumcarbonat",
+      "products": 105,
+      "sameAs": ["https://www.wikidata.org/wiki/Q379885"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e501i-kaliumcarbonat"
+    },
+    {
+      "id": "en:e470b",
+      "known": 1,
+      "name": "E470b - Magnesiumsalze der Speisefettsäuren",
+      "products": 104,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E470b%20-%20Magnesiumsalze%20der%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e141",
+      "known": 1,
+      "name": "E141 - Kupferhaltigen Komplexe der Chlorophylle und Chlorophylline",
+      "products": 101,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967203"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e141-kupferhaltigen-komplexe-der-chlorophylle-und-chlorophylline"
+    },
+    {
+      "id": "en:e336",
+      "known": 1,
+      "name": "E336 - Kaliumtartrate",
+      "products": 99,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e336-kaliumtartrate"
+    },
+    {
+      "id": "en:e170i",
+      "known": 1,
+      "name": "E170i - Calciumcarbonat",
+      "products": 98,
+      "sameAs": ["https://www.wikidata.org/wiki/Q23767"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e170i-calciumcarbonat"
+    },
+    {
+      "id": "en:e472c",
+      "known": 1,
+      "name": "E472c - Citronensäureester von Mono- und Diglyceriden von Speisefettsäuren",
+      "products": 97,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967202"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E472c%20-%20Citronens%C3%A4ureester%20von%20Mono-%20und%20Diglyceriden%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e575",
+      "known": 1,
+      "name": "E575 - Glucono-delta-lacton",
+      "products": 97,
+      "sameAs": ["https://www.wikidata.org/wiki/Q114174"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e575-glucono-delta-lacton"
+    },
+    {
+      "id": "en:e131",
+      "known": 1,
+      "name": "E131 - Patentblau V",
+      "products": 96,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420087"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e131-patentblau-v"
+    },
+    {
+      "id": "en:e635",
+      "known": 1,
+      "name": "E635 - Dinatrium-5'-ribonukleotid",
+      "products": 92,
+      "sameAs": ["https://www.wikidata.org/wiki/Q421286"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e635-dinatrium-5-ribonukleotid"
+    },
+    {
+      "id": "en:e464",
+      "known": 1,
+      "name": "E464 - Hydroxypropylmethylcellulose",
+      "products": 92,
+      "sameAs": ["https://www.wikidata.org/wiki/Q423846"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e464-hydroxypropylmethylcellulose"
+    },
+    {
+      "id": "en:e965ii",
+      "known": 1,
+      "name": "E965ii - Maltitsirup",
+      "products": 89,
+      "sameAs": ["https://www.wikidata.org/wiki/Q423882"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e965ii-maltitsirup"
+    },
+    {
+      "id": "en:e282",
+      "known": 1,
+      "name": "E282 - Calciumpropionat",
+      "products": 88,
+      "sameAs": ["https://www.wikidata.org/wiki/Q417394"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e282-calciumpropionat"
+    },
+    {
+      "id": "en:e1200",
+      "known": 1,
+      "name": "E1200 - Polydextrose",
+      "products": 86,
+      "sameAs": ["https://www.wikidata.org/wiki/Q424616"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1200-polydextrose"
+    },
+    {
+      "id": "en:e251",
+      "known": 1,
+      "name": "E251 - Natriumnitrat",
+      "products": 85,
+      "sameAs": ["https://www.wikidata.org/wiki/Q184373"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e251-natriumnitrat"
+    },
+    {
+      "id": "en:e445",
+      "known": 1,
+      "name": "E445 - Glycerinester aus Wurzelharz",
+      "products": 85,
+      "sameAs": ["https://www.wikidata.org/wiki/Q836765"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e445-glycerinester-aus-wurzelharz"
+    },
+    {
+      "id": "en:e172",
+      "known": 1,
+      "name": "E172 - Eisenoxide und Eisenhydroxide",
+      "products": 83,
+      "sameAs": ["https://www.wikidata.org/wiki/Q3045754"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e172-eisenoxide-und-eisenhydroxide"
+    },
+    {
+      "id": "en:e435",
+      "known": 1,
+      "name": "E435 - Polyoxyethylen-Sorbitanmonostearat",
+      "products": 72,
+      "sameAs": ["https://www.wikidata.org/wiki/Q2103104"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e435-polyoxyethylen-sorbitanmonostearat"
+    },
+    {
+      "id": "en:e307",
+      "known": 1,
+      "name": "E307 - Alpha-Tocopherol",
+      "products": 66,
+      "sameAs": ["https://www.wikidata.org/wiki/Q158348"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e307-alpha-tocopherol"
+    },
+    {
+      "id": "en:e102",
+      "known": 1,
+      "name": "E102 - Tartrazin",
+      "products": 63,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407158"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e102-tartrazin"
+    },
+    {
+      "id": "en:e535",
+      "known": 1,
+      "name": "E535 - Natriumferrocyanid",
+      "products": 59,
+      "sameAs": ["https://www.wikidata.org/wiki/Q418474"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e535-natriumferrocyanid"
+    },
+    {
+      "id": "en:e110",
+      "known": 1,
+      "name": "E110 - Gelborange S",
+      "products": 57,
+      "sameAs": ["https://www.wikidata.org/wiki/Q410095"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e110-gelborange-s"
+    },
+    {
+      "id": "en:e421",
+      "known": 1,
+      "name": "E421 - Mannit",
+      "products": 56,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407646"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e421-mannit"
+    },
+    {
+      "id": "en:e570",
+      "known": 1,
+      "name": "E570 - Speisefettsäuren",
+      "products": 55,
+      "sameAs": ["https://www.wikidata.org/wiki/Q61476"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E570%20-%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e320",
+      "known": 1,
+      "name": "E320 - Butylhydroxyanisol",
+      "products": 54,
+      "sameAs": ["https://www.wikidata.org/wiki/Q409401"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e320-butylhydroxyanisol"
+    },
+    {
+      "id": "en:e502",
+      "known": 1,
+      "name": "E502 - Carbonate",
+      "products": 54,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e502-carbonate"
+    },
+    {
+      "id": "en:e127",
+      "known": 1,
+      "name": "E127 - Erythrosin",
+      "products": 53,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420101"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e127-erythrosin"
+    },
+    {
+      "id": "en:e160",
+      "known": 1,
+      "name": "E160 - Carotinoide",
+      "products": 51,
+      "sameAs": ["https://www.wikidata.org/wiki/Q191907"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e160-carotinoide"
+    },
+    {
+      "id": "en:e261",
+      "known": 1,
+      "name": "E261 - Kaliumacetat",
+      "products": 51,
+      "sameAs": ["https://www.wikidata.org/wiki/Q409199"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e261-kaliumacetat"
+    },
+    {
+      "id": "en:e442",
+      "known": 1,
+      "name": "E442 - Ammoniumphosphatide",
+      "products": 50,
+      "sameAs": ["https://www.wikidata.org/wiki/Q695975"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e442-ammoniumphosphatide"
+    },
+    {
+      "id": "en:e417",
+      "known": 1,
+      "name": "E417 - Tarakernmehl",
+      "products": 50,
+      "sameAs": ["https://www.wikidata.org/wiki/Q15089452"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e417-tarakernmehl"
+    },
+    {
+      "id": "en:e132",
+      "known": 1,
+      "name": "E132 - Indigotin (Indigokarmin)",
+      "products": 49,
+      "sameAs": ["https://www.wikidata.org/wiki/Q410120"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e132-indigotin-indigokarmin"
+    },
+    {
+      "id": "en:e336i",
+      "known": 1,
+      "name": "E336i - Monokaliumtartrat",
+      "products": 48,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18745"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e336i-monokaliumtartrat"
+    },
+    {
+      "id": "en:e161b",
+      "known": 1,
+      "name": "E161b - Lutein",
+      "products": 47,
+      "sameAs": ["https://www.wikidata.org/wiki/Q422067"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e161b-lutein"
+    },
+    {
+      "id": "en:e150",
+      "known": 1,
+      "name": "E150 - Karamell",
+      "products": 46,
+      "sameAs": ["https://www.wikidata.org/wiki/Q183440"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e150-karamell"
+    },
+    {
+      "id": "en:e492",
+      "known": 1,
+      "name": "E492 - Sorbitantristearat",
+      "products": 46,
+      "sameAs": ["https://www.wikidata.org/wiki/Q1416224"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e492-sorbitantristearat"
+    },
+    {
+      "id": "en:e332",
+      "known": 1,
+      "name": "E332 - Kaliumcitraten",
+      "products": 46,
+      "sameAs": ["https://www.wikidata.org/wiki/Q419921"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e332-kaliumcitraten"
+    },
+    {
+      "id": "en:e304i",
+      "known": 1,
+      "name": "E304i - Ascorbylpalmitat",
+      "products": 44,
+      "sameAs": ["https://www.wikidata.org/wiki/Q424521"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e304i-ascorbylpalmitat"
+    },
+    {
+      "id": "en:e407a",
+      "known": 1,
+      "name": "E407a - Verarbeitete Euchema-Algen",
+      "products": 43,
+      "sameAs": ["https://www.wikidata.org/wiki/Q421991"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e407a-verarbeitete-euchema-algen"
+    },
+    {
+      "id": "en:e129",
+      "known": 1,
+      "name": "E129 - Allurarot ac",
+      "products": 43,
+      "sameAs": ["https://www.wikidata.org/wiki/Q419895"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e129-allurarot-ac"
+    },
+    {
+      "id": "en:e340ii",
+      "known": 1,
+      "name": "E340ii - Dikaliumphosphat",
+      "products": 41,
+      "sameAs": ["https://www.wikidata.org/wiki/Q3381491"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e340ii-dikaliumphosphat"
+    },
+    {
+      "id": "en:e516",
+      "known": 1,
+      "name": "E516 - Calciumsulfat",
+      "products": 41,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407258"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e516-calciumsulfat"
+    },
+    {
+      "id": "en:e553b",
+      "known": 1,
+      "name": "E553b - Talkum",
+      "products": 41,
+      "sameAs": ["https://www.wikidata.org/wiki/Q134583"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e553b-talkum"
+    },
+    {
+      "id": "en:e553",
+      "known": 1,
+      "name": "E553) - Magnesiumsilicat",
+      "products": 41,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e553-magnesiumsilicat"
+    },
+    {
+      "id": "en:e339ii",
+      "known": 1,
+      "name": "E339ii - Dinatriumphosphat",
+      "products": 41,
+      "sameAs": ["https://www.wikidata.org/wiki/Q418448"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e339ii-dinatriumphosphat"
+    },
+    {
+      "id": "en:e140",
+      "known": 1,
+      "name": "E140 - Chlorophyll C1",
+      "products": 40,
+      "sameAs": ["https://www.wikidata.org/wiki/Q82182"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e140-chlorophyll-c1"
+    },
+    {
+      "id": "en:e460i",
+      "known": 1,
+      "name": "E460i - Mikrokristalline Cellulose",
+      "products": 40,
+      "sameAs": ["https://www.wikidata.org/wiki/Q80294"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e460i-mikrokristalline-cellulose"
+    },
+    {
+      "id": "en:e210",
+      "known": 1,
+      "name": "E210 - Benzoesäure",
+      "products": 39,
+      "sameAs": ["https://www.wikidata.org/wiki/Q191700"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E210%20-%20Benzoes%C3%A4ure"
+    },
+    {
+      "id": "en:e321",
+      "known": 1,
+      "name": "E321 - Butylhydroxytoluen",
+      "products": 39,
+      "sameAs": ["https://www.wikidata.org/wiki/Q221945"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e321-butylhydroxytoluen"
+    },
+    {
+      "id": "en:e350",
+      "known": 1,
+      "name": "E350 - Natriummalate",
+      "products": 38,
+      "sameAs": ["https://www.wikidata.org/wiki/Q27163168"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e350-natriummalate"
+    },
+    {
+      "id": "en:e579",
+      "known": 1,
+      "name": "E579 - Eisengluconat",
+      "products": 38,
+      "sameAs": ["https://www.wikidata.org/wiki/Q421291"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e579-eisengluconat"
+    },
+    {
+      "id": "en:e433",
+      "known": 1,
+      "name": "E433 - Polyoxyethylen-sorbitanmonooleat",
+      "products": 38,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420358"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e433-polyoxyethylen-sorbitanmonooleat"
+    },
+    {
+      "id": "en:e160e",
+      "known": 1,
+      "name": "E160e - Beta-apo-8′-carotinal (C30)",
+      "products": 36,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E160e%20-%20Beta-apo-8%E2%80%B2-carotinal%20(C30)"
+    },
+    {
+      "id": "en:e440a",
+      "known": 1,
+      "name": "E440a - E440a food additive",
+      "products": 36,
+      "sameAs": ["https://www.wikidata.org/wiki/Q188154"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e440a-e440a-food-additive"
+    },
+    {
+      "id": "en:e511",
+      "known": 1,
+      "name": "E511 - Magnesiumchlorid",
+      "products": 35,
+      "sameAs": ["https://www.wikidata.org/wiki/Q265414"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e511-magnesiumchlorid"
+    },
+    {
+      "id": "en:e141i",
+      "known": 1,
+      "name": "E141i - Kupferkomplexe der Chlorophylle",
+      "products": 35,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967203"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e141i-kupferkomplexe-der-chlorophylle"
+    },
+    {
+      "id": "en:e504",
+      "known": 1,
+      "name": "E504 - Magnesiumcarbonaten",
+      "products": 34,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407931"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e504-magnesiumcarbonaten"
+    },
+    {
+      "id": "en:e332ii",
+      "known": 1,
+      "name": "E332ii - Trikaliumcitrat",
+      "products": 33,
+      "sameAs": ["https://www.wikidata.org/wiki/Q419921"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e332ii-trikaliumcitrat"
+    },
+    {
+      "id": "en:e297",
+      "known": 1,
+      "name": "E297 - Fumarsäure",
+      "products": 33,
+      "sameAs": ["https://www.wikidata.org/wiki/Q139857"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E297%20-%20Fumars%C3%A4ure"
+    },
+    {
+      "id": "en:e160d",
+      "known": 1,
+      "name": "E160d - Lycopin",
+      "products": 32,
+      "sameAs": ["https://www.wikidata.org/wiki/Q208130"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e160d-lycopin"
+    },
+    {
+      "id": "en:e473",
+      "known": 1,
+      "name": "E473 - Zuckerester von Speisefettsäuren",
+      "products": 31,
+      "sameAs": ["https://www.wikidata.org/wiki/Q55648666"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E473%20-%20Zuckerester%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e341iii",
+      "known": 1,
+      "name": "E341iii - Tricalciumphosphat",
+      "products": 30,
+      "sameAs": ["https://www.wikidata.org/wiki/Q426664"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e341iii-tricalciumphosphat"
+    },
+    {
+      "id": "en:e491",
+      "known": 1,
+      "name": "E491 - Sorbitanmonostearat",
+      "products": 29,
+      "sameAs": ["https://www.wikidata.org/wiki/Q907898"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e491-sorbitanmonostearat"
+    },
+    {
+      "id": "en:e504i",
+      "known": 1,
+      "name": "E504i - Magnesiumcarbonat",
+      "products": 29,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407931"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e504i-magnesiumcarbonat"
+    },
+    {
+      "id": "en:e920",
+      "known": 1,
+      "name": "E920 - L-cystein",
+      "products": 29,
+      "sameAs": ["https://www.wikidata.org/wiki/Q186474"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e920-l-cystein"
+    },
+    {
+      "id": "en:e472a",
+      "known": 1,
+      "name": "E472a - Essigsäureester von Mono- und Diglyceriden von Speisefettsäuren",
+      "products": 28,
+      "sameAs": ["https://www.wikidata.org/wiki/Q26806065"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E472a%20-%20Essigs%C3%A4ureester%20von%20Mono-%20und%20Diglyceriden%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e942",
+      "known": 1,
+      "name": "E942 - Distickstoffoxid",
+      "products": 27,
+      "sameAs": ["https://www.wikidata.org/wiki/Q905750"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e942-distickstoffoxid"
+    },
+    {
+      "id": "en:e140ii",
+      "known": 1,
+      "name": "E140ii - Chlorophylline",
+      "products": 27,
+      "sameAs": ["https://www.wikidata.org/wiki/Q82182"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e140ii-chlorophylline"
+    },
+    {
+      "id": "en:e1100",
+      "known": 1,
+      "name": "E1100 - Amylasen",
+      "products": 27,
+      "sameAs": ["https://www.wikidata.org/wiki/Q17153"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1100-amylasen"
+    },
+    {
+      "id": "en:e1442",
+      "known": 1,
+      "name": "E1442 - Hydroxypropyldistärkephosphat",
+      "products": 27,
+      "sameAs": ["https://www.wikidata.org/wiki/Q10528966"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1442%20-%20Hydroxypropyldist%C3%A4rkephosphat"
+    },
+    {
+      "id": "en:e404",
+      "known": 1,
+      "name": "E404 - Calciumalginat",
+      "products": 25,
+      "sameAs": ["https://www.wikidata.org/wiki/Q2034064"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e404-calciumalginat"
+    },
+    {
+      "id": "en:e510",
+      "known": 1,
+      "name": "E510 - Ammoniumchlorid",
+      "products": 25,
+      "sameAs": ["https://www.wikidata.org/wiki/Q188543"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e510-ammoniumchlorid"
+    },
+    {
+      "id": "en:e341ii",
+      "known": 1,
+      "name": "E341ii - Dicalciumphosphat",
+      "products": 25,
+      "sameAs": ["https://www.wikidata.org/wiki/Q426664"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e341ii-dicalciumphosphat"
+    },
+    {
+      "id": "en:e263",
+      "known": 1,
+      "name": "E263 - Calciumacetat",
+      "products": 24,
+      "sameAs": ["https://www.wikidata.org/wiki/Q409251"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e263-calciumacetat"
+    },
+    {
+      "id": "en:e326",
+      "known": 1,
+      "name": "E326 - Kalumlactat",
+      "products": 24,
+      "sameAs": ["https://www.wikidata.org/wiki/Q411342"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e326-kalumlactat"
+    },
+    {
+      "id": "en:e319",
+      "known": 1,
+      "name": "E319 - Tertiär-butylhydrochinon",
+      "products": 24,
+      "sameAs": ["https://www.wikidata.org/wiki/Q662443"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E319%20-%20Terti%C3%A4r-butylhydrochinon"
+    },
+    {
+      "id": "en:e1422",
+      "known": 1,
+      "name": "E1422 - Acetyliertes Distärkeadipat",
+      "products": 24,
+      "sameAs": ["https://www.wikidata.org/wiki/Q2824457"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1422%20-%20Acetyliertes%20Dist%C3%A4rkeadipat"
+    },
+    {
+      "id": "en:e641",
+      "known": 1,
+      "name": "E641 - L-Leucin",
+      "products": 23,
+      "sameAs": ["https://www.wikidata.org/wiki/Q483745"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e641-l-leucin"
+    },
+    {
+      "id": "en:e331i",
+      "known": 1,
+      "name": "E331i - Mononatriumcitrat",
+      "products": 23,
+      "sameAs": ["https://www.wikidata.org/wiki/Q4179018"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e331i-mononatriumcitrat"
+    },
+    {
+      "id": "en:e341i",
+      "known": 1,
+      "name": "E341i - Monocalciumphosphat",
+      "products": 23,
+      "sameAs": ["https://www.wikidata.org/wiki/Q426664"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e341i-monocalciumphosphat"
+    },
+    {
+      "id": "en:e501ii",
+      "known": 1,
+      "name": "E501ii - Kaliumhydrogencarbonat",
+      "products": 22,
+      "sameAs": ["https://www.wikidata.org/wiki/Q410529"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e501ii-kaliumhydrogencarbonat"
+    },
+    {
+      "id": "en:e508",
+      "known": 1,
+      "name": "E508 - Kaliumchlorid",
+      "products": 20,
+      "sameAs": ["https://www.wikidata.org/wiki/Q184630"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e508-kaliumchlorid"
+    },
+    {
+      "id": "en:e477",
+      "known": 1,
+      "name": "E477 - Propylenglycolester von Speisefettsäuren",
+      "products": 20,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18944660"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E477%20-%20Propylenglycolester%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e1520",
+      "known": 1,
+      "name": "E1520 - Propan-1‚2-diol",
+      "products": 19,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967269"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1520-propan-1-2-diol"
+    },
+    {
+      "id": "en:e572",
+      "known": 1,
+      "name": "E572 - Magnesiumstearat",
+      "products": 19,
+      "sameAs": ["https://www.wikidata.org/wiki/Q416713"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e572-magnesiumstearat"
+    },
+    {
+      "id": "de:quellkohlensäure",
+      "known": 1,
+      "name": "Quellkohlensäure",
+      "products": 18,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/Quellkohlens%C3%A4ure"
+    },
+    {
+      "id": "en:e222",
+      "known": 1,
+      "name": "E222 - Natriumhydrogensulfit",
+      "products": 18,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407891"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e222-natriumhydrogensulfit"
+    },
+    {
+      "id": "en:e124",
+      "known": 1,
+      "name": "E124 - Cochenillerot a (ponceau 4r)",
+      "products": 17,
+      "sameAs": ["https://www.wikidata.org/wiki/Q384709"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e124-cochenillerot-a-ponceau-4r"
+    },
+    {
+      "id": "en:e150b",
+      "known": 1,
+      "name": "E150b - Sulfitlaugen-Zuckerkulör",
+      "products": 16,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E150b%20-%20Sulfitlaugen-Zuckerkul%C3%B6r"
+    },
+    {
+      "id": "en:e576",
+      "known": 1,
+      "name": "E576 - Natriumgluconat",
+      "products": 15,
+      "sameAs": ["https://www.wikidata.org/wiki/Q264552"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e576-natriumgluconat"
+    },
+    {
+      "id": "en:e164",
+      "known": 1,
+      "name": "E164 - Safran",
+      "products": 15,
+      "sameAs": ["https://www.wikidata.org/wiki/Q25434"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e164-safran"
+    },
+    {
+      "id": "en:e900",
+      "known": 1,
+      "name": "E900 - E900 food additive",
+      "products": 15,
+      "sameAs": ["https://www.wikidata.org/wiki/Q411955"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e900-e900-food-additive"
+    },
+    {
+      "id": "en:e141ii",
+      "known": 1,
+      "name": "E141ii - Kupferkomplexe der Chlorophylline",
+      "products": 15,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967203"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e141ii-kupferkomplexe-der-chlorophylline"
+    },
+    {
+      "id": "en:e917",
+      "known": 1,
+      "name": "E917 - Kaliumiodat",
+      "products": 15,
+      "sameAs": ["https://www.wikidata.org/wiki/Q414599"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e917-kaliumiodat"
+    },
+    {
+      "id": "en:e140i",
+      "known": 1,
+      "name": "E140i - Chlorophylle",
+      "products": 15,
+      "sameAs": ["https://www.wikidata.org/wiki/Q82182"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e140i-chlorophylle"
+    },
+    {
+      "id": "en:e526",
+      "known": 1,
+      "name": "E526 - Calciumhydroxid",
+      "products": 14,
+      "sameAs": ["https://www.wikidata.org/wiki/Q182849"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e526-calciumhydroxid"
+    },
+    {
+      "id": "en:e452i",
+      "known": 1,
+      "name": "E452i - Natriumpolyphosphat",
+      "products": 14,
+      "sameAs": ["https://www.wikidata.org/wiki/Q11867365"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e452i-natriumpolyphosphat"
+    },
+    {
+      "id": "en:e900a",
+      "known": 1,
+      "name": "E900a - Dimethylpolysiloxan",
+      "products": 14,
+      "sameAs": ["https://www.wikidata.org/wiki/Q411955"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e900a-dimethylpolysiloxan"
+    },
+    {
+      "id": "en:e336ii",
+      "known": 1,
+      "name": "E336ii - Dikaliumtartrat",
+      "products": 13,
+      "sameAs": ["https://www.wikidata.org/wiki/Q65770886"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e336ii-dikaliumtartrat"
+    },
+    {
+      "id": "en:e161h",
+      "known": 1,
+      "name": "E161h - Zeaxanthin",
+      "products": 13,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e161h-zeaxanthin"
+    },
+    {
+      "id": "en:e315",
+      "known": 1,
+      "name": "E315 - Isoascorbinsäure",
+      "products": 12,
+      "sameAs": ["https://www.wikidata.org/wiki/Q424531"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E315%20-%20Isoascorbins%C3%A4ure"
+    },
+    {
+      "id": "en:e339iii",
+      "known": 1,
+      "name": "E339iii - Trinatriumphosphat",
+      "products": 12,
+      "sameAs": ["https://www.wikidata.org/wiki/Q3249706"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e339iii-trinatriumphosphat"
+    },
+    {
+      "id": "en:e350i",
+      "known": 1,
+      "name": "E350i - Natriummalat",
+      "products": 12,
+      "sameAs": ["https://www.wikidata.org/wiki/Q836788"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e350i-natriummalat"
+    },
+    {
+      "id": "en:e122",
+      "known": 1,
+      "name": "E122 - Azorubin (carmoisin)",
+      "products": 12,
+      "sameAs": ["https://www.wikidata.org/wiki/Q409676"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e122-azorubin-carmoisin"
+    },
+    {
+      "id": "en:e451i",
+      "known": 1,
+      "name": "E451i - Pentanatriumtriphosphat",
+      "products": 11,
+      "sameAs": ["https://www.wikidata.org/wiki/Q29145"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e451i-pentanatriumtriphosphat"
+    },
+    {
+      "id": "en:e425",
+      "known": 1,
+      "name": "E425 - E425 food additive",
+      "products": 11,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e425-e425-food-additive"
+    },
+    {
+      "id": "en:e525",
+      "known": 1,
+      "name": "E525 - Kaliumhydroxid",
+      "products": 11,
+      "sameAs": ["https://www.wikidata.org/wiki/Q132298"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e525-kaliumhydroxid"
+    },
+    {
+      "id": "en:e333iii",
+      "known": 1,
+      "name": "E333iii - Tricalciumcitrat",
+      "products": 11,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420280"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e333iii-tricalciumcitrat"
+    },
+    {
+      "id": "en:e1521",
+      "known": 1,
+      "name": "E1521 - Polyethylenglycol",
+      "products": 11,
+      "sameAs": ["https://www.wikidata.org/wiki/Q410083"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1521-polyethylenglycol"
+    },
+    {
+      "id": "en:e482",
+      "known": 1,
+      "name": "E482 - Calciumstearoyl-2-lactylat",
+      "products": 11,
+      "sameAs": ["https://www.wikidata.org/wiki/Q788535"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e482-calciumstearoyl-2-lactylat"
+    },
+    {
+      "id": "en:e487",
+      "known": 1,
+      "name": "E487 - Natriumlaurylsulfat",
+      "products": 11,
+      "sameAs": ["https://www.wikidata.org/wiki/Q422241"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e487-natriumlaurylsulfat"
+    },
+    {
+      "id": "en:e472",
+      "known": 1,
+      "name": "E472 - Säureester von Mono- und Diglyceride von Speisefettsäuren",
+      "products": 11,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E472%20-%20S%C3%A4ureester%20von%20Mono-%20und%20Diglyceride%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e1519",
+      "known": 1,
+      "name": "E1519 - Benzylalkohol",
+      "products": 11,
+      "sameAs": ["https://www.wikidata.org/wiki/Q52353"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1519-benzylalkohol"
+    },
+    {
+      "id": "en:e221",
+      "known": 1,
+      "name": "E221 - Natriumsulfit",
+      "products": 10,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407806"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e221-natriumsulfit"
+    },
+    {
+      "id": "en:e640",
+      "known": 1,
+      "name": "E640 - Glycin und seine natriumsalze",
+      "products": 10,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967228"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e640-glycin-und-seine-natriumsalze"
+    },
+    {
+      "id": "en:e468",
+      "known": 1,
+      "name": "E468 - Vernetzte carboxymethylcellulose",
+      "products": 10,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967204"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e468-vernetzte-carboxymethylcellulose"
+    },
+    {
+      "id": "en:e914",
+      "known": 1,
+      "name": "E914 - Polyethylenwachs-oxidate",
+      "products": 10,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18608846"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e914-polyethylenwachs-oxidate"
+    },
+    {
+      "id": "en:e151",
+      "known": 1,
+      "name": "E151 - Brilliantschwarz bn (schwarz pn)",
+      "products": 9,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420079"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e151-brilliantschwarz-bn-schwarz-pn"
+    },
+    {
+      "id": "en:e413",
+      "known": 1,
+      "name": "E413 - Traganth",
+      "products": 9,
+      "sameAs": ["https://www.wikidata.org/wiki/Q423901"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e413-traganth"
+    },
+    {
+      "id": "en:e307c",
+      "known": 1,
+      "name": "E307c - DL-Alpha-Tocopherol",
+      "products": 9,
+      "sameAs": ["https://www.wikidata.org/wiki/Q158348"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e307c-dl-alpha-tocopherol"
+    },
+    {
+      "id": "en:e1404",
+      "known": 1,
+      "name": "E1404 - Oxidierte stärke",
+      "products": 9,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967259"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1404%20-%20Oxidierte%20st%C3%A4rke"
+    },
+    {
+      "id": "en:e281",
+      "known": 1,
+      "name": "E281 - Natriumpropionat",
+      "products": 8,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420130"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e281-natriumpropionat"
+    },
+    {
+      "id": "en:e1101",
+      "known": 1,
+      "name": "E1101 - Peptidase",
+      "products": 8,
+      "sameAs": ["https://www.wikidata.org/wiki/Q212410"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1101-peptidase"
+    },
+    {
+      "id": "en:e1414",
+      "known": 1,
+      "name": "E1414 - Acetyliertes Distärkephosphat",
+      "products": 8,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967180"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1414%20-%20Acetyliertes%20Dist%C3%A4rkephosphat"
+    },
+    {
+      "id": "en:e1412",
+      "known": 1,
+      "name": "E1412 - Distärkephosphat",
+      "products": 8,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967218"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1412%20-%20Dist%C3%A4rkephosphat"
+    },
+    {
+      "id": "en:e343",
+      "known": 1,
+      "name": "E343 - E343 food additive",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q2634889"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e343-e343-food-additive"
+    },
+    {
+      "id": "en:e554",
+      "known": 1,
+      "name": "E554 - Natriumaluminiumsilicat",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967277"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e554-natriumaluminiumsilicat"
+    },
+    {
+      "id": "en:e957",
+      "known": 1,
+      "name": "E957 - Thaumatin",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q414048"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e957-thaumatin"
+    },
+    {
+      "id": "en:e340i",
+      "known": 1,
+      "name": "E340i - Monokaliumphosphat",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q3381491"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e340i-monokaliumphosphat"
+    },
+    {
+      "id": "en:e1104",
+      "known": 1,
+      "name": "E1104 - Lipasen",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q380967"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1104-lipasen"
+    },
+    {
+      "id": "en:e585",
+      "known": 1,
+      "name": "E585 - Eisen-ii-lactat",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q836793"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e585-eisen-ii-lactat"
+    },
+    {
+      "id": "en:e343i",
+      "known": 1,
+      "name": "E343i - Monomagnesiumphosphat",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q4161317"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e343i-monomagnesiumphosphat"
+    },
+    {
+      "id": "en:e249",
+      "known": 1,
+      "name": "E249 - Kaliumnitrit",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q409179"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e249-kaliumnitrit"
+    },
+    {
+      "id": "en:e463",
+      "known": 1,
+      "name": "E463 - Hydroxypropylcellulose",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q724426"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e463-hydroxypropylcellulose"
+    },
+    {
+      "id": "en:e104",
+      "known": 1,
+      "name": "E104 - Chinolingelb",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420123"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e104-chinolingelb"
+    },
+    {
+      "id": "en:e350ii",
+      "known": 1,
+      "name": "E350ii - Natriumhydrogenmalat",
+      "products": 7,
+      "sameAs": ["https://www.wikidata.org/wiki/Q42807545"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e350ii-natriumhydrogenmalat"
+    },
+    {
+      "id": "en:e460ii",
+      "known": 1,
+      "name": "E460ii - Cellulosepulver",
+      "products": 6,
+      "sameAs": ["https://www.wikidata.org/wiki/Q80294"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e460ii-cellulosepulver"
+    },
+    {
+      "id": "en:e905",
+      "known": 1,
+      "name": "E905 - Syntetisches Wachs",
+      "products": 6,
+      "sameAs": ["https://www.wikidata.org/wiki/Q579764"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e905-syntetisches-wachs"
+    },
+    {
+      "id": "en:e541",
+      "known": 1,
+      "name": "E541 - Natriumaluminiumphosphat",
+      "products": 6,
+      "sameAs": ["https://www.wikidata.org/wiki/Q1220360"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e541-natriumaluminiumphosphat"
+    },
+    {
+      "id": "en:e363",
+      "known": 1,
+      "name": "E363 - Bernsteinsäure",
+      "products": 6,
+      "sameAs": ["https://www.wikidata.org/wiki/Q213050"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E363%20-%20Bernsteins%C3%A4ure"
+    },
+    {
+      "id": "en:e310",
+      "known": 1,
+      "name": "E310 - Propylgallat",
+      "products": 6,
+      "sameAs": ["https://www.wikidata.org/wiki/Q608726"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e310-propylgallat"
+    },
+    {
+      "id": "en:e375",
+      "known": 1,
+      "name": "E375 - E375 food additive",
+      "products": 6,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e375-e375-food-additive"
+    },
+    {
+      "id": "en:e1450",
+      "known": 1,
+      "name": "E1450 - Stärkenatriumoctenylsuccinat",
+      "products": 5,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967290"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1450%20-%20St%C3%A4rkenatriumoctenylsuccinat"
+    },
+    {
+      "id": "en:e123",
+      "known": 1,
+      "name": "E123 - Amaranth",
+      "products": 5,
+      "sameAs": ["https://www.wikidata.org/wiki/Q421074"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e123-amaranth"
+    },
+    {
+      "id": "en:e948",
+      "known": 1,
+      "name": "E948 - Sauerstoff",
+      "products": 5,
+      "sameAs": ["https://www.wikidata.org/wiki/Q629"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e948-sauerstoff"
+    },
+    {
+      "id": "en:e530",
+      "known": 1,
+      "name": "E530 - Magnesiumoxid",
+      "products": 5,
+      "sameAs": ["https://www.wikidata.org/wiki/Q214769"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e530-magnesiumoxid"
+    },
+    {
+      "id": "en:e450iii",
+      "known": 1,
+      "name": "E450iii - Tetranatriumdiphosphat",
+      "products": 5,
+      "sameAs": ["https://www.wikidata.org/wiki/Q290828"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e450iii-tetranatriumdiphosphat"
+    },
+    {
+      "id": "en:potassium-iodide",
+      "known": 1,
+      "name": "en:Potassium iodide",
+      "products": 5,
+      "sameAs": ["https://www.wikidata.org/wiki/Q121874"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/en:potassium-iodide"
+    },
+    {
+      "id": "en:e355",
+      "known": 1,
+      "name": "E355 - Adipinsäure",
+      "products": 5,
+      "sameAs": ["https://www.wikidata.org/wiki/Q357415"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E355%20-%20Adipins%C3%A4ure"
+    },
+    {
+      "id": "en:e552",
+      "known": 1,
+      "name": "E552 - Calciumsilicat",
+      "products": 5,
+      "sameAs": ["https://www.wikidata.org/wiki/Q416365"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e552-calciumsilicat"
+    },
+    {
+      "id": "en:e444",
+      "known": 1,
+      "name": "E444 - Saccharoseacetat-isobutyrat",
+      "products": 4,
+      "sameAs": ["https://www.wikidata.org/wiki/Q410537"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e444-saccharoseacetat-isobutyrat"
+    },
+    {
+      "id": "en:e905a",
+      "known": 1,
+      "name": "E905a - Mineralöl",
+      "products": 4,
+      "sameAs": ["https://www.wikidata.org/wiki/Q583582"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E905a%20-%20Mineral%C3%B6l"
+    },
+    {
+      "id": "en:e536",
+      "known": 1,
+      "name": "E536 - Kaliumferrocyanid",
+      "products": 4,
+      "sameAs": ["https://www.wikidata.org/wiki/Q422017"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e536-kaliumferrocyanid"
+    },
+    {
+      "id": "en:e470a",
+      "known": 1,
+      "name": "E470a - Natrium-/Kalium- und Calciumsalze der Speisefettsäuren",
+      "products": 4,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E470a%20-%20Natrium-%2FKalium-%20und%20Calciumsalze%20der%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e175",
+      "known": 1,
+      "name": "E175 - Gold",
+      "products": 4,
+      "sameAs": ["https://www.wikidata.org/wiki/Q897"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e175-gold"
+    },
+    {
+      "id": "en:e1518",
+      "known": 1,
+      "name": "E1518 - Glycerintriacetat",
+      "products": 4,
+      "sameAs": ["https://www.wikidata.org/wiki/Q83253"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1518-glycerintriacetat"
+    },
+    {
+      "id": "en:e450v",
+      "known": 1,
+      "name": "E450v - Tetrakaliumdiphosphat",
+      "products": 4,
+      "sameAs": ["https://www.wikidata.org/wiki/Q290828"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e450v-tetrakaliumdiphosphat"
+    },
+    {
+      "id": "de:natürliche-quellkohlensäure",
+      "known": 1,
+      "name": "Natürliche Quellkohlensäure",
+      "products": 4,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/Nat%C3%BCrliche%20Quellkohlens%C3%A4ure"
+    },
+    {
+      "id": "en:e961",
+      "known": 1,
+      "name": "E961 - Neotam",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q415698"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e961-neotam"
+    },
+    {
+      "id": "en:e1420",
+      "known": 1,
+      "name": "E1420 - Acetylierte Stärke",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18935684"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1420%20-%20Acetylierte%20St%C3%A4rke"
+    },
+    {
+      "id": "en:e280",
+      "known": 1,
+      "name": "E280 - Propionsäure",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q422956"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E280%20-%20Propions%C3%A4ure"
+    },
+    {
+      "id": "en:e913",
+      "known": 1,
+      "name": "E913 - Wollwachs",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q911098"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e913-wollwachs"
+    },
+    {
+      "id": "en:e927b",
+      "known": 1,
+      "name": "E927b - Carbamid",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q48318"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e927b-carbamid"
+    },
+    {
+      "id": "en:e142",
+      "known": 1,
+      "name": "E142 - Grün s",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420143"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E142%20-%20Gr%C3%BCn%20s"
+    },
+    {
+      "id": "en:e640i",
+      "known": 1,
+      "name": "E640i - Glycin",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967228"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e640i-glycin"
+    },
+    {
+      "id": "en:e155",
+      "known": 1,
+      "name": "E155 - Braun ht",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q424541"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e155-braun-ht"
+    },
+    {
+      "id": "en:e160aii",
+      "known": 1,
+      "name": "E160aii - Pflanzliche carotine",
+      "products": 3,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e160aii-pflanzliche-carotine"
+    },
+    {
+      "id": "en:e944",
+      "known": 1,
+      "name": "E944 - Propan",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q131189"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e944-propan"
+    },
+    {
+      "id": "en:e265",
+      "known": 1,
+      "name": "E265 - E265 food additive",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q920725"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e265-e265-food-additive"
+    },
+    {
+      "id": "en:e578",
+      "known": 1,
+      "name": "E578 - Calciumgluconat",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q413739"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e578-calciumgluconat"
+    },
+    {
+      "id": "en:e218",
+      "known": 1,
+      "name": "E218 - Phb-methylester (methyl-p-hydroxybenzoat)",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q229987"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e218-phb-methylester-methyl-p-hydroxybenzoat"
+    },
+    {
+      "id": "en:e927",
+      "known": 1,
+      "name": "E927 - E927 food additive",
+      "products": 3,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e927-e927-food-additive"
+    },
+    {
+      "id": "en:e234",
+      "known": 1,
+      "name": "E234 - Nisin",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q415798"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e234-nisin"
+    },
+    {
+      "id": "en:e216",
+      "known": 1,
+      "name": "E216 - 4-Hydroxybenzoesäurepropylester",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q511627"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E216%20-%204-Hydroxybenzoes%C3%A4urepropylester"
+    },
+    {
+      "id": "en:e949",
+      "known": 1,
+      "name": "E949 - E949 food additive",
+      "products": 3,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e949-e949-food-additive"
+    },
+    {
+      "id": "en:e440ii",
+      "known": 1,
+      "name": "E440ii - Amidiertes pektin",
+      "products": 3,
+      "sameAs": ["https://www.wikidata.org/wiki/Q42807519"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e440ii-amidiertes-pektin"
+    },
+    {
+      "id": "en:e902",
+      "known": 1,
+      "name": "E902 - Candelillawachs",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q898937"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e902-candelillawachs"
+    },
+    {
+      "id": "en:e555",
+      "known": 1,
+      "name": "E555 - Kaliumaluminiumsilicat",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18944658"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e555-kaliumaluminiumsilicat"
+    },
+    {
+      "id": "en:e420i",
+      "known": 1,
+      "name": "E420i - D-Glucitol",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q245280"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e420i-d-glucitol"
+    },
+    {
+      "id": "en:e943a",
+      "known": 1,
+      "name": "E943a - Butan",
+      "products": 2,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e943a-butan"
+    },
+    {
+      "id": "en:e425ii",
+      "known": 1,
+      "name": "E425ii - Konjak-glucomannan",
+      "products": 2,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e425ii-konjak-glucomannan"
+    },
+    {
+      "id": "en:e228",
+      "known": 1,
+      "name": "E228 - Kaliumhydrogensulfit",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q412524"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e228-kaliumhydrogensulfit"
+    },
+    {
+      "id": "en:e514",
+      "known": 1,
+      "name": "E514 - Natriumsulfater",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q211737"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e514-natriumsulfater"
+    },
+    {
+      "id": "en:e505",
+      "known": 1,
+      "name": "E505 - E505 food additive",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967227"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e505-e505-food-additive"
+    },
+    {
+      "id": "en:e959",
+      "known": 1,
+      "name": "E959 - Neohesperidin dc",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q424595"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e959-neohesperidin-dc"
+    },
+    {
+      "id": "en:e620",
+      "known": 1,
+      "name": "E620 - Glutaminsäure",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q181136"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E620%20-%20Glutamins%C3%A4ure"
+    },
+    {
+      "id": "en:e1201",
+      "known": 1,
+      "name": "E1201 - Polyvinylpyrrolidon",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q413433"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1201-polyvinylpyrrolidon"
+    },
+    {
+      "id": "en:e450ii",
+      "known": 1,
+      "name": "E450ii - Trinatriumdiphosphat",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q290828"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e450ii-trinatriumdiphosphat"
+    },
+    {
+      "id": "en:e962",
+      "known": 1,
+      "name": "E962 - Aspartam-acesulfamsalz",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q409847"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e962-aspartam-acesulfamsalz"
+    },
+    {
+      "id": "en:e559",
+      "known": 1,
+      "name": "E559 - Aluminiumsilicat",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q1284687"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e559-aluminiumsilicat"
+    },
+    {
+      "id": "en:e426",
+      "known": 1,
+      "name": "E426 - Sojabohnen-polyose",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967285"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e426-sojabohnen-polyose"
+    },
+    {
+      "id": "en:e1203",
+      "known": 1,
+      "name": "E1203 - Polyvinylalkohol",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q146339"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1203-polyvinylalkohol"
+    },
+    {
+      "id": "en:e225",
+      "known": 1,
+      "name": "E225 - Kaliumsulfit",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q417109"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e225-kaliumsulfit"
+    },
+    {
+      "id": "en:e515",
+      "known": 1,
+      "name": "E515 - Kaliumsulfaten",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q193054"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e515-kaliumsulfaten"
+    },
+    {
+      "id": "en:e353",
+      "known": 1,
+      "name": "E353 - Metaweinsäure",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q17997708"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E353%20-%20Metaweins%C3%A4ure"
+    },
+    {
+      "id": "en:e943b",
+      "known": 1,
+      "name": "E943b - Isobutan",
+      "products": 2,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e943b-isobutan"
+    },
+    {
+      "id": "en:e1504",
+      "known": 1,
+      "name": "E1504 - Essigsäureethylester",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407153"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1504%20-%20Essigs%C3%A4ureethylester"
+    },
+    {
+      "id": "en:e999",
+      "known": 1,
+      "name": "E999 - Quillajaextrakt",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q118843"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e999-quillajaextrakt"
+    },
+    {
+      "id": "en:e905b",
+      "known": 1,
+      "name": "E905b - Vaseline",
+      "products": 2,
+      "sameAs": ["https://www.wikidata.org/wiki/Q457239"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e905b-vaseline"
+    },
+    {
+      "id": "en:e470",
+      "known": 1,
+      "name": "E470 - E470 food additive",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e470-e470-food-additive"
+    },
+    {
+      "id": "en:e452ii",
+      "known": 1,
+      "name": "E452ii - Kaliumpolyphosphat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q11867365"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e452ii-kaliumpolyphosphat"
+    },
+    {
+      "id": "en:e573",
+      "known": 1,
+      "name": "E573 - E573 food additive",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e573-e573-food-additive"
+    },
+    {
+      "id": "en:e331ii",
+      "known": 1,
+      "name": "E331ii - Dinatriumcitrat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q4177124"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e331ii-dinatriumcitrat"
+    },
+    {
+      "id": "en:e399",
+      "known": 1,
+      "name": "E399 - E399 food additive",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q6138969"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e399-e399-food-additive"
+    },
+    {
+      "id": "en:e307a",
+      "known": 1,
+      "name": "E307a - D-Alpha-Tocopherol",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q158348"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e307a-d-alpha-tocopherol"
+    },
+    {
+      "id": "en:e173",
+      "known": 1,
+      "name": "E173 - Aluminium",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q663"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e173-aluminium"
+    },
+    {
+      "id": "en:e302",
+      "known": 1,
+      "name": "E302 - Calciumascorbat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q283033"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e302-calciumascorbat"
+    },
+    {
+      "id": "en:e335ii",
+      "known": 1,
+      "name": "E335ii - Dinatriumtartrat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q17997701"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e335ii-dinatriumtartrat"
+    },
+    {
+      "id": "en:e333ii",
+      "known": 1,
+      "name": "E333ii - Dicalciumcitrat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420280"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e333ii-dicalciumcitrat"
+    },
+    {
+      "id": "en:e639",
+      "known": 1,
+      "name": "E639 - E639 food additive",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e639-e639-food-additive"
+    },
+    {
+      "id": "en:e424",
+      "known": 1,
+      "name": "E424 - Curdlan",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q616242"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e424-curdlan"
+    },
+    {
+      "id": "en:e522",
+      "known": 1,
+      "name": "E522 - Aluminiumkaliumsulfat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q411309"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e522-aluminiumkaliumsulfat"
+    },
+    {
+      "id": "en:e1505",
+      "known": 1,
+      "name": "E1505 - Triethylcitrat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q418057"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1505-triethylcitrat"
+    },
+    {
+      "id": "en:e474",
+      "known": 1,
+      "name": "E474 - Zuckerglyceride",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18608931"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e474-zuckerglyceride"
+    },
+    {
+      "id": "en:e515i",
+      "known": 1,
+      "name": "E515i - Kaliumsulfat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q193054"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e515i-kaliumsulfat"
+    },
+    {
+      "id": "en:e233",
+      "known": 1,
+      "name": "E233 - E233 food additive",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e233-e233-food-additive"
+    },
+    {
+      "id": "en:e963",
+      "known": 1,
+      "name": "E963 - Tagatose",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q414089"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e963-tagatose"
+    },
+    {
+      "id": "en:e512",
+      "known": 1,
+      "name": "E512 - Zinnii-chlorid",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q204964"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e512-zinnii-chlorid"
+    },
+    {
+      "id": "en:e212",
+      "known": 1,
+      "name": "E212 - Kaliumbenzoat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q413611"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e212-kaliumbenzoat"
+    },
+    {
+      "id": "en:e1000",
+      "known": 1,
+      "name": "E1000 - Cholsäure",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q287415"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1000%20-%20Chols%C3%A4ure"
+    },
+    {
+      "id": "en:e337",
+      "known": 1,
+      "name": "E337 - Kalium-natrium-tartrat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q303489"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e337-kalium-natrium-tartrat"
+    },
+    {
+      "id": "en:e462",
+      "known": 1,
+      "name": "E462 - Ethylcellulose",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q420113"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e462-ethylcellulose"
+    },
+    {
+      "id": "en:e105",
+      "known": 1,
+      "name": "E105 - E105 food additive",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e105-e105-food-additive"
+    },
+    {
+      "id": "en:e472d",
+      "known": 1,
+      "name": "E472d - Weinsäureester von Mono- und Diglyceriden von Speisefettsäuren",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E472d%20-%20Weins%C3%A4ureester%20von%20Mono-%20und%20Diglyceriden%20von%20Speisefetts%C3%A4uren"
+    },
+    {
+      "id": "en:e307b",
+      "known": 1,
+      "name": "E307b - E307b food additive",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q158348"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e307b-e307b-food-additive"
+    },
+    {
+      "id": "en:e303",
+      "known": 1,
+      "name": "E303 - E303 food additive",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q2252299"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e303-e303-food-additive"
+    },
+    {
+      "id": "en:e521",
+      "known": 1,
+      "name": "E521 - Aluminiumnatriumsulfat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q413559"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e521-aluminiumnatriumsulfat"
+    },
+    {
+      "id": "en:e513",
+      "known": 1,
+      "name": "E513 - Schwefelsäure",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q4118"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E513%20-%20Schwefels%C3%A4ure"
+    },
+    {
+      "id": "en:e381",
+      "known": 1,
+      "name": "E381 - Ammoniumeisen-III-citrat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q473522"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e381-ammoniumeisen-iii-citrat"
+    },
+    {
+      "id": "en:e242",
+      "known": 1,
+      "name": "E242 - Dimethyldicarbonat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q416985"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e242-dimethyldicarbonat"
+    },
+    {
+      "id": "en:e335",
+      "known": 1,
+      "name": "E335 - E335 food additive",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q17997701"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e335-e335-food-additive"
+    },
+    {
+      "id": "en:e214",
+      "known": 1,
+      "name": "E214 - Phb-ester (ethyl-p-hydroxybenzoat)",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q229976"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e214-phb-ester-ethyl-p-hydroxybenzoat"
+    },
+    {
+      "id": "en:e170ii",
+      "known": 1,
+      "name": "E170ii - Calciumhydrogencarbonat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q415144"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e170ii-calciumhydrogencarbonat"
+    },
+    {
+      "id": "en:e425i",
+      "known": 1,
+      "name": "E425i - Konjakgummi",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e425i-konjakgummi"
+    },
+    {
+      "id": "en:e419",
+      "known": 1,
+      "name": "E419 - E419 food additive",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967232"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e419-e419-food-additive"
+    },
+    {
+      "id": "en:e1401",
+      "known": 1,
+      "name": "E1401 - Säurebehandelte Stärke",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q18967250"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1401%20-%20S%C3%A4urebehandelte%20St%C3%A4rke"
+    },
+    {
+      "id": "en:e101ii",
+      "known": 1,
+      "name": "E101ii - Riboflavin-5′-phosphat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q130365"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E101ii%20-%20Riboflavin-5%E2%80%B2-phosphat"
+    },
+    {
+      "id": "en:e386",
+      "known": 1,
+      "name": "E386 - E386 food additive",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q13081804"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e386-e386-food-additive"
+    },
+    {
+      "id": "en:e636",
+      "known": 1,
+      "name": "E636 - E636 food additive",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e636-e636-food-additive"
+    },
+    {
+      "id": "en:e409",
+      "known": 1,
+      "name": "E409 - Arabinogalactan",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q4783458"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e409-arabinogalactan"
+    },
+    {
+      "id": "en:e514ii",
+      "known": 1,
+      "name": "E514ii - Natriumhydrogensulfat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q211737"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e514ii-natriumhydrogensulfat"
+    },
+    {
+      "id": "en:e172ii",
+      "known": 1,
+      "name": "E172ii - Eisen(III)-oxid",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q3045754"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e172ii-eisen-iii-oxid"
+    },
+    {
+      "id": "en:e165",
+      "known": 1,
+      "name": "E165 - E165 food additive",
+      "products": 1,
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e165-e165-food-additive"
+    },
+    {
+      "id": "en:e452vi",
+      "known": 1,
+      "name": "E452vi - E452(vi) food additive",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q11867365"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e452vi-e452-vi-food-additive"
+    },
+    {
+      "id": "en:e517",
+      "known": 1,
+      "name": "E517 - Ammoniumsulfat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q191831"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e517-ammoniumsulfat"
+    },
+    {
+      "id": "en:e925",
+      "known": 1,
+      "name": "E925 - Chlor",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q688"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e925-chlor"
+    },
+    {
+      "id": "en:e1503",
+      "known": 1,
+      "name": "E1503 - Rizinusöl",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q337492"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E1503%20-%20Rizinus%C3%B6l"
+    },
+    {
+      "id": "en:e558",
+      "known": 1,
+      "name": "E558 - Bentonit",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q380149"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e558-bentonit"
+    },
+    {
+      "id": "en:e450vii",
+      "known": 1,
+      "name": "E450vii - Calciumdihydrogendiphosphat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q290828"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e450vii-calciumdihydrogendiphosphat"
+    },
+    {
+      "id": "en:e125",
+      "known": 1,
+      "name": "E125 - E125 food additive",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q934310"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e125-e125-food-additive"
+    },
+    {
+      "id": "en:e1102",
+      "known": 1,
+      "name": "E1102 - Glucose-Oxidase",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q419321"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e1102-glucose-oxidase"
+    },
+    {
+      "id": "en:e504ii",
+      "known": 1,
+      "name": "E504ii - Magnesiumhydroxidcarbonat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q407931"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e504ii-magnesiumhydroxidcarbonat"
+    },
+    {
+      "id": "en:e507",
+      "known": 1,
+      "name": "E507 - Salzsäure",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q2409"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/E507%20-%20Salzs%C3%A4ure"
+    },
+    {
+      "id": "en:e380",
+      "known": 1,
+      "name": "E380 - Triammoniumcitrat",
+      "products": 1,
+      "sameAs": ["https://www.wikidata.org/wiki/Q13081798"],
+      "url": "https://de.openfoodfacts.org/zusatzstoff/e380-triammoniumcitrat"
+    }
+  ]
+}
