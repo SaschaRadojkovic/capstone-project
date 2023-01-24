@@ -1,14 +1,22 @@
-import AdditiveCard from "@/components/AdditiveCard";
-import AllergenCard from "@/components/AllergenCard";
 import { useState } from "react";
+import allergens from "../allergens.json";
+import additives from "../additives.json";
+
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
+import Card from "@/components/Card";
+
+const initialAdditives = atomWithStorage("additives", [], {
+  ...createJSONStorage(() => localStorage),
+  delayInit: true,
+});
+
+const initialAllergens = atomWithStorage("allergens", [], {
+  ...createJSONStorage(() => localStorage),
+  delayInit: true,
+});
 
 export default function HomePage() {
   const [showAdditives, setShowAdditives] = useState(true);
-
-  // const [allergenes,setAllergenes] = useState([])
-  //  function handleAddAlergene(){
-  // setAllergenes(füge gecklicktes allegen hinzu)
-  // }
 
   return (
     <>
@@ -29,7 +37,11 @@ export default function HomePage() {
         Allergens
       </button>
 
-      {showAdditives ? <AdditiveCard /> : <AllergenCard />}
+      {showAdditives ? (
+        <Card initialItems={initialAdditives} items={additives} />
+      ) : (
+        <Card initialItems={initialAllergens} items={allergens} />
+      )}
     </>
   );
 }

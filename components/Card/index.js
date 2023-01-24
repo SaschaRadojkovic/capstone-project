@@ -1,19 +1,12 @@
-import { useAtom, atom } from "jotai";
+import { useAtom } from "jotai";
 import { useState } from "react";
-import allergens from "../../allergens.json";
-import { atomWithStorage, createJSONStorage } from "jotai/utils";
 
-const initialAllergenes = atomWithStorage("allergenes", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
-export default function AllergenCard() {
+export default function Card({ initialItems, items }) {
   const [searchInput, setSearchInput] = useState("");
-  const [selectedAllergens, setSelectedAllergens] = useAtom(initialAllergenes);
+  const [selectedItems, setSelectedItems] = useAtom(initialItems);
 
-  const filteredAllergens = allergens.tags.filter(
-    (allergen) =>
-      allergen.name.toLowerCase().indexOf(searchInput.toLowerCase()) === 0
+  const filteredItems = items.tags.filter((item) =>
+    item.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   return (
@@ -24,20 +17,21 @@ export default function AllergenCard() {
           const formData = new FormData(event.target);
           const data = Object.fromEntries(formData);
           setSearchInput("");
-          const selectedAllergen = filteredAllergens.find(
-            (allergen) => allergen.name === data.list
+          const selectedItem = filteredItems.find(
+            (item) => item.name === data.search
           );
+          console.log("data", data);
           if (
             //makes reselection impossible
-            selectedAllergen &&
-            !selectedAllergens.find(
-              (item) => item.name === selectedAllergen.name
-            )
+            selectedItem &&
+            !selectedItems.find((item) => item.name === selectedItem.name)
           )
-            setSelectedAllergens([...selectedAllergens, selectedAllergen]);
+            setSelectedItems([...selectedItems, selectedItem]);
         }}
       >
+        {/* <div>{filteredItems.length}</div> */}
         <input
+          autoComplete="off"
           name="search"
           type="text"
           value={searchInput}
@@ -47,15 +41,15 @@ export default function AllergenCard() {
         />
         <button type="submit">Add</button>
       </form>
-      {filteredAllergens.length === 0 && searchInput.length > 0
+      {filteredItems.length === 0 && searchInput.length > 0
         ? "No search results"
         : null}
       {searchInput.length > 0 && (
         <ul style={{ position: "relative" }}>
-          {filteredAllergens.map((allergen) => {
+          {filteredItems.map((item) => {
             return (
               <div
-                key={allergen.name}
+                key={item.name}
                 style={{
                   position: "absolut",
                   marginLeft: "-40px",
@@ -63,18 +57,18 @@ export default function AllergenCard() {
                   maxWidth: "150px",
                 }}
                 onClick={() => {
-                  setSearchInput(allergen.name);
+                  setSearchInput(item.name);
                 }}
               >
-                {allergen.name}
+                {item.name}
               </div>
             );
           })}
         </ul>
       )}
       <ul style={{ listStyle: "none" }}>
-        {selectedAllergens.map((selectedAllergen) => {
-          return <li key={selectedAllergen.name}>{selectedAllergen.name} </li>;
+        {selectedItems.map((selectedItem) => {
+          return <li key={selectedItem.name}>{selectedItem.name} </li>;
         })}
       </ul>
     </>
