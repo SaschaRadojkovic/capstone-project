@@ -20,7 +20,7 @@ export default function Card({ initialItems, items }) {
           const selectedItem = filteredItems.find(
             (item) => item.name === data.search
           );
-          console.log("data", data);
+
           if (
             //makes reselection impossible
             selectedItem &&
@@ -29,7 +29,6 @@ export default function Card({ initialItems, items }) {
             setSelectedItems([...selectedItems, selectedItem]);
         }}
       >
-        {/* <div>{filteredItems.length}</div> */}
         <input
           autoComplete="off"
           name="search"
