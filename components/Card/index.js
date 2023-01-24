@@ -29,7 +29,9 @@ export default function Card({ initialItems, items }) {
             setSelectedItems([...selectedItems, selectedItem]);
         }}
       >
+        <label htmlFor="searchBar">searchbar</label>
         <input
+          id="searchBar"
           autoComplete="off"
           name="search"
           type="text"
@@ -47,11 +49,10 @@ export default function Card({ initialItems, items }) {
         <ul style={{ position: "relative" }}>
           {filteredItems.map((item) => {
             return (
-              <div
+              <li
                 key={item.name}
                 style={{
-                  position: "absolut",
-                  marginLeft: "-40px",
+                  listStyle: "none",
                   color: "grey",
                   maxWidth: "150px",
                 }}
@@ -60,7 +61,7 @@ export default function Card({ initialItems, items }) {
                 }}
               >
                 {item.name}
-              </div>
+              </li>
             );
           })}
         </ul>
