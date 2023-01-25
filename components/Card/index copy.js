@@ -5,13 +5,8 @@ export default function Card({ initialItems, items }) {
   const [searchInput, setSearchInput] = useState("");
   const [selectedItems, setSelectedItems] = useAtom(initialItems);
 
-  //   const filteredItems = items.tags.filter((item) =>
-  //     item.name.toLowerCase().includes(searchInput.toLowerCase())
-  //   );
-  const filteredItems = items.tags.filter(
-    (item) =>
-      !item.name.match(/:.*/) &&
-      item.name.toLowerCase().includes(searchInput.toLowerCase())
+  const filteredItems = items.tags.filter((item) =>
+    item.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   return (
