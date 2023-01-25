@@ -1,16 +1,52 @@
 import { useAtom } from "jotai";
 import { useState } from "react";
+import { RESET } from "jotai/utils";
+import Swal from "sweetalert2";
+import styled from "styled-components";
+
+const StyledUl = styled.ul`
+  list-style: none;
+`;
+
+const StyledSearchList = styled.li`
+  list-style: none;
+  color: grey;
+  max-width: 150px;
+`;
 
 export default function Card({ initialItems, items }) {
   const [searchInput, setSearchInput] = useState("");
   const [selectedItems, setSelectedItems] = useAtom(initialItems);
 
-  const filteredItems = items.tags.filter((item) =>
-    item.name.toLowerCase().includes(searchInput.toLowerCase())
+  //   const filteredItems = items.tags.filter((item) =>
+  //     item.name.toLowerCase().includes(searchInput.toLowerCase())
+  //   );
+  const filteredItems = items.tags.filter(
+    (item) =>
+      !item.name.match(/:.*/) &&
+      item.name.toLowerCase().includes(searchInput.toLowerCase())
   );
+
+  function deleteAllAlert() {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.value) {
+        setSelectedItems(RESET);
+        Swal.fire("Deleted!", "Your items have been deleted.", "success");
+      }
+    });
+  }
 
   return (
     <>
+      <button onClick={deleteAllAlert}>Delete All</button>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -46,31 +82,42 @@ export default function Card({ initialItems, items }) {
         ? "No search results"
         : null}
       {searchInput.length > 0 && (
-        <ul style={{ position: "relative" }}>
+        <ul>
           {filteredItems.map((item) => {
             return (
-              <li
+              <StyledSearchList
                 key={item.name}
-                style={{
-                  listStyle: "none",
-                  color: "grey",
-                  maxWidth: "150px",
-                }}
                 onClick={() => {
                   setSearchInput(item.name);
                 }}
               >
                 {item.name}
-              </li>
+              </StyledSearchList>
             );
           })}
         </ul>
       )}
-      <ul style={{ listStyle: "none" }}>
+
+      <StyledUl>
         {selectedItems.map((selectedItem) => {
-          return <li key={selectedItem.name}>{selectedItem.name} </li>;
+          return (
+            <li key={selectedItem.name}>
+              <button
+                type="button"
+                onClick={() => {
+                  const newSelectedItems = selectedItems.filter(
+                    (item) => item.name !== selectedItem.name
+                  );
+                  setSelectedItems(newSelectedItems);
+                }}
+              >
+                x
+              </button>
+              {selectedItem.name}
+            </li>
+          );
         })}
-      </ul>
+      </StyledUl>
     </>
   );
 }
