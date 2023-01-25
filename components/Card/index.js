@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import { useState } from "react";
+import { RESET } from "jotai/utils";
 
 export default function Card({ initialItems, items }) {
   const [searchInput, setSearchInput] = useState("");
@@ -71,9 +72,26 @@ export default function Card({ initialItems, items }) {
           })}
         </ul>
       )}
+      <button onClick={() => setSelectedItems(RESET)}>Delete All</button>
       <ul style={{ listStyle: "none" }}>
-        {selectedItems.map((selectedItem) => {
-          return <li key={selectedItem.name}>{selectedItem.name} </li>;
+        {selectedItems.map((selectedItem, index) => {
+          return (
+            <li key={selectedItem.name}>
+              {" "}
+              <button
+                type="button"
+                onClick={() => {
+                  const newSelectedItems = selectedItems.filter(
+                    (item, i) => i !== index
+                  );
+                  setSelectedItems(newSelectedItems);
+                }}
+              >
+                x
+              </button>{" "}
+              {selectedItem.name}{" "}
+            </li>
+          );
         })}
       </ul>
     </>
