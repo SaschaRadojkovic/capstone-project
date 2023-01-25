@@ -1,11 +1,10 @@
 "use client";
 import Head from "next/head";
 import { Inter } from "@next/font/google";
-
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import BarcodeScanner from "@/components/BarcodeScanner";
-import useSWR from "swr";
-import Image from "next/image";
+// import useSWR from "swr";
+// import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 export const fetcher = async (url) => {
@@ -25,11 +24,11 @@ export const fetcher = async (url) => {
 };
 
 export default function BarcodeScannerPage() {
-  const { data, error, isLoading } = useSWR(
-    `https://de.openfoodfacts.org/api/v0/product/4001428004317`,
-    fetcher
-  );
-  console.log("data1", data);
+  //   const { data, error, isLoading } = useSWR(
+  //     `https://de.openfoodfacts.org/api/v0/product/4001428004317`,
+  //     fetcher
+  //   );
+  //   console.log("data1", data);
   const scannerRef = useRef(null);
   return (
     <>
@@ -39,9 +38,9 @@ export default function BarcodeScannerPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <BarcodeScanner />
-      {data && data.product && <p>{data.product.product_name} </p>}
+      scan until the screen get black &nbsp;
+      {/* {data && data.product && <p>{data.product.product_name} </p>}
       {data && data.product && data.product.image_front_url && (
         <Image
           width={150}
@@ -50,7 +49,7 @@ export default function BarcodeScannerPage() {
           alt={data.product.product_name}
         />
       )}
-      {data && data.product && <p>{data.product.brands} </p>}
+      {data && data.product && <p>{data.product.brands} </p>} */}
     </>
   );
 }

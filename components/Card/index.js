@@ -46,6 +46,10 @@ export default function Card({ initialItems, items }) {
 
   return (
     <>
+      <p>
+        Here you can set your allergens and additives you want to avoid in your
+        food
+      </p>
       <button onClick={deleteAllAlert}>Delete All</button>
       <form
         onSubmit={(event) => {

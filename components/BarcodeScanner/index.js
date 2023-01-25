@@ -32,20 +32,20 @@ export default function BarcodeScanner() {
 
   function onDetected(result) {
     setResults([...results, result]);
-    console.log("result", result);
+    // console.log("result", result);
     const currentBarcodeValue = result;
     setCurrentBarcode(currentBarcodeValue);
-    console.log("currentBarcode", currentBarcode);
+    // console.log("currentBarcode", currentBarcode);
     // console.log("currentBarcode", currentBarcodeValue);
 
     setScanning(false);
   }
 
-  const { data, error, isLoading } = useSWR(
-    `https://de.openfoodfacts.org/api/v0/product/${currentBarcode}.json`,
-    fetcher
-  );
-  console.log("data", data);
+  //   const { data, error, isLoading } = useSWR(
+  //     `https://de.openfoodfacts.org/api/v0/product/${currentBarcode}.json`,
+  //     fetcher
+  //   );
+  //   console.log("data", data);
 
   useLayoutEffect(() => {
     setScanning(true);
@@ -78,13 +78,13 @@ export default function BarcodeScanner() {
               style={{
                 position: "absolute",
                 top: "0px",
-                // left: '0px',
+
                 height: "100%",
-                // width: '100%',
+
                 border: "3px solid green",
               }}
-              width="640"
-              height="480"
+              //   width="640"
+              //   height="480"
             />
             {scanning ? (
               <Scanner scannerRef={scannerRef} onDetected={onDetected} />

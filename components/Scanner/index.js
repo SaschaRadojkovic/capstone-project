@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 //copied from https://github.com/ericblade/quagga2-react-example/blob/master/src/components/Scanner.js
 import { useCallback, useLayoutEffect } from "react";
 import Quagga from "@ericblade/quagga2";
