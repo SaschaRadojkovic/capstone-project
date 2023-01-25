@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
 import { useState } from "react";
 import { RESET } from "jotai/utils";
+import Swal from "sweetalert2";
 
 export default function Card({ initialItems, items }) {
   const [searchInput, setSearchInput] = useState("");
@@ -15,8 +16,26 @@ export default function Card({ initialItems, items }) {
       item.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
+  function deleteAllAlert() {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.value) {
+        setSelectedItems(RESET);
+        Swal.fire("Deleted!", "Your items has been deleted.", "success");
+      }
+    });
+  }
+
   return (
     <>
+      <button onClick={deleteAllAlert}>Delete All</button>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -72,7 +91,7 @@ export default function Card({ initialItems, items }) {
           })}
         </ul>
       )}
-      <button onClick={() => setSelectedItems(RESET)}>Delete All</button>
+
       <ul style={{ listStyle: "none" }}>
         {selectedItems.map((selectedItem, index) => {
           return (
