@@ -2,6 +2,17 @@ import { useAtom } from "jotai";
 import { useState } from "react";
 import { RESET } from "jotai/utils";
 import Swal from "sweetalert2";
+import styled from "styled-components";
+
+const StyledUl = styled.ul`
+  list-style: none;
+`;
+
+const StyledSearchList = styled.li`
+  list-style: none;
+  color: grey;
+  max-width: 150px;
+`;
 
 export default function Card({ initialItems, items }) {
   const [searchInput, setSearchInput] = useState("");
@@ -28,7 +39,7 @@ export default function Card({ initialItems, items }) {
     }).then((result) => {
       if (result.value) {
         setSelectedItems(RESET);
-        Swal.fire("Deleted!", "Your items has been deleted.", "success");
+        Swal.fire("Deleted!", "Your items have been deleted.", "success");
       }
     });
   }
@@ -71,48 +82,42 @@ export default function Card({ initialItems, items }) {
         ? "No search results"
         : null}
       {searchInput.length > 0 && (
-        <ul style={{ position: "relative" }}>
+        <ul>
           {filteredItems.map((item) => {
             return (
-              <li
+              <StyledSearchList
                 key={item.name}
-                style={{
-                  listStyle: "none",
-                  color: "grey",
-                  maxWidth: "150px",
-                }}
                 onClick={() => {
                   setSearchInput(item.name);
                 }}
               >
                 {item.name}
-              </li>
+              </StyledSearchList>
             );
           })}
         </ul>
       )}
 
-      <ul style={{ listStyle: "none" }}>
-        {selectedItems.map((selectedItem, index) => {
+      <StyledUl>
+        {selectedItems.map((selectedItem) => {
           return (
             <li key={selectedItem.name}>
-              {" "}
               <button
                 type="button"
                 onClick={() => {
                   const newSelectedItems = selectedItems.filter(
-                    (item, i) => i !== index
+                    (item) => item.name !== selectedItem.name
                   );
                   setSelectedItems(newSelectedItems);
                 }}
               >
                 x
-              </button>{" "}
-              {selectedItem.name}{" "}
+              </button>
+              {selectedItem.name}
             </li>
           );
         })}
-      </ul>
+      </StyledUl>
     </>
   );
 }
