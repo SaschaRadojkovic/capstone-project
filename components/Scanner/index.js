@@ -59,7 +59,7 @@ const Scanner = ({
         onDetected(result);
       }
     },
-    [onDetected]
+    [onDetected, errorRate]
   );
 
   const handleProcessed = (result) => {
