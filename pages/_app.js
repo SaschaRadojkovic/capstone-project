@@ -1,4 +1,4 @@
-import NavBar from "@/components/Navigation";
+import { NavBar } from "@/components/Navigation";
 import GlobalStyle from "@/styles";
 import Head from "next/head";
 import { SWRConfig } from "swr";
@@ -9,10 +9,11 @@ export default function App({ Component, pageProps }) {
       <SWRConfig>
         <GlobalStyle />
         <Head>
-          <title>Capstone Project</title>
+          <title>Eatable</title>
         </Head>
+
         <Component {...pageProps} />
-        <NavBar></NavBar>
+        <NavBar />
       </SWRConfig>
     </>
   );

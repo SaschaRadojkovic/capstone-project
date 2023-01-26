@@ -37,9 +37,9 @@ export default function Settings() {
       </button>
 
       {showAdditives ? (
-        <Card initialItems={initialAdditives} items={additives} />
+        <Card initialItemList={initialAdditives} items={additives} />
       ) : (
-        <Card initialItems={initialAllergens} items={allergens} />
+        <Card initialItemList={initialAllergens} items={allergens} />
       )}
     </>
   );

@@ -14,13 +14,10 @@ const StyledSearchList = styled.li`
   max-width: 150px;
 `;
 
-export default function Card({ initialItems, items }) {
+export default function Card({ initialItemList, items }) {
   const [searchInput, setSearchInput] = useState("");
-  const [selectedItems, setSelectedItems] = useAtom(initialItems);
+  const [selectedItems, setSelectedItems] = useAtom(initialItemList);
 
-  //   const filteredItems = items.tags.filter((item) =>
-  //     item.name.toLowerCase().includes(searchInput.toLowerCase())
-  //   );
   const filteredItems = items.tags.filter(
     (item) =>
       !item.name.match(/:.*/) &&
@@ -50,7 +47,7 @@ export default function Card({ initialItems, items }) {
         Here you can set your allergens and additives you want to avoid in your
         food
       </p>
-      <button onClick={deleteAllAlert}>Delete All</button>
+
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -122,6 +119,10 @@ export default function Card({ initialItems, items }) {
           );
         })}
       </StyledUl>
+      <section>
+        <button onClick={deleteAllAlert}>Delete All</button>
+      </section>
+      <br />
     </>
   );
 }

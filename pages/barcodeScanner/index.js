@@ -3,6 +3,9 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import { useRef } from "react";
 import BarcodeScanner from "@/components/BarcodeScanner";
+import dynamic from "next/dynamic";
+const NoSSR = dynamic(() => import("react-no-ssr", { ssr: false }));
+
 // import useSWR from "swr";
 // import Image from "next/image";
 
@@ -38,7 +41,9 @@ export default function BarcodeScannerPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BarcodeScanner />
+      <NoSSR>
+        <BarcodeScanner />
+      </NoSSR>
       scan until the screen get black &nbsp;
       {/* {data && data.product && <p>{data.product.product_name} </p>}
       {data && data.product && data.product.image_front_url && (

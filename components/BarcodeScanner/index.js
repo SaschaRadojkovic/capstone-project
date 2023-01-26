@@ -1,11 +1,23 @@
 "use client";
 import { Inter } from "@next/font/google";
-import Scanner from "@/components/scanner";
+import { Scanner } from "@/components/scanner";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import useSWR from "swr";
+import styled from "styled-components";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const StyledSection = styled.section`
+  // border: 3px solid red;
+  position: relative;
+`;
+
+const StyledCanvas = styled.canvas`
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  // border: 3px solid green;
+`;
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -25,73 +37,56 @@ const fetcher = async (url) => {
 
 export default function BarcodeScanner() {
   const [scanning, setScanning] = useState(false);
-  const [results, setResults] = useState([]);
-  const [currentBarcode, setCurrentBarcode] = useState(null);
+  const [result, setResult] = useState(null);
+  const { data, error, isLoading } = useSWR(
+    result
+      ? `https://de.openfoodfacts.org/api/v0/product/${result}.json`
+      : null,
+    fetcher
+  );
+  // console.log("data", data);
+
   //   const { width, height } = useWindowDimensions();
   const scannerRef = useRef(null);
 
-  function onDetected(result) {
-    setResults([...results, result]);
-    // console.log("result", result);
-    const currentBarcodeValue = result;
-    setCurrentBarcode(currentBarcodeValue);
-    // console.log("currentBarcode", currentBarcode);
-    // console.log("currentBarcode", currentBarcodeValue);
+  function onDetected(_result) {
+    setResult(_result.codeResult.code);
+    // console.log("result", JSON.stringify(_result));
 
     setScanning(false);
   }
-
-  //   const { data, error, isLoading } = useSWR(
-  //     `https://de.openfoodfacts.org/api/v0/product/${currentBarcode}.json`,
-  //     fetcher
-  //   );
-  //   console.log("data", data);
+  useEffect(() => {}, [result]);
 
   useLayoutEffect(() => {
     setScanning(true);
-    if (currentBarcode) {
-    }
-  }, [currentBarcode]);
+  }, []);
 
   return (
     <>
       <button onClick={() => setScanning(!scanning)}>
         {scanning ? "Stop" : "Start"}
       </button>
-      <ul className="results">
-        {results.map(
-          (result) =>
-            result.codeResult && (
-              <li key={result.codeResult.code}>{result.codeResult.code}</li>
-            )
-        )}
-      </ul>
-      <div suppressHydrationWarning={true}>
+
+      {result && <p>{result}</p>}
+
+      <article suppressHydrationWarning={true}>
         {typeof window && (
-          <div
-            ref={scannerRef}
-            style={{ position: "relative", border: "3px solid red" }}
-          >
+          <StyledSection ref={scannerRef}>
             {/* <video style={{ width: window.innerWidth, height: 480, border: '3px solid orange' }}/> */}
-            <canvas
-              className="drawingBuffer"
-              style={{
-                position: "absolute",
-                top: "0px",
-
-                height: "100%",
-
-                border: "3px solid green",
-              }}
-              //   width="640"
-              //   height="480"
-            />
+            <StyledCanvas className="drawingBuffer" width="640" height="480" />
             {scanning ? (
-              <Scanner scannerRef={scannerRef} onDetected={onDetected} />
+              //vor testers in capstone,please be aware that the numbers that are scanned are not always correct.
+              //Scan it again until you get the correct number. later when fetching the api it will be an output e.g. "no product found scan again"
+              //that result can later be modified with the errorRate.maybe the user will get option to adjust his scanner related to his device/camera.
+              <Scanner
+                errorRate={0.55}
+                scannerRef={scannerRef}
+                onDetected={onDetected}
+              />
             ) : null}
-          </div>
+          </StyledSection>
         )}
-      </div>
+      </article>
     </>
   );
 }

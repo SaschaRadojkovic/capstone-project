@@ -32,6 +32,9 @@ const defaultLocatorSettings = {
 
 const defaultDecoders = ["ean_reader"];
 
+{
+}
+
 const Scanner = ({
   onDetected,
   scannerRef,
@@ -43,6 +46,7 @@ const Scanner = ({
   numOfWorkers = 0,
   decoders = defaultDecoders,
   locate = true,
+  errorRate = 0.5,
 }) => {
   const errorCheck = useCallback(
     (result) => {
@@ -50,9 +54,9 @@ const Scanner = ({
         return;
       }
       const err = getMedianOfCodeErrors(result.codeResult.decodedCodes);
-      // if Quagga is at least 75% certain that it read correctly, then accept the code.
-      if (err < 0.25) {
-        onDetected(result.codeResult.code);
+      // if Quagga is at least 90% certain that it read correctly, then accept the code.
+      if (err < errorRate) {
+        onDetected(result);
       }
     },
     [onDetected]
@@ -65,7 +69,7 @@ const Scanner = ({
     drawingCtx.fillStyle = "green";
 
     if (result) {
-      // console.warn('* quagga onProcessed', result);
+      // console.warn("* quagga onProcessed", result);
       if (result.boxes) {
         drawingCtx.clearRect(
           0,
@@ -73,21 +77,21 @@ const Scanner = ({
           parseInt(drawingCanvas.getAttribute("width")),
           parseInt(drawingCanvas.getAttribute("height"))
         );
-        result.boxes
-          .filter((box) => box !== result.box)
-          .forEach((box) => {
-            Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, {
-              color: "purple",
-              lineWidth: 2,
-            });
-          });
+        // result.boxes
+        //   .filter((box) => box !== result.box)
+        //   .forEach((box) => {
+        //     Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, {
+        //       color: "purple",
+        //       lineWidth: 2,
+        //     });
+        //   });
       }
-      if (result.box) {
-        Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, {
-          color: "blue",
-          lineWidth: 2,
-        });
-      }
+      // if (result.box) {
+      //   Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, {
+      //     color: "blue",
+      //     lineWidth: 2,
+      //   });
+      // }
       if (result.codeResult && result.codeResult.code) {
         // const validated = barcodeValidator(result.codeResult.code);
         // const validated = validateBarcode(result.codeResult.code);
@@ -95,7 +99,7 @@ const Scanner = ({
         drawingCtx.font = "24px Arial";
         // drawingCtx.fillStyle = validated ? 'green' : 'red';
         // drawingCtx.fillText(`${result.codeResult.code} valid: ${validated}`, 10, 50);
-        drawingCtx.fillText(result.codeResult.code, 10, 20);
+        // drawingCtx.fillText(result.codeResult.code, 10, 20);
         // if (validated) {
         //     onDetected(result);
         // }
@@ -124,7 +128,7 @@ const Scanner = ({
         Quagga.onProcessed(handleProcessed);
 
         if (err) {
-          return console.log("Error starting Quagga:", err);
+          return;
         }
         if (scannerRef && scannerRef.current) {
           Quagga.start();
@@ -144,4 +148,4 @@ const Scanner = ({
   return null;
 };
 
-export default Scanner;
+export { Scanner };
