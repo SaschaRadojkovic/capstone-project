@@ -148,4 +148,4 @@ const Scanner = ({
   return null;
 };
 
-export { Scanner };
+export default Scanner;
