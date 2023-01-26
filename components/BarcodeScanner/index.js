@@ -1,6 +1,6 @@
 "use client";
 import { Inter } from "@next/font/google";
-import Scanner from "@/components/scanner";
+import Scanner from "@/components/Scanner";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import useSWR from "swr";
 import styled from "styled-components";
