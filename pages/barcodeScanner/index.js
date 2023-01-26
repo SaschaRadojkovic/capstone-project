@@ -44,7 +44,7 @@ export default function BarcodeScannerPage() {
       <NoSSR>
         <BarcodeScanner />
       </NoSSR>
-      scan until the screen get black &nbsp;
+      scan until the screen get black or stop moving &nbsp;
       {/* {data && data.product && <p>{data.product.product_name} </p>}
       {data && data.product && data.product.image_front_url && (
         <Image
