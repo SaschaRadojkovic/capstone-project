@@ -1,38 +1,7 @@
-"use client";
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-import { useRef } from "react";
 import BarcodeScanner from "@/components/BarcodeScanner";
-import dynamic from "next/dynamic";
-const NoSSR = dynamic(() => import("react-no-ssr", { ssr: false }));
-
-// import useSWR from "swr";
-// import Image from "next/image";
-
-const inter = Inter({ subsets: ["latin"] });
-export const fetcher = async (url) => {
-  const res = await fetch(url);
-
-  // If the status code is not in the range 200-299,
-  // we still try to parse and throw it.
-  if (!res.ok) {
-    const error = new Error("An error occurred while fetching the data.");
-    // Attach extra info to the error object.
-    error.info = await res.json();
-    error.status = res.status;
-    throw error;
-  }
-
-  return res.json();
-};
 
 export default function BarcodeScannerPage() {
-  //   const { data, error, isLoading } = useSWR(
-  //     `https://de.openfoodfacts.org/api/v0/product/4001428004317`,
-  //     fetcher
-  //   );
-  //   console.log("data1", data);
-  const scannerRef = useRef(null);
   return (
     <>
       <Head>
@@ -41,20 +10,8 @@ export default function BarcodeScannerPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NoSSR>
-        <BarcodeScanner />
-      </NoSSR>
-      scan until the screen get black or stop moving &nbsp;
-      {/* {data && data.product && <p>{data.product.product_name} </p>}
-      {data && data.product && data.product.image_front_url && (
-        <Image
-          width={150}
-          height={150}
-          src={data.product.image_front_url}
-          alt={data.product.product_name}
-        />
-      )}
-      {data && data.product && <p>{data.product.brands} </p>} */}
+
+      <BarcodeScanner />
     </>
   );
 }

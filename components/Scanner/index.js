@@ -1,4 +1,3 @@
-// "use client";
 //copied from https://github.com/ericblade/quagga2-react-example/blob/master/src/components/Scanner.js
 import { useCallback, useLayoutEffect } from "react";
 import Quagga from "@ericblade/quagga2";
@@ -32,10 +31,7 @@ const defaultLocatorSettings = {
 
 const defaultDecoders = ["ean_reader"];
 
-{
-}
-
-const Scanner = ({
+function Scanner({
   onDetected,
   scannerRef,
   onScannerReady,
@@ -47,7 +43,7 @@ const Scanner = ({
   decoders = defaultDecoders,
   locate = true,
   errorRate = 0.5,
-}) => {
+}) {
   const errorCheck = useCallback(
     (result) => {
       if (!onDetected) {
@@ -57,55 +53,11 @@ const Scanner = ({
       // if Quagga is at least 90% certain that it read correctly, then accept the code.
       if (err < errorRate) {
         onDetected(result);
+        // If detected; Further actions here
       }
     },
     [onDetected, errorRate]
   );
-
-  const handleProcessed = (result) => {
-    const drawingCtx = Quagga.canvas.ctx.overlay;
-    const drawingCanvas = Quagga.canvas.dom.overlay;
-    drawingCtx.font = "24px Arial";
-    drawingCtx.fillStyle = "green";
-
-    if (result) {
-      // console.warn("* quagga onProcessed", result);
-      if (result.boxes) {
-        drawingCtx.clearRect(
-          0,
-          0,
-          parseInt(drawingCanvas.getAttribute("width")),
-          parseInt(drawingCanvas.getAttribute("height"))
-        );
-        // result.boxes
-        //   .filter((box) => box !== result.box)
-        //   .forEach((box) => {
-        //     Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, {
-        //       color: "purple",
-        //       lineWidth: 2,
-        //     });
-        //   });
-      }
-      // if (result.box) {
-      //   Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, {
-      //     color: "blue",
-      //     lineWidth: 2,
-      //   });
-      // }
-      if (result.codeResult && result.codeResult.code) {
-        // const validated = barcodeValidator(result.codeResult.code);
-        // const validated = validateBarcode(result.codeResult.code);
-        // Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: validated ? 'green' : 'red', lineWidth: 3 });
-        drawingCtx.font = "24px Arial";
-        // drawingCtx.fillStyle = validated ? 'green' : 'red';
-        // drawingCtx.fillText(`${result.codeResult.code} valid: ${validated}`, 10, 50);
-        // drawingCtx.fillText(result.codeResult.code, 10, 20);
-        // if (validated) {
-        //     onDetected(result);
-        // }
-      }
-    }
-  };
 
   useLayoutEffect(() => {
     Quagga.init(
@@ -125,8 +77,6 @@ const Scanner = ({
         locate,
       },
       (err) => {
-        Quagga.onProcessed(handleProcessed);
-
         if (err) {
           return;
         }
@@ -138,14 +88,26 @@ const Scanner = ({
         }
       }
     );
+
     Quagga.onDetected(errorCheck);
+
     return () => {
       Quagga.offDetected(errorCheck);
-      Quagga.offProcessed(handleProcessed);
       Quagga.stop();
     };
-  });
+  }, [
+    constraints,
+    cameraId,
+    facingMode,
+    scannerRef,
+    locator,
+    numOfWorkers,
+    decoders,
+    locate,
+    errorCheck,
+    onScannerReady,
+  ]);
   return null;
-};
+}
 
 export default Scanner;
