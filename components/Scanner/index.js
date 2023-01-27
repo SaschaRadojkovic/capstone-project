@@ -3,7 +3,7 @@ import { useCallback, useLayoutEffect } from "react";
 import Quagga from "@ericblade/quagga2";
 
 function getMedian(arr) {
-  arr.sort((a, b) => a - b);
+  const myArray = [...arr].sort((a, b) => a - b);
   const half = Math.floor(arr.length / 2);
   if (arr.length % 2 === 1) {
     return arr[half];

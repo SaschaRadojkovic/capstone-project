@@ -18,6 +18,11 @@ const StyledCanvas = styled.canvas`
   height: 100%;
 `;
 
+const StyledImage = styled(Image)`
+  width: 25%;
+  height: 25%;
+  object-fit: cover;
+`;
 export default function BarcodeScanner() {
   const [scanning, setScanning] = useState(true);
   const [result, setResult] = useState(null);
@@ -40,7 +45,7 @@ export default function BarcodeScanner() {
       {scanning ? (
         <>
           <StyledSection ref={scannerRef}>
-            <StyledCanvas className="drawingBuffer" width="640" height="480" />
+            <StyledCanvas width="640" height="480" />
           </StyledSection>
           <Scanner
             errorRate={0.55}
@@ -65,10 +70,9 @@ export default function BarcodeScanner() {
         <>
           <p>{data.product.product_name} </p>
 
-          <Image
+          <StyledImage
             width={1000}
             height={1000}
-            style={{ width: "25%", height: "25%", objectFit: "cover" }}
             src={data.product.image_front_url}
             alt={data.product.product_name}
           />
