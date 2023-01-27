@@ -8,7 +8,6 @@ const Scanner = dynamic(() => import("@/components/Scanner"), {
 });
 
 const StyledSection = styled.section`
-  border: 3px solid red;
   position: relative;
   overflow: hidden;
 `;
@@ -17,7 +16,6 @@ const StyledCanvas = styled.canvas`
   position: absolute;
   top: 0px;
   height: 100%;
-  border: 3px solid green;
 `;
 
 export default function BarcodeScanner() {
