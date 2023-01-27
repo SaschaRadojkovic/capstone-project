@@ -54,7 +54,7 @@ export default function BarcodeScanner() {
 
       {/* Found Product */}
 
-      {data && (
+      {data && data.product && (
         <>
           <p>{data.product.product_name} </p>
 
