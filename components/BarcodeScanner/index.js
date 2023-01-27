@@ -49,7 +49,14 @@ export default function BarcodeScanner() {
           />
         </>
       ) : (
-        <button onClick={() => setScanning(true)}>Try again!</button>
+        <button
+          onClick={() => {
+            setScanning(true);
+            setResult(null);
+          }}
+        >
+          Try again!
+        </button>
       )}
 
       {/* Found Product */}
