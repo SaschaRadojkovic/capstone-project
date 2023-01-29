@@ -6,7 +6,7 @@ import Card from "@/components/Card";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-font-weight: font-weight: ${(props) => (props.isActive ? "bold" : "normal")}  
+  font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
 `;
 
 const initialAdditives = atomWithStorage("additives", [], {
