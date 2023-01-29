@@ -3,6 +3,11 @@ import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import Card from "@/components/Card";
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+font-weight: font-weight: ${(props) => (props.isActive ? "bold" : "normal")}  
+`;
 
 const initialAdditives = atomWithStorage("additives", [], {
   ...createJSONStorage(() => localStorage),
@@ -19,22 +24,19 @@ export default function Settings() {
 
   return (
     <>
-      <button
-        style={{ fontWeight: showAdditives ? "bold" : "normal" }}
-        onClick={() => {
-          setShowAdditives(true);
-        }}
+      <StyledButton
+        isActive={showAdditives}
+        onClick={() => setShowAdditives(true)}
       >
         Additives
-      </button>
-      <button
-        style={{ fontWeight: !showAdditives ? "bold" : "normal" }}
-        onClick={() => {
-          setShowAdditives(false);
-        }}
+      </StyledButton>
+
+      <StyledButton
+        isActive={!showAdditives}
+        onClick={() => setShowAdditives(false)}
       >
         Allergens
-      </button>
+      </StyledButton>
 
       {showAdditives ? (
         <Card initialItemList={initialAdditives} items={additives} />

@@ -45,7 +45,7 @@ export default function BarcodeScanner() {
       {scanning ? (
         <>
           <StyledSection ref={scannerRef}>
-            <StyledCanvas width="640" height="480" />
+            <StyledCanvas className="drawingBuffer" width="640" height="480" />
           </StyledSection>
           <Scanner
             errorRate={0.55}
