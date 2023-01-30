@@ -10,6 +10,7 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
+    "@ericblade/quagga2": "^1.8.2",
     "@next/font": "13.1.2",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.2",
@@ -18,7 +19,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^5.3.6",
-    "sweetalert2": "^11.7.1"
+    "sweetalert2": "^11.7.1",
+    "swr": "^2.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
