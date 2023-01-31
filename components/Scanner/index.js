@@ -93,6 +93,7 @@ function Scanner({
 
     return () => {
       Quagga.offDetected(errorCheck);
+      console.log("quagga stop");
       Quagga.stop();
     };
   }, [

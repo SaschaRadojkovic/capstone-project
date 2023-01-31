@@ -18,10 +18,8 @@ export default function Card({ initialItemList, items }) {
   const [searchInput, setSearchInput] = useState("");
   const [selectedItems, setSelectedItems] = useAtom(initialItemList);
 
-  const filteredItems = items.tags.filter(
-    (item) =>
-      !item.name.match(/:.*/) &&
-      item.name.toLowerCase().includes(searchInput.toLowerCase())
+  const filteredItems = items.tags.filter((item) =>
+    item.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   function deleteAllAlert() {
@@ -89,10 +87,12 @@ export default function Card({ initialItemList, items }) {
               <StyledSearchList
                 key={item.name}
                 onClick={() => {
-                  setSearchInput(item.name);
+                  setSearchInput(
+                    item.name.includes(":") ? item.name.slice(3) : item.name
+                  );
                 }}
               >
-                {item.name}
+                {item.name.includes(":") ? item.name.slice(3) : item.name}
               </StyledSearchList>
             );
           })}
@@ -106,10 +106,14 @@ export default function Card({ initialItemList, items }) {
               <button
                 type="button"
                 onClick={() => {
-                  const newSelectedItems = selectedItems.filter(
-                    (item) => item.name !== selectedItem.name
-                  );
-                  setSelectedItems(newSelectedItems);
+                  if (selectedItems.length === 1) {
+                    setSelectedItems(RESET);
+                  } else {
+                    const newSelectedItems = selectedItems.filter(
+                      (item) => item.name !== selectedItem.name
+                    );
+                    setSelectedItems(newSelectedItems);
+                  }
                 }}
               >
                 x

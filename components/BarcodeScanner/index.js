@@ -1,10 +1,7 @@
 import { useRef, useState } from "react";
-import useSWR from "swr";
 import styled from "styled-components";
-
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import DetailsPage from "../DetailsPage";
 const Scanner = dynamic(() => import("@/components/Scanner"), {
   nossr: true,
 });
@@ -21,15 +18,9 @@ const StyledCanvas = styled.canvas`
 `;
 
 export default function BarcodeScanner() {
-  const [scanning, setScanning] = useState(true);
+  const [, setScanning] = useState(true);
   const [result, setResult] = useState(null);
   const router = useRouter();
-
-  console.log("result 1", result);
-
-  // const { data } = useSWR(
-  //   result ? `https://de.openfoodfacts.org/api/v0/product/${result}.json` : null
-  // );
 
   const scannerRef = useRef(null);
 
@@ -43,20 +34,19 @@ export default function BarcodeScanner() {
     <>
       {result && <p>{result}</p>}
       {/*Scanner Logic optimizable? */}
-      {/* {scanning ? ( */}
       <>
         <StyledSection ref={scannerRef}>
+          {/*class name drawing buffer is used by quagga
+           https://github.com/ericblade/quagga2/search?q=drawingBuffer */}
           <StyledCanvas className="drawingBuffer" width="640" height="480" />
         </StyledSection>
+
         <Scanner
           errorRate={0.55}
           scannerRef={scannerRef}
           onDetected={handleDetected}
         />
       </>
-      {/* ) : (
-         <DetailsPage data={data} />
-       )} */}
     </>
   );
 }
