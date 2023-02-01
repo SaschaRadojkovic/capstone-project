@@ -70,9 +70,9 @@ export default function DetailPage() {
     id: item,
   }));
 
-  const additivesArray = data.product.additives_original_tags.map((item) => ({
+  const additivesArray = data.product.additives_original_tags ? data.product.additives_original_tags.map((item) => ({
     id: item,
-  }));
+  })) : [];
 
   function Allergens() {
     return (
