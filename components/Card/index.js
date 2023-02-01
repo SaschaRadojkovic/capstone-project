@@ -18,8 +18,10 @@ export default function Card({ initialItemList, items }) {
   const [searchInput, setSearchInput] = useState("");
   const [selectedItems, setSelectedItems] = useAtom(initialItemList);
 
-  const filteredItems = items.tags.filter((item) =>
-    item.name.toLowerCase().includes(searchInput.toLowerCase())
+  const filteredItems = items.tags.filter(
+    (item) =>
+      !item.name.match(/:.*/) &&
+      item.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   function deleteAllAlert() {
