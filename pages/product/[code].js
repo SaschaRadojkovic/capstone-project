@@ -144,7 +144,7 @@ export default function DetailPage() {
           />
 
           <p>{data.product.brands}</p>
-          {/* <CompareAllergens /> */}
+          {/* show allergens and additives */}
           <section>
             <h3>Additives</h3>
             {data.product && data.product.additives_original_tags ? (
