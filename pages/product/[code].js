@@ -96,13 +96,7 @@ export default function DetailPage() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          router.push("/barcodeScanner");
-        }}
-      >
-        <span>◀︎</span>
-      </button>
+      <BackToScanner />
 
       {/* Found Product */}
 
