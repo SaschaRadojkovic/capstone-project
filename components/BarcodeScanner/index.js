@@ -1,8 +1,7 @@
 import { useRef, useState } from "react";
-import useSWR from "swr";
 import styled from "styled-components";
-import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 const Scanner = dynamic(() => import("@/components/Scanner"), {
   nossr: true,
 });
@@ -18,68 +17,36 @@ const StyledCanvas = styled.canvas`
   height: 100%;
 `;
 
-const StyledImage = styled(Image)`
-  width: 25%;
-  height: 25%;
-  object-fit: cover;
-`;
 export default function BarcodeScanner() {
-  const [scanning, setScanning] = useState(true);
+  const [, setScanning] = useState(true);
   const [result, setResult] = useState(null);
-
-  const { data } = useSWR(
-    result ? `https://de.openfoodfacts.org/api/v0/product/${result}.json` : null
-  );
+  const router = useRouter();
 
   const scannerRef = useRef(null);
 
   function handleDetected(_result) {
     setResult(_result.codeResult.code);
     setScanning(false);
+    router.push(`/product/${_result.codeResult.code}`);
   }
 
   return (
     <>
       {result && <p>{result}</p>}
       {/*Scanner Logic optimizable? */}
-      {scanning ? (
-        <>
-          <StyledSection ref={scannerRef}>
-            <StyledCanvas className="drawingBuffer" width="640" height="480" />
-          </StyledSection>
-          <Scanner
-            errorRate={0.55}
-            scannerRef={scannerRef}
-            onDetected={handleDetected}
-          />
-        </>
-      ) : (
-        <button
-          onClick={() => {
-            setScanning(true);
-            setResult(null);
-          }}
-        >
-          Try again!
-        </button>
-      )}
+      <>
+        <StyledSection ref={scannerRef}>
+          {/*class name drawing buffer is used by quagga
+           https://github.com/ericblade/quagga2/search?q=drawingBuffer */}
+          <StyledCanvas className="drawingBuffer" width="640" height="480" />
+        </StyledSection>
 
-      {/* Found Product */}
-
-      {data && data.product && (
-        <>
-          <p>{data.product.product_name} </p>
-
-          <StyledImage
-            width={1000}
-            height={1000}
-            src={data.product.image_front_url}
-            alt={data.product.product_name}
-          />
-
-          <p>{data.product.brands} </p>
-        </>
-      )}
+        <Scanner
+          errorRate={0.55}
+          scannerRef={scannerRef}
+          onDetected={handleDetected}
+        />
+      </>
     </>
   );
 }
