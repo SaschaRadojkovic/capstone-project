@@ -1,18 +1,46 @@
 import { useAtom } from "jotai";
-import { useState } from "react";
+import React, { useState } from "react";
 import { RESET } from "jotai/utils";
 import Swal from "sweetalert2";
 import styled from "styled-components";
-
+// import lbImg from "../../public/lb.jpg";
 const StyledUl = styled.ul`
+  padding: 10px;
+  padding-top: 10px;
+  margin: 10px;
   list-style: none;
+  background: white;
+  overflow-y: scroll;
+  max-height: 350px;
+  max-width: 610px;
+  min-width: 550px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
 `;
 
+const Line = styled.hr`
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+  border: none;
+`;
+const StyledSearchListUl = styled.ul`
+  margin-top: 0;
+  background: white;
+  height: 100px;
+  width: 190px;
+  overflow-y: scroll;
+  opacity: 0.8;
+`;
 const StyledSearchList = styled.li`
+  margin-left: -40px;
   list-style: none;
   color: grey;
-  max-width: 150px;
+  width: 150px;
+  background: white;
 `;
+
+const StyledInput = styled.input``;
 
 export default function Card({ initialItemList, items }) {
   const [searchInput, setSearchInput] = useState("");
@@ -43,10 +71,7 @@ export default function Card({ initialItemList, items }) {
 
   return (
     <>
-      <p>
-        Here you can set your allergens and additives you want to avoid in your
-        food
-      </p>
+      <p>Wähle deine Allergene und Additive</p>
 
       <form
         onSubmit={(event) => {
@@ -66,8 +91,10 @@ export default function Card({ initialItemList, items }) {
             setSelectedItems([...selectedItems, selectedItem]);
         }}
       >
-        <label htmlFor="searchBar">searchbar</label>
+        {/* input section */}
+        <label htmlFor="searchBar"></label>
         <input
+          placeholder="🔍"
           id="searchBar"
           autoComplete="off"
           name="search"
@@ -78,51 +105,57 @@ export default function Card({ initialItemList, items }) {
           }}
         />
         <button type="submit">Add</button>
+        {searchInput.length > 0 && (
+          // Search Preview
+          <StyledSearchListUl>
+            {filteredItems.map((item) => {
+              return (
+                <StyledSearchList
+                  key={item.name}
+                  onClick={() => {
+                    setSearchInput(
+                      item.name.includes(":") ? item.name.slice(3) : item.name
+                    );
+                  }}
+                >
+                  {item.name.includes(":") ? item.name.slice(3) : item.name}
+                </StyledSearchList>
+              );
+            })}
+          </StyledSearchListUl>
+        )}
       </form>
       {filteredItems.length === 0 && searchInput.length > 0
         ? "No search results"
         : null}
-      {searchInput.length > 0 && (
-        <ul>
-          {filteredItems.map((item) => {
-            return (
-              <StyledSearchList
-                key={item.name}
-                onClick={() => {
-                  setSearchInput(
-                    item.name.includes(":") ? item.name.slice(3) : item.name
-                  );
-                }}
-              >
-                {item.name.includes(":") ? item.name.slice(3) : item.name}
-              </StyledSearchList>
-            );
-          })}
-        </ul>
-      )}
 
       <StyledUl>
-        {selectedItems.map((selectedItem) => {
+        {selectedItems.map((selectedItem, index) => {
           return (
-            <li key={selectedItem.name}>
-              <button
-                type="button"
-                onClick={() => {
-                  if (selectedItems.length === 1) {
-                    setSelectedItems(RESET);
-                  } else {
-                    const newSelectedItems = selectedItems.filter(
-                      (item) => item.name !== selectedItem.name
-                    );
-                    setSelectedItems(newSelectedItems);
-                  }
-                }}
-              >
-                x
-              </button>
-              {selectedItem.name}
-            </li>
+            <div key={selectedItem.name}>
+              <li key={selectedItem.name}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (selectedItems.length === 1) {
+                      setSelectedItems(RESET);
+                    } else {
+                      const newSelectedItems = selectedItems.filter(
+                        (item) => item.name !== selectedItem.name
+                      );
+                      setSelectedItems(newSelectedItems);
+                    }
+                  }}
+                >
+                  x
+                </button>
+                {selectedItem.name}
+              </li>
+              {index !== items.length - 1 && <Line />}
+            </div>
           );
+          {
+          }
         })}
       </StyledUl>
       <section>
