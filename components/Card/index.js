@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import styled from "styled-components";
 // import lbImg from "../../public/lb.jpg";
 const StyledUl = styled.ul`
+  z-index: 2;
   padding: 10px;
   padding-top: 10px;
   margin: 10px;
@@ -13,13 +14,13 @@ const StyledUl = styled.ul`
   overflow-y: scroll;
   max-height: 350px;
   max-width: 610px;
-  min-width: 550px;
-  border-radius: 5px;
+  min-width: 320px;
+  border-radius: 0.7rem;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
 `;
 
 const Line = styled.hr`
-  width: 100%;
+  width: 300px;
   height: 1px;
   background-color: #ddd;
   border: none;
@@ -40,7 +41,20 @@ const StyledSearchList = styled.li`
   background: white;
 `;
 
-const StyledInput = styled.input``;
+const StyledDiv = styled.div`
+  display: flex;
+  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+`;
+const StyledButton = styled.button`
+  position: absolute;
+  right: 0;
+`;
+
+const StyledForm = styled.form`
+  z-index: 1;
+`;
 
 export default function Card({ initialItemList, items }) {
   const [searchInput, setSearchInput] = useState("");
@@ -73,7 +87,7 @@ export default function Card({ initialItemList, items }) {
     <>
       <p>Wähle deine Allergene und Additive</p>
 
-      <form
+      <StyledForm
         onSubmit={(event) => {
           event.preventDefault();
           const formData = new FormData(event.target);
@@ -124,7 +138,7 @@ export default function Card({ initialItemList, items }) {
             })}
           </StyledSearchListUl>
         )}
-      </form>
+      </StyledForm>
       {filteredItems.length === 0 && searchInput.length > 0
         ? "No search results"
         : null}
@@ -132,27 +146,27 @@ export default function Card({ initialItemList, items }) {
       <StyledUl>
         {selectedItems.map((selectedItem, index) => {
           return (
-            <div key={selectedItem.name}>
+            <StyledDiv key={selectedItem.name}>
               <li key={selectedItem.name}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (selectedItems.length === 1) {
-                      setSelectedItems(RESET);
-                    } else {
-                      const newSelectedItems = selectedItems.filter(
-                        (item) => item.name !== selectedItem.name
-                      );
-                      setSelectedItems(newSelectedItems);
-                    }
-                  }}
-                >
-                  x
-                </button>
-                {selectedItem.name}
+                {selectedItem.name} {index !== items.length - 1 && <Line />}
               </li>
-              {index !== items.length - 1 && <Line />}
-            </div>
+
+              <StyledButton
+                type="button"
+                onClick={() => {
+                  if (selectedItems.length === 1) {
+                    setSelectedItems(RESET);
+                  } else {
+                    const newSelectedItems = selectedItems.filter(
+                      (item) => item.name !== selectedItem.name
+                    );
+                    setSelectedItems(newSelectedItems);
+                  }
+                }}
+              >
+                x
+              </StyledButton>
+            </StyledDiv>
           );
           {
           }

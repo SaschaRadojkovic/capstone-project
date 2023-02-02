@@ -1,5 +1,15 @@
 import Head from "next/head";
 import BarcodeScanner from "@/components/BarcodeScanner";
+import { FooterWrapper, HeaderWrapper, NavBarWrapper } from "..";
+import { NavBar } from "@/components/Navigation";
+import BGImage from "@/components/BGImage";
+import { Footer } from "@/components/Footer";
+import styled from "styled-components";
+import { Header } from "@/components/Header";
+
+const StyledBgimage = styled.div`
+  z-index: 12;
+`;
 
 export default function BarcodeScannerPage() {
   return (
@@ -10,8 +20,19 @@ export default function BarcodeScannerPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <HeaderWrapper>
+        <Header />
+      </HeaderWrapper>
       <BarcodeScanner />
+      <NavBarWrapper>
+        <NavBar></NavBar>
+      </NavBarWrapper>
+
+      <BGImage />
+
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </>
   );
 }

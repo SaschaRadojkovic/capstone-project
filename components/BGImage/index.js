@@ -5,10 +5,15 @@ import styled from "styled-components";
 //this code is from  https://github.com/TomDoesTech/perfect-background-image-tutorial
 
 const Box = styled.div`
-  position: fixed;
-  z-index: 0;
-  top: 0;
+  position: absolute;
+
+  top: 60px;
 `;
+
+// const StyledPlaceHolder = styled.div`
+//   width: 100%;
+//   height: 10%;
+// `;
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -46,6 +51,7 @@ function BGImage() {
   if (width && height) {
     return (
       <Box>
+        {/* <StyledPlaceHolder></StyledPlaceHolder> */}
         <Image
           src="/../public/lb.jpg"
           width={width}

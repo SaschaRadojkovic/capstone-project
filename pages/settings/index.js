@@ -6,12 +6,16 @@ import Card from "@/components/Card";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 import { NavBar } from "@/components/Navigation";
-// import lbImg from "../../public/lb.jpg";
+
+import { FooterWrapper, HeaderWrapper, NavBarWrapper } from "..";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+
 const BgImage = dynamic(() => import("../../components/BGImage"), {
   ssr: false,
 });
 
-const StyledDiv = styled.div`
+const StyledWrapper = styled.div`
   z-index: 1;
   width: 100%;
   height: 100%;
@@ -31,6 +35,7 @@ const StyledButton = styled.button`
 `;
 
 const StyledButtonWrapper = styled.div`
+  z-index: 1;
   position: relative;
 `;
 
@@ -49,7 +54,10 @@ export default function Settings() {
 
   return (
     <>
-      <StyledDiv>
+      <HeaderWrapper>
+        <Header />
+      </HeaderWrapper>
+      <StyledWrapper>
         <StyledButtonWrapper>
           <StyledButton
             isActive={showAdditives}
@@ -71,9 +79,16 @@ export default function Settings() {
         ) : (
           <Card initialItemList={initialAllergens} items={allergens} />
         )}
-        <NavBar />
-      </StyledDiv>
-      <BgImage />
+
+        <BgImage />
+        <FooterWrapper>
+          <Footer />
+        </FooterWrapper>
+      </StyledWrapper>
+
+      <NavBarWrapper>
+        <NavBar style={{ width: "100%" }} />
+      </NavBarWrapper>
     </>
   );
 }

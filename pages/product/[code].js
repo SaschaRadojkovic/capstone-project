@@ -6,11 +6,27 @@ import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import { useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
+import { FooterWrapper, HeaderWrapper, NavBarWrapper } from "..";
+import { NavBar } from "@/components/Navigation";
+import BGImage from "@/components/BGImage";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 
 const StyledImage = styled(Image)`
   width: 25%;
   height: 25%;
   object-fit: cover;
+`;
+const StyledProductCard = styled.section`
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 5rem;
+  border-radius: 0.7rem;
+  text-align: center;
+  box-shadow: 0px 0px 10px 2px rgba(128, 128, 128, 0.25);
+`;
+const ZWrapper = styled.section`
+  z-index: 10;
 `;
 //getting additives from Localstorage with atom from jotai
 const initialAdditives = atomWithStorage("additives", [], {
@@ -70,9 +86,11 @@ export default function DetailPage() {
     id: item,
   }));
 
-  const additivesArray = data.product.additives_original_tags ? data.product.additives_original_tags.map((item) => ({
-    id: item,
-  })) : [];
+  const additivesArray = data.product.additives_original_tags
+    ? data.product.additives_original_tags.map((item) => ({
+        id: item,
+      }))
+    : [];
 
   function Allergens() {
     return (
@@ -102,44 +120,52 @@ export default function DetailPage() {
 
       {data && data.product ? (
         <>
-          <h2>{data.product.product_name} </h2>
-          {/* if user have not chosen additives show message */}
-          {additivesFromStorage.length > 0 ? (
-            <p>
-              Additive:
-              {filteredAdditives.length > 0 ? (
-                <span> ❌</span>
+          {" "}
+          <HeaderWrapper>
+            <Header />
+          </HeaderWrapper>
+          <ZWrapper>
+            <StyledProductCard>
+              <h2>{data.product.product_name} </h2>
+              {/* if user have not chosen additives show message */}
+              {additivesFromStorage.length > 0 ? (
+                <p>
+                  Additive:
+                  {filteredAdditives.length > 0 ? (
+                    <span> ❌</span>
+                  ) : (
+                    <span> ✅</span>
+                  )}
+                </p>
               ) : (
-                <span> ✅</span>
+                <p>choose your additives</p>
               )}
-            </p>
-          ) : (
-            <p>choose your additives</p>
-          )}
-          {/* if user have not chosen allergens show message */}
-          {allergensFromStorage.length > 0 ? (
-            <p>
-              Allergene:
-              {filteredAllergens.length > 0 ? (
-                <span> ❌</span>
+              {/* if user have not chosen allergens show message */}
+              {allergensFromStorage.length > 0 ? (
+                <p>
+                  Allergene:
+                  {filteredAllergens.length > 0 ? (
+                    <span> ❌</span>
+                  ) : (
+                    <span> ✅</span>
+                  )}
+                </p>
               ) : (
-                <span> ✅</span>
+                <p>choose your allergens</p>
               )}
-            </p>
-          ) : (
-            <p>choose your allergens</p>
-          )}
 
-          <StyledImage
-            width={1000}
-            height={1000}
-            src={data.product.image_front_url}
-            alt={data.product.product_name}
-          />
+              <StyledImage
+                width={1000}
+                height={1000}
+                src={data.product.image_front_url}
+                alt={data.product.product_name}
+              />
 
-          <p>{data.product.brands}</p>
+              <p>{data.product.brands}</p>
+            </StyledProductCard>
+          </ZWrapper>
           {/* show allergens and additives */}
-          <section>
+          <StyledProductCard>
             <h3>Additives</h3>
             {data.product && data.product.additives_original_tags ? (
               data.product.additives_original_tags.map((additive) => (
@@ -153,13 +179,20 @@ export default function DetailPage() {
                 />
               ))
             ) : (
-              <p>No additives listed</p>
+              <p>keine Additive gelistet</p>
             )}
-          </section>
-          <section>
-            <h3>Allergens</h3>
+          </StyledProductCard>
+          <StyledProductCard>
+            <h3>Allergene</h3>
             <Allergens />
-          </section>
+          </StyledProductCard>
+          <NavBarWrapper>
+            <NavBar style={{ width: "100%" }} />
+          </NavBarWrapper>
+          {/* <BGImage /> */}
+          <FooterWrapper>
+            <Footer />
+          </FooterWrapper>
         </>
       ) : (
         <>

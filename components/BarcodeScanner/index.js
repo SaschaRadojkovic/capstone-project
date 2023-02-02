@@ -7,6 +7,7 @@ const Scanner = dynamic(() => import("@/components/Scanner"), {
 });
 
 const StyledSection = styled.section`
+  z-index: 1;
   position: relative;
   overflow: hidden;
 `;
