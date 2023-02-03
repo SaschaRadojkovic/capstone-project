@@ -51,6 +51,7 @@ function BGImage() {
           width={width}
           height={height}
           alt="a knive and leafs on a wooden table"
+          priority={true}
         />
       </Box>
     );

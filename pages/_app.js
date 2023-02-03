@@ -1,4 +1,3 @@
-import BGImage from "@/components/BGImage";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { NavBar } from "@/components/Navigation";
@@ -37,7 +36,7 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps}></Component>
         <Header />
         <NavBar />
-        <BGImage />
+        <BgImage />
         <Footer />
       </SWRConfig>
     </>
