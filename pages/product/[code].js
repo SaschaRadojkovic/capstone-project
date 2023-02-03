@@ -6,11 +6,10 @@ import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import { useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
-import { FooterWrapper, HeaderWrapper, NavBarWrapper } from "..";
-import { NavBar } from "@/components/Navigation";
-import BGImage from "@/components/BGImage";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import dynamic from "next/dynamic";
+const BgImage = dynamic(() => import("@/components/BGImage"), {
+  ssr: false,
+});
 
 const StyledImage = styled(Image)`
   width: 20%;
@@ -25,10 +24,9 @@ const StyledProductCard = styled.section`
   border-radius: 0.7rem;
   text-align: center;
   box-shadow: 0px 0px 10px 2px rgba(128, 128, 128, 0.25);
+  height: 100%;
 `;
-const ZWrapper = styled.section`
-  //   z-index: 10;
-`;
+
 //getting additives from Localstorage with atom from jotai
 const initialAdditives = atomWithStorage("additives", [], {
   ...createJSONStorage(() => localStorage),
@@ -53,15 +51,32 @@ export default function DetailPage() {
     return <div>{additive}</div>;
   }
 
+  const StyledBackButton = styled.div`
+    left: 1rem;
+    top: 2rem;
+    position: absolute;
+    z-index: 1;
+  `;
+
+  const NoProduct = styled.p`
+    font-size: 35px;
+    left: 5rem;
+    top: 200px;
+    position: absolute;
+    z-index: 4;
+  `;
+
   function BackToScanner() {
     return (
-      <button
-        onClick={() => {
-          router.push("/barcodeScanner");
-        }}
-      >
-        <span>◀︎</span>
-      </button>
+      <StyledBackButton>
+        <span
+          onClick={() => {
+            router.push("/barcodeScanner");
+          }}
+        >
+          BACK
+        </span>
+      </StyledBackButton>
     );
   }
   if (!data) {
@@ -76,7 +91,10 @@ export default function DetailPage() {
     return (
       <>
         <BackToScanner />
-        <p>Product not found</p>
+        <NoProduct>
+          Product not found!
+          <br /> Scan again!
+        </NoProduct>
       </>
     );
   }
@@ -121,80 +139,66 @@ export default function DetailPage() {
 
       {data && data.product ? (
         <>
-          {" "}
-          {/* <HeaderWrapper> */}
-          <Header />
-          {/* </HeaderWrapper> */}
-          <ZWrapper>
-            <StyledProductCard>
-              <h2>{data.product.product_name} </h2>
-              {/* if user have not chosen additives show message */}
-              {additivesFromStorage.length > 0 ? (
-                <p>
-                  Additive:
-                  {filteredAdditives.length > 0 ? (
-                    <span> ❌</span>
-                  ) : (
-                    <span> ✅</span>
-                  )}
-                </p>
-              ) : (
-                <p>choose your additives</p>
-              )}
-              {/* if user have not chosen allergens show message */}
-              {allergensFromStorage.length > 0 ? (
-                <p>
-                  Allergene:
-                  {filteredAllergens.length > 0 ? (
-                    <span> ❌</span>
-                  ) : (
-                    <span> ✅</span>
-                  )}
-                </p>
-              ) : (
-                <p>choose your allergens</p>
-              )}
+          <StyledProductCard>
+            <h2>{data.product.product_name} </h2>
+            {/* if user have not chosen additives show message */}
+            {additivesFromStorage.length > 0 ? (
+              <p>
+                Additive:
+                {filteredAdditives.length > 0 ? (
+                  <span> ❌</span>
+                ) : (
+                  <span> ✅</span>
+                )}
+              </p>
+            ) : (
+              <p>choose your additives</p>
+            )}
+            {/* if user have not chosen allergens show message */}
+            {allergensFromStorage.length > 0 ? (
+              <p>
+                Allergene:
+                {filteredAllergens.length > 0 ? (
+                  <span> ❌</span>
+                ) : (
+                  <span> ✅</span>
+                )}
+              </p>
+            ) : (
+              <p>choose your allergens</p>
+            )}
 
-              <StyledImage
-                width={1000}
-                height={1000}
-                src={data.product.image_front_url}
-                alt={data.product.product_name}
-              />
+            <StyledImage
+              width={1000}
+              height={1000}
+              src={data.product.image_front_url}
+              alt={data.product.product_name}
+            />
 
-              <p>{data.product.brands}</p>
-            </StyledProductCard>
-
-            {/* show allergens and additives */}
-            <StyledProductCard>
-              <h3>Additives</h3>
-              {data.product && data.product.additives_original_tags ? (
-                data.product.additives_original_tags.map((additive) => (
-                  <Additives
-                    key={additive}
-                    additive={
-                      additives.tags.find((addi) => {
-                        return addi.id === additive;
-                      })?.name
-                    }
-                  />
-                ))
-              ) : (
-                <p>keine Additive gelistet</p>
-              )}
-            </StyledProductCard>
-            <StyledProductCard>
-              <h3>Allergene</h3>
-              <Allergens />
-            </StyledProductCard>
-            {/* <NavBarWrapper> */}
-            <NavBar style={{ width: "100%" }} />
-            {/* </NavBarWrapper> */}
-            {/* <BGImage /> */}
-            {/* <FooterWrapper> */}
-            <Footer />
-            {/* </FooterWrapper> */}
-          </ZWrapper>
+            <p>{data.product.brands}</p>
+          </StyledProductCard>
+          {/* show allergens and additives */}
+          <StyledProductCard>
+            <h3>Additives</h3>
+            {data.product && data.product.additives_original_tags ? (
+              data.product.additives_original_tags.map((additive) => (
+                <Additives
+                  key={additive}
+                  additive={
+                    additives.tags.find((addi) => {
+                      return addi.id === additive;
+                    })?.name
+                  }
+                />
+              ))
+            ) : (
+              <p>keine Additive gelistet</p>
+            )}
+          </StyledProductCard>
+          <StyledProductCard>
+            <h3>Allergene</h3>
+            <Allergens />
+          </StyledProductCard>
         </>
       ) : (
         <>

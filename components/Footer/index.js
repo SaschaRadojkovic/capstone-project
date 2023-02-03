@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FooterWrapper = styled.footer`
-  z-index: 1;
   bottom: 0;
   padding-top: 2rem;
   box-shadow: 1px 1px 10px;

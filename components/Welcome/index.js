@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const WelcomeWrapper = styled.div`
-  top: 200px;
-  z-index: 5;
+  margin: 100px;
   text-align: center;
 `;
 

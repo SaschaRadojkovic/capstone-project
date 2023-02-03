@@ -1,28 +1,22 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import Card from "@/components/Card";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
-import { NavBar } from "@/components/Navigation";
-
-import { FooterWrapper, HeaderWrapper, NavBarWrapper } from "..";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 const BgImage = dynamic(() => import("../../components/BGImage"), {
   ssr: false,
 });
 
 const StyledWrapper = styled.div`
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 100%;
   position: fixed;
   justify-content: center;
   align-items: center;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,7 +48,6 @@ export default function Settings() {
 
   return (
     <>
-      <Header />
       <StyledWrapper>
         <StyledButtonWrapper>
           <StyledButton
@@ -77,16 +70,7 @@ export default function Settings() {
         ) : (
           <Card initialItemList={initialAllergens} items={allergens} />
         )}
-
-        <BgImage />
-        {/* <FooterWrapper> */}
-        <Footer />
-        {/* </FooterWrapper> */}
       </StyledWrapper>
-
-      {/* <NavBarWrapper> */}
-      <NavBar style={{ width: "100%" }} />
-      {/* </NavBarWrapper> */}
     </>
   );
 }

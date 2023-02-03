@@ -52,10 +52,6 @@ const StyledButton = styled.button`
   right: 0;
 `;
 
-const StyledForm = styled.form`
-  z-index: 1;
-`;
-
 export default function Card({ initialItemList, items }) {
   const [searchInput, setSearchInput] = useState("");
   const [selectedItems, setSelectedItems] = useAtom(initialItemList);
@@ -87,7 +83,7 @@ export default function Card({ initialItemList, items }) {
     <>
       <p>Wähle deine Allergene und Additive</p>
 
-      <StyledForm
+      <form
         onSubmit={(event) => {
           event.preventDefault();
           const formData = new FormData(event.target);
@@ -138,7 +134,7 @@ export default function Card({ initialItemList, items }) {
             })}
           </StyledSearchListUl>
         )}
-      </StyledForm>
+      </form>
       {filteredItems.length === 0 && searchInput.length > 0
         ? "No search results"
         : null}
