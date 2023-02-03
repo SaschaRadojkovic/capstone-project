@@ -1,6 +1,5 @@
 import Head from "next/head";
 import BarcodeScanner from "@/components/BarcodeScanner";
-import { Header } from "@/components/Header";
 import dynamic from "next/dynamic";
 const BgImage = dynamic(() => import("@/components/BGImage"), {
   ssr: false,
@@ -15,7 +14,6 @@ export default function BarcodeScannerPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <BarcodeScanner />
     </>
   );
