@@ -47,7 +47,7 @@ function BGImage() {
     return (
       <Box>
         <Image
-          src="/../public/lb.jpg"
+          src="/lb.jpg"
           width={width}
           height={height}
           alt="a knive and leafs on a wooden table"
