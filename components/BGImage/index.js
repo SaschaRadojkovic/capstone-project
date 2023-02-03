@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Box = styled.div`
   position: absolute;
-
+  z-index: -1;
   top: 60px;
 `;
 

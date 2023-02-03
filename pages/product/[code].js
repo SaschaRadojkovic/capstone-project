@@ -13,11 +13,12 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 const StyledImage = styled(Image)`
-  width: 25%;
-  height: 25%;
+  width: 20%;
+  height: 20%;
   object-fit: cover;
 `;
 const StyledProductCard = styled.section`
+  background-color: white;
   margin-left: 3rem;
   margin-right: 3rem;
   margin-top: 5rem;
@@ -26,7 +27,7 @@ const StyledProductCard = styled.section`
   box-shadow: 0px 0px 10px 2px rgba(128, 128, 128, 0.25);
 `;
 const ZWrapper = styled.section`
-  z-index: 10;
+  //   z-index: 10;
 `;
 //getting additives from Localstorage with atom from jotai
 const initialAdditives = atomWithStorage("additives", [], {
@@ -121,9 +122,9 @@ export default function DetailPage() {
       {data && data.product ? (
         <>
           {" "}
-          <HeaderWrapper>
-            <Header />
-          </HeaderWrapper>
+          {/* <HeaderWrapper> */}
+          <Header />
+          {/* </HeaderWrapper> */}
           <ZWrapper>
             <StyledProductCard>
               <h2>{data.product.product_name} </h2>
@@ -163,36 +164,37 @@ export default function DetailPage() {
 
               <p>{data.product.brands}</p>
             </StyledProductCard>
-          </ZWrapper>
-          {/* show allergens and additives */}
-          <StyledProductCard>
-            <h3>Additives</h3>
-            {data.product && data.product.additives_original_tags ? (
-              data.product.additives_original_tags.map((additive) => (
-                <Additives
-                  key={additive}
-                  additive={
-                    additives.tags.find((addi) => {
-                      return addi.id === additive;
-                    })?.name
-                  }
-                />
-              ))
-            ) : (
-              <p>keine Additive gelistet</p>
-            )}
-          </StyledProductCard>
-          <StyledProductCard>
-            <h3>Allergene</h3>
-            <Allergens />
-          </StyledProductCard>
-          <NavBarWrapper>
+
+            {/* show allergens and additives */}
+            <StyledProductCard>
+              <h3>Additives</h3>
+              {data.product && data.product.additives_original_tags ? (
+                data.product.additives_original_tags.map((additive) => (
+                  <Additives
+                    key={additive}
+                    additive={
+                      additives.tags.find((addi) => {
+                        return addi.id === additive;
+                      })?.name
+                    }
+                  />
+                ))
+              ) : (
+                <p>keine Additive gelistet</p>
+              )}
+            </StyledProductCard>
+            <StyledProductCard>
+              <h3>Allergene</h3>
+              <Allergens />
+            </StyledProductCard>
+            {/* <NavBarWrapper> */}
             <NavBar style={{ width: "100%" }} />
-          </NavBarWrapper>
-          {/* <BGImage /> */}
-          <FooterWrapper>
+            {/* </NavBarWrapper> */}
+            {/* <BGImage /> */}
+            {/* <FooterWrapper> */}
             <Footer />
-          </FooterWrapper>
+            {/* </FooterWrapper> */}
+          </ZWrapper>
         </>
       ) : (
         <>

@@ -54,9 +54,7 @@ export default function Settings() {
 
   return (
     <>
-      <HeaderWrapper>
-        <Header />
-      </HeaderWrapper>
+      <Header />
       <StyledWrapper>
         <StyledButtonWrapper>
           <StyledButton
@@ -81,14 +79,14 @@ export default function Settings() {
         )}
 
         <BgImage />
-        <FooterWrapper>
-          <Footer />
-        </FooterWrapper>
+        {/* <FooterWrapper> */}
+        <Footer />
+        {/* </FooterWrapper> */}
       </StyledWrapper>
 
-      <NavBarWrapper>
-        <NavBar style={{ width: "100%" }} />
-      </NavBarWrapper>
+      {/* <NavBarWrapper> */}
+      <NavBar style={{ width: "100%" }} />
+      {/* </NavBarWrapper> */}
     </>
   );
 }

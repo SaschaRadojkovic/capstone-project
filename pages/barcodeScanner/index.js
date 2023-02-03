@@ -20,19 +20,19 @@ export default function BarcodeScannerPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderWrapper>
-        <Header />
-      </HeaderWrapper>
+      {/* <HeaderWrapper> */}
+      <Header />
+      {/* </HeaderWrapper> */}
       <BarcodeScanner />
-      <NavBarWrapper>
-        <NavBar></NavBar>
-      </NavBarWrapper>
+      {/* <NavBarWrapper> */}
+      <NavBar></NavBar>
+      {/* </NavBarWrapper> */}
 
       <BGImage />
-
-      <FooterWrapper>
-        <Footer />
-      </FooterWrapper>
+      {/* 
+      <FooterWrapper> */}
+      <Footer />
+      {/* </FooterWrapper> */}
     </>
   );
 }
