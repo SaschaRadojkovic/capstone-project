@@ -170,20 +170,22 @@ export default function Card({ initialItemList, items }) {
         {searchInput.length > 0 && (
           // Search Preview
           <StyledSearchListUl id="dliste">
-            {filteredItems.map((item) => {
-              return (
-                <StyledSearchList
-                  key={item.name}
-                  onClick={() => {
-                    setSearchInput(
-                      item.name.includes(":") ? item.name.slice(3) : item.name
-                    );
-                  }}
-                >
-                  {item.name.includes(":") ? item.name.slice(3) : item.name}
-                </StyledSearchList>
-              );
-            })}
+            <select>
+              {filteredItems.map((item) => {
+                return (
+                  <StyledSearchList
+                    key={item.name}
+                    onClick={() => {
+                      setSearchInput(
+                        item.name.includes(":") ? item.name.slice(3) : item.name
+                      );
+                    }}
+                  >
+                    {item.name.includes(":") ? item.name.slice(3) : item.name}
+                  </StyledSearchList>
+                );
+              })}
+            </select>
           </StyledSearchListUl>
         )}
 
