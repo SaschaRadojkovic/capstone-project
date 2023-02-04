@@ -202,7 +202,7 @@ export default function DetailPage() {
       ) : (
         <>
           <BackToScanner />
-          <p>Scanne Nochmal"</p>
+          <p>Scanne Nochmal!</p>
         </>
       )}
     </>

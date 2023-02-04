@@ -6,23 +6,27 @@ import { SVGIcon } from "../SVGIcon";
 export const NavBarWrapper = styled.div`
   position: fixed;
   display: flex;
-  gap: 150px;
   justify-content: space-between;
   padding: 20px;
   align-items: center;
   bottom: 0;
-
   z-index: 2;
 
   @media (max-width: 768px) {
-    flex-direction: row;
-    justify-content: center;
-    left: 280px;
+    gap: 60px;
+    left: 140px;
+  }
+  @media (min-width: 375px) {
+    gap: 80px;
+    left: 170px;
+  }
+  @media (min-width: 425px) {
+    gap: 100px;
+    left: 190px;
   }
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: center;
-    left: 340px;
+    gap: 280px;
+    left: 365px;
   }
 `;
 

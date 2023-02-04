@@ -9,14 +9,15 @@ const StyledUl = styled.ul`
   z-index: 2;
   padding: 0;
   padding-top: 10px;
-  margin-top: 1rem;
+  // margin: 1rem, 1rem;
+  // margin-top: 1rem;
   margin-left: 3rem;
-  margin-right: 3rem;
+  // margin-right: -3rem;
   list-style: none;
   background: white;
   overflow-y: scroll;
   max-height: 350px;
-  max-width: 80%;
+  width: 100%;
   min-width: 320px;
   border-radius: 0.4rem;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
