@@ -25,13 +25,28 @@ const StyledWrapper = styled.div`
 
 const StyledButton = styled.button`
   font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
-  margin-left: 50px;
+  color: ${(props) => (props.isActive ? "black" : "grey")};
+  background: none;
+  border: ${(props) => (props.isActive ? "1px solid black" : "1px solid grey")};
+  font-size: inherit;
+  cursor: pointer;
+  // color: inherit;
+  position: relative;
+  bottom: -38rem;
+  left: 1.5rem;
+  // border: 1px solid grey;
+  padding: 15px;
+  border-radius: 0.4rem;
+  background-color: ${(props) => (props.isActive ? "#E2D194" : "#EFE7CC")};
+  z-index: 3;
+  width: 100%;
 `;
 
 const StyledButtonWrapper = styled.div`
-  z-index: 1;
-  position: relative;
-  top: 560px;
+  display: flex;
+  position: sticky;
+  // bottom: 80px;
+  gap: 1rem;
 `;
 
 const initialAdditives = atomWithStorage("additives", [], {

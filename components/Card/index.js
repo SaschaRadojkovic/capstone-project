@@ -65,7 +65,6 @@ const StyledButton = styled.button`
   cursor: pointer;
   color: inherit;
   position: absolute;
-
   right: 0;
 `;
 const StyledAddButton = styled.button`
