@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
           <title>Eatable</title>
         </Head>
         <Component {...pageProps}></Component>
-        {/* <Header /> */}
+        <Header />
         <BgImage />
         <Footer />
         <NavBar />

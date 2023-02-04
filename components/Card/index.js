@@ -5,20 +5,29 @@ import Swal from "sweetalert2";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
 // import lbImg from "../../public/lb.jpg";
+
+const StyledContainer = styled.div`
+  display: flex;
+`;
+
 const StyledUl = styled.ul`
-  z-index: 2;
-  padding: 0;
-  padding-top: 10px;
+  // position: relative;
+  // justify-content: flex-end;
+  z-index: 0;
+
+  padding: 10px;
   // margin: 1rem, 1rem;
   // margin-top: 1rem;
-  margin-left: 3rem;
-  // margin-right: -3rem;
+  margin: 2rem;
+  // margin-left: 3.5rem;
+  // margin-right: 3.5rem;
+
   list-style: none;
   background: white;
   overflow-y: scroll;
   max-height: 350px;
   width: 100%;
-  min-width: 320px;
+  min-width: 300px;
   border-radius: 0.4rem;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
   overflow-x: hidden;
@@ -31,7 +40,7 @@ const Line = styled.hr`
   background-color: #ddd;
   border: none;
 `;
-const StyledSearchListUl = styled.ul`
+const StyledSearchListUl = styled.datalist`
   border-radius: 0.2rem;
   width: 79.5%;
   margin-left: -0.1rem;
@@ -41,13 +50,6 @@ const StyledSearchListUl = styled.ul`
   // width: 190px;
   overflow-y: scroll;
   opacity: 0.8;
-`;
-const StyledSearchList = styled.li`
-  margin-left: -40px;
-  list-style: none;
-  color: grey;
-  width: 20rem;
-  background: white;
 `;
 
 const StyledDiv = styled.div`
@@ -68,23 +70,36 @@ const StyledButton = styled.button`
   right: 0;
 `;
 const StyledAddButton = styled.button`
-  margin-left: 11rem;
-  margin-top: -2rem;
+  background: none;
+  border: none;
+  padding: 0;
+`;
+
+const StyledSearchList = styled.option`
+  width: 100%;
+  // grid-column: 1 / 3;
+  margin-left: -40px;
+  list-style: none;
+  color: grey;
+  width: 20rem;
+  background: white;
 `;
 
 const StyledInput = styled.input`
-  width: 80%;
-  padding: 12px 20px;
-
+  width: 100%;
   border: 2px solid #ccc;
   border-radius: 0.4rem;
-  font-size: 16px;
 `;
 const StyledSearchbar = styled.form`
-  margin-top: 6rem;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+  // margin-top: 6rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
 `;
 
 export default function Card({ initialItemList, items }) {
@@ -137,10 +152,11 @@ export default function Card({ initialItemList, items }) {
         }}
       >
         {/* input section */}
+
         <label htmlFor="searchBar"></label>
 
         <StyledInput
-          placeholder="🔍"
+          list="dliste"
           id="searchBar"
           autoComplete="off"
           name="search"
@@ -150,12 +166,10 @@ export default function Card({ initialItemList, items }) {
             setSearchInput(event.target.value);
           }}
         />
-        <StyledAddButton type="submit">
-          <span>➕</span>
-        </StyledAddButton>
+
         {searchInput.length > 0 && (
           // Search Preview
-          <StyledSearchListUl>
+          <StyledSearchListUl id="dliste">
             {filteredItems.map((item) => {
               return (
                 <StyledSearchList
@@ -172,44 +186,50 @@ export default function Card({ initialItemList, items }) {
             })}
           </StyledSearchListUl>
         )}
+
+        <StyledAddButton type="submit">
+          <SVGIcon variant="add" width="50px" />
+        </StyledAddButton>
       </StyledSearchbar>
 
       {filteredItems.length === 0 && searchInput.length > 0
         ? "No search results"
         : null}
+      <StyledContainer>
+        <StyledUl>
+          {selectedItems.map((selectedItem, index) => {
+            return (
+              <StyledDiv key={selectedItem.name}>
+                <li key={selectedItem.name}></li>
+                <li>
+                  {selectedItem.name} {index !== items.length - 1 && <Line />}
+                </li>
 
-      <StyledUl>
-        {selectedItems.map((selectedItem, index) => {
-          return (
-            <StyledDiv key={selectedItem.name}>
-              <li key={selectedItem.name}></li>
-              <li>
-                {selectedItem.name} {index !== items.length - 1 && <Line />}
-              </li>
+                <StyledButton
+                  variant="delete"
+                  width="30px"
+                  type="button"
+                  onClick={() => {
+                    if (selectedItems.length === 1) {
+                      setSelectedItems(RESET);
+                    } else {
+                      const newSelectedItems = selectedItems.filter(
+                        (item) => item.name !== selectedItem.name
+                      );
+                      setSelectedItems(newSelectedItems);
+                    }
+                  }}
+                >
+                  <SVGIcon variant="delete" width="26px" />
+                </StyledButton>
+              </StyledDiv>
+            );
+            {
+            }
+          })}
+        </StyledUl>
+      </StyledContainer>
 
-              <StyledButton
-                variant="delete"
-                width="30px"
-                type="button"
-                onClick={() => {
-                  if (selectedItems.length === 1) {
-                    setSelectedItems(RESET);
-                  } else {
-                    const newSelectedItems = selectedItems.filter(
-                      (item) => item.name !== selectedItem.name
-                    );
-                    setSelectedItems(newSelectedItems);
-                  }
-                }}
-              >
-                <SVGIcon variant="delete" width="26px" />
-              </StyledButton>
-            </StyledDiv>
-          );
-          {
-          }
-        })}
-      </StyledUl>
       <section>
         <button onClick={deleteAllAlert}>Alle Löschen</button>
       </section>
