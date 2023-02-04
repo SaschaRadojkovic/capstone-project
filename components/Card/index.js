@@ -6,19 +6,12 @@ import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
 // import lbImg from "../../public/lb.jpg";
 
-const StyledContainer = styled.div`
-  display: flex;
-`;
+const StyledContainer = styled.div``;
 
 const StyledUl = styled.ul`
-  // position: relative;
-  // justify-content: flex-end;
-  z-index: 0;
-
   padding: 10px;
-  // margin: 1rem, 1rem;
-  // margin-top: 1rem;
-  margin: 2rem;
+  margin-top: 10px;
+
   // margin-left: 3.5rem;
   // margin-right: 3.5rem;
 
@@ -34,72 +27,84 @@ const StyledUl = styled.ul`
 `;
 
 const Line = styled.hr`
-  // margin-top: 0rem;
   width: 200rem;
   height: 1px;
   background-color: #ddd;
   border: none;
 `;
-const StyledSearchListUl = styled.datalist`
-  border-radius: 0.2rem;
-  width: 79.5%;
-  margin-left: -0.1rem;
-  margin-top: 0.4rem;
-  background: white;
-  height: 100px;
-  // width: 190px;
+const StyledSearchListUl = styled.ul`
   overflow-y: scroll;
-  opacity: 0.8;
+  max-height: 50vh;
+  position: absolute;
+  top: 12.3rem;
+  border-radius: 0.4rem;
+
+  width: calc(100vw - 3rem);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
 `;
 
-const StyledDiv = styled.div`
+const StyledDiv = styled.li`
   display: flex;
-  gap: 14px;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
+  flex-direction: column;
 `;
-const StyledButton = styled.button`
-  margin-top: -0.4rem;
+const StyledDeleteButton = styled.button`
+  // margin-top: -0.4rem;
   background: none;
   border: none;
   padding: 0;
   font-size: inherit;
   cursor: pointer;
   color: inherit;
-  position: absolute;
+  // position: absolute;
   right: 0;
 `;
 const StyledAddButton = styled.button`
-  background: none;
   border: none;
-  padding: 0;
+  font-size: 2rem;
+  color: white;
+  background: black;
+  font-weight: bold;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border-radius: 0.4rem;
 `;
 
-const StyledSearchList = styled.option`
-  width: 100%;
-  // grid-column: 1 / 3;
-  margin-left: -40px;
-  list-style: none;
-  color: grey;
-  width: 20rem;
+const StyledSearchList = styled.li`
+  padding: 0.3rem;
+  color: gray;
   background: white;
 `;
 
 const StyledInput = styled.input`
-  width: 100%;
+  width: calc(100vw - 6rem);
   border: 2px solid #ccc;
   border-radius: 0.4rem;
+  height: 2.5rem;
+  font-size: 1rem;
 `;
 const StyledSearchbar = styled.form`
-  width: 100%;
-  flex-grow: 1;
-  justify-content: center;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  display: flex;
+`;
 
-  // margin-top: 6rem;
+const StyledContent = styled.div`
+  margin: 1.5rem;
+  margin-top: 8rem;
+`;
+
+const StyledAutoComplete = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+const StyledRow = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+const StyledText = styled.div`
+  margin-top: 0.5rem;
+  width: 96%;
 `;
 
 export default function Card({ initialItemList, items }) {
@@ -131,111 +136,111 @@ export default function Card({ initialItemList, items }) {
 
   return (
     <>
-      <p>Wähle deine Allergene und Additive</p>
+      <StyledContent>
+        <p>Wähle deine Allergene und Additive</p>
 
-      <StyledSearchbar
-        onSubmit={(event) => {
-          event.preventDefault();
-          const formData = new FormData(event.target);
-          const data = Object.fromEntries(formData);
-          setSearchInput("");
-          const selectedItem = filteredItems.find(
-            (item) => item.name === data.search
-          );
-
-          if (
-            //makes reselection impossible
-            selectedItem &&
-            !selectedItems.find((item) => item.name === selectedItem.name)
-          )
-            setSelectedItems([...selectedItems, selectedItem]);
-        }}
-      >
-        {/* input section */}
-
-        <label htmlFor="searchBar"></label>
-
-        <StyledInput
-          list="dliste"
-          id="searchBar"
-          autoComplete="off"
-          name="search"
-          type="text"
-          value={searchInput}
-          onChange={(event) => {
-            setSearchInput(event.target.value);
-          }}
-        />
-
-        {searchInput.length > 0 && (
-          // Search Preview
-          <StyledSearchListUl id="dliste">
-            <select>
-              {filteredItems.map((item) => {
-                return (
-                  <StyledSearchList
-                    key={item.name}
-                    onClick={() => {
-                      setSearchInput(
-                        item.name.includes(":") ? item.name.slice(3) : item.name
-                      );
-                    }}
-                  >
-                    {item.name.includes(":") ? item.name.slice(3) : item.name}
-                  </StyledSearchList>
-                );
-              })}
-            </select>
-          </StyledSearchListUl>
-        )}
-
-        <StyledAddButton type="submit">
-          <SVGIcon variant="add" width="50px" />
-        </StyledAddButton>
-      </StyledSearchbar>
-
-      {filteredItems.length === 0 && searchInput.length > 0
-        ? "No search results"
-        : null}
-      <StyledContainer>
-        <StyledUl>
-          {selectedItems.map((selectedItem, index) => {
-            return (
-              <StyledDiv key={selectedItem.name}>
-                <li key={selectedItem.name}></li>
-                <li>
-                  {selectedItem.name} {index !== items.length - 1 && <Line />}
-                </li>
-
-                <StyledButton
-                  variant="delete"
-                  width="30px"
-                  type="button"
-                  onClick={() => {
-                    if (selectedItems.length === 1) {
-                      setSelectedItems(RESET);
-                    } else {
-                      const newSelectedItems = selectedItems.filter(
-                        (item) => item.name !== selectedItem.name
-                      );
-                      setSelectedItems(newSelectedItems);
-                    }
-                  }}
-                >
-                  <SVGIcon variant="delete" width="26px" />
-                </StyledButton>
-              </StyledDiv>
+        <StyledSearchbar
+          onSubmit={(event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            setSearchInput("");
+            const selectedItem = filteredItems.find(
+              (item) => item.name === data.search
             );
-            {
-            }
-          })}
-        </StyledUl>
-      </StyledContainer>
 
-      <section>
-        <button onClick={deleteAllAlert}>Alle Löschen</button>
-      </section>
-      <br />
+            if (
+              //makes reselection impossible
+              selectedItem &&
+              !selectedItems.find((item) => item.name === selectedItem.name)
+            )
+              setSelectedItems([...selectedItems, selectedItem]);
+          }}
+        >
+          {/* input section */}
+
+          <label htmlFor="searchBar"></label>
+          <StyledAutoComplete>
+            <StyledInput
+              list="dliste"
+              id="searchBar"
+              autoComplete="off"
+              name="search"
+              type="text"
+              value={searchInput}
+              onChange={(event) => {
+                setSearchInput(event.target.value);
+              }}
+            />
+            {searchInput.length > 0 && (
+              // Search Preview
+              <StyledSearchListUl id="dliste">
+                {filteredItems.map((item) => {
+                  return (
+                    <StyledSearchList
+                      key={item.name}
+                      onClick={() => {
+                        setSearchInput(
+                          item.name.includes(":")
+                            ? item.name.slice(3)
+                            : item.name
+                        );
+                      }}
+                    >
+                      {item.name.includes(":") ? item.name.slice(3) : item.name}
+                    </StyledSearchList>
+                  );
+                })}
+              </StyledSearchListUl>
+            )}
+          </StyledAutoComplete>
+
+          <StyledAddButton type="submit">+</StyledAddButton>
+        </StyledSearchbar>
+
+        {filteredItems.length === 0 && searchInput.length > 0
+          ? "No search results"
+          : null}
+        <StyledContainer>
+          <StyledUl>
+            {selectedItems.map((selectedItem, index) => {
+              return (
+                <StyledDiv key={selectedItem.name}>
+                  <StyledRow>
+                    <StyledText>{selectedItem.name}</StyledText>
+                    <StyledDeleteButton
+                      variant="delete"
+                      width="30px"
+                      type="button"
+                      onClick={() => {
+                        if (selectedItems.length === 1) {
+                          setSelectedItems(RESET);
+                        } else {
+                          const newSelectedItems = selectedItems.filter(
+                            (item) => item.name !== selectedItem.name
+                          );
+                          setSelectedItems(newSelectedItems);
+                        }
+                      }}
+                    >
+                      <SVGIcon variant="delete" width="26px" />
+                    </StyledDeleteButton>
+                  </StyledRow>
+
+                  {index !== items.length - 1 && <Line />}
+                </StyledDiv>
+              );
+              {
+              }
+            })}
+          </StyledUl>
+        </StyledContainer>
+
+        <section>
+          <button onClick={deleteAllAlert}>Alle Löschen</button>
+        </section>
+        <br />
+      </StyledContent>
     </>
   );
 }

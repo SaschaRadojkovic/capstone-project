@@ -11,6 +11,7 @@ const BgImage = dynamic(() => import("../../components/BGImage"), {
 });
 
 const StyledWrapper = styled.div`
+  margin: 1.5rem;
   // z-index: 2;
   // width: 100%;
   // height: 100%;
@@ -30,23 +31,22 @@ const StyledButton = styled.button`
   border: ${(props) => (props.isActive ? "1px solid black" : "1px solid grey")};
   font-size: inherit;
   cursor: pointer;
-  // color: inherit;
-  position: relative;
-  bottom: -38rem;
-  left: 1.5rem;
-  // border: 1px solid grey;
   padding: 15px;
   border-radius: 0.4rem;
   background-color: ${(props) => (props.isActive ? "#E2D194" : "#EFE7CC")};
-  z-index: 3;
-  width: 100%;
+  flex: 0 0 50%;
 `;
 
 const StyledButtonWrapper = styled.div`
   display: flex;
-  position: sticky;
-  // bottom: 80px;
+  position: fixed;
+  bottom: 100px;
+  width: calc(100vw - 4rem);
   gap: 1rem;
+`;
+const StyledContent = styled.div`
+  margin: 1.5rem;
+  margin-top: 8rem;
 `;
 
 const initialAdditives = atomWithStorage("additives", [], {
