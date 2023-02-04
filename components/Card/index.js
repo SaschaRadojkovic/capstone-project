@@ -3,33 +3,41 @@ import React, { useState } from "react";
 import { RESET } from "jotai/utils";
 import Swal from "sweetalert2";
 import styled from "styled-components";
+import { SVGIcon } from "../SVGIcon";
 // import lbImg from "../../public/lb.jpg";
 const StyledUl = styled.ul`
   z-index: 2;
-  padding: 10px;
+  padding: 0;
   padding-top: 10px;
-  margin: 10px;
+  margin-top: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
   list-style: none;
   background: white;
   overflow-y: scroll;
   max-height: 350px;
-  max-width: 610px;
+  max-width: 80%;
   min-width: 320px;
-  border-radius: 0.7rem;
+  border-radius: 0.4rem;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  overflow-x: hidden;
 `;
 
 const Line = styled.hr`
-  width: 300px;
+  // margin-top: 0rem;
+  width: 200rem;
   height: 1px;
   background-color: #ddd;
   border: none;
 `;
 const StyledSearchListUl = styled.ul`
-  margin-top: 0;
+  border-radius: 0.2rem;
+  width: 79.5%;
+  margin-left: -0.1rem;
+  margin-top: 0.4rem;
   background: white;
   height: 100px;
-  width: 190px;
+  // width: 190px;
   overflow-y: scroll;
   opacity: 0.8;
 `;
@@ -37,7 +45,7 @@ const StyledSearchList = styled.li`
   margin-left: -40px;
   list-style: none;
   color: grey;
-  width: 150px;
+  width: 20rem;
   background: white;
 `;
 
@@ -48,8 +56,35 @@ const StyledDiv = styled.div`
   position: relative;
 `;
 const StyledButton = styled.button`
+  margin-top: -0.4rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
+  color: inherit;
   position: absolute;
+
   right: 0;
+`;
+const StyledAddButton = styled.button`
+  margin-left: 11rem;
+  margin-top: -2rem;
+`;
+
+const StyledInput = styled.input`
+  width: 80%;
+  padding: 12px 20px;
+
+  border: 2px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 16px;
+`;
+const StyledSearchbar = styled.form`
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default function Card({ initialItemList, items }) {
@@ -83,7 +118,7 @@ export default function Card({ initialItemList, items }) {
     <>
       <p>Wähle deine Allergene und Additive</p>
 
-      <form
+      <StyledSearchbar
         onSubmit={(event) => {
           event.preventDefault();
           const formData = new FormData(event.target);
@@ -103,7 +138,8 @@ export default function Card({ initialItemList, items }) {
       >
         {/* input section */}
         <label htmlFor="searchBar"></label>
-        <input
+
+        <StyledInput
           placeholder="🔍"
           id="searchBar"
           autoComplete="off"
@@ -114,7 +150,9 @@ export default function Card({ initialItemList, items }) {
             setSearchInput(event.target.value);
           }}
         />
-        <button type="submit">Add</button>
+        <StyledAddButton type="submit">
+          <span>➕</span>
+        </StyledAddButton>
         {searchInput.length > 0 && (
           // Search Preview
           <StyledSearchListUl>
@@ -134,7 +172,8 @@ export default function Card({ initialItemList, items }) {
             })}
           </StyledSearchListUl>
         )}
-      </form>
+      </StyledSearchbar>
+
       {filteredItems.length === 0 && searchInput.length > 0
         ? "No search results"
         : null}
@@ -143,11 +182,14 @@ export default function Card({ initialItemList, items }) {
         {selectedItems.map((selectedItem, index) => {
           return (
             <StyledDiv key={selectedItem.name}>
-              <li key={selectedItem.name}>
+              <li key={selectedItem.name}></li>
+              <li>
                 {selectedItem.name} {index !== items.length - 1 && <Line />}
               </li>
 
               <StyledButton
+                variant="delete"
+                width="30px"
                 type="button"
                 onClick={() => {
                   if (selectedItems.length === 1) {
@@ -160,7 +202,7 @@ export default function Card({ initialItemList, items }) {
                   }
                 }}
               >
-                x
+                <SVGIcon variant="delete" width="26px" />
               </StyledButton>
             </StyledDiv>
           );
@@ -169,7 +211,7 @@ export default function Card({ initialItemList, items }) {
         })}
       </StyledUl>
       <section>
-        <button onClick={deleteAllAlert}>Delete All</button>
+        <button onClick={deleteAllAlert}>Alle Löschen</button>
       </section>
       <br />
     </>

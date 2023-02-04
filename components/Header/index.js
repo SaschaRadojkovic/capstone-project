@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SVGIcon } from "../SVGIcon";
 
 export const HeaderWrapper = styled.header`
   top: 0;
@@ -14,5 +15,9 @@ export const HeaderWrapper = styled.header`
   justify-content: center;
 `;
 export function Header() {
-  return <HeaderWrapper>eatable</HeaderWrapper>;
+  return (
+    <HeaderWrapper>
+      <SVGIcon variant="logo" width="50px"></SVGIcon>eatable
+    </HeaderWrapper>
+  );
 }

@@ -6,10 +6,13 @@ const Scanner = dynamic(() => import("@/components/Scanner"), {
   nossr: true,
 });
 
-const StyledSection = styled.div``;
+const StyledSection = styled.div`
+  // white-space: nowrap;
+`;
 
 const StyledCanvas = styled.canvas`
-  margin: -210px;
+  margin: -170px;
+  // margin-top: 300px;
 `;
 
 export default function BarcodeScanner() {

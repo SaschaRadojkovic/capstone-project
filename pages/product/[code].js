@@ -7,24 +7,41 @@ import { useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import dynamic from "next/dynamic";
+import { SVGIcon } from "@/components/SVGIcon";
 const BgImage = dynamic(() => import("@/components/BGImage"), {
   ssr: false,
 });
 
 const StyledImage = styled(Image)`
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 30%;
   object-fit: cover;
 `;
 const StyledProductCard = styled.section`
+  margin: 10rem;
   background-color: white;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
   margin-top: 5rem;
   border-radius: 0.7rem;
   text-align: center;
   box-shadow: 0px 0px 10px 2px rgba(128, 128, 128, 0.25);
   height: 100%;
+`;
+const StyledBackButton = styled.div`
+  position: fixed;
+  left: -1rem;
+  top: 0rem;
+
+  z-index: 1;
+`;
+
+const NoProduct = styled.p`
+  font-size: 35px;
+  left: 5rem;
+  top: 200px;
+  position: absolute;
+  z-index: 4;
 `;
 
 //getting additives from Localstorage with atom from jotai
@@ -51,21 +68,6 @@ export default function DetailPage() {
     return <div>{additive}</div>;
   }
 
-  const StyledBackButton = styled.div`
-    left: 1rem;
-    top: 2rem;
-    position: absolute;
-    z-index: 1;
-  `;
-
-  const NoProduct = styled.p`
-    font-size: 35px;
-    left: 5rem;
-    top: 200px;
-    position: absolute;
-    z-index: 4;
-  `;
-
   function BackToScanner() {
     return (
       <StyledBackButton>
@@ -74,7 +76,7 @@ export default function DetailPage() {
             router.push("/barcodeScanner");
           }}
         >
-          BACK
+          <SVGIcon variant="back" width="80px" />
         </span>
       </StyledBackButton>
     );
@@ -83,7 +85,7 @@ export default function DetailPage() {
     return (
       <>
         <BackToScanner />
-        <p>loading</p>
+        <p>...läd</p>
       </>
     );
   }
@@ -91,10 +93,7 @@ export default function DetailPage() {
     return (
       <>
         <BackToScanner />
-        <NoProduct>
-          Product not found!
-          <br /> Scan again!
-        </NoProduct>
+        <NoProduct>Scan Nochmal!</NoProduct>
       </>
     );
   }
@@ -152,7 +151,7 @@ export default function DetailPage() {
                 )}
               </p>
             ) : (
-              <p>choose your additives</p>
+              <p>keine Zusatzstoffe in den Einstellungen gewählt</p>
             )}
             {/* if user have not chosen allergens show message */}
             {allergensFromStorage.length > 0 ? (
@@ -165,7 +164,7 @@ export default function DetailPage() {
                 )}
               </p>
             ) : (
-              <p>choose your allergens</p>
+              <p>keine Allergene in den Einstellunegn gewählt</p>
             )}
 
             <StyledImage
@@ -179,7 +178,7 @@ export default function DetailPage() {
           </StyledProductCard>
           {/* show allergens and additives */}
           <StyledProductCard>
-            <h3>Additives</h3>
+            <h3>Additive</h3>
             {data.product && data.product.additives_original_tags ? (
               data.product.additives_original_tags.map((additive) => (
                 <Additives
@@ -203,7 +202,7 @@ export default function DetailPage() {
       ) : (
         <>
           <BackToScanner />
-          <p>Product not found</p>
+          <p>Scanne Nochmal"</p>
         </>
       )}
     </>
