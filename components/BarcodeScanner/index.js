@@ -60,8 +60,8 @@ export default function BarcodeScanner() {
            https://github.com/ericblade/quagga2/search?q=drawingBuffer */}
           <StyledCanvas
             className="drawingBuffer"
-            width={width / 2}
-            height={height / 2}
+            width={width}
+            height={height}
           />
         </StyledSection>
 
