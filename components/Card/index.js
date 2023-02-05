@@ -10,7 +10,6 @@ const StyledContainer = styled.div``;
 const StyledUl = styled.ul`
   padding: 10px;
   margin-top: 10px;
-
   list-style: none;
   background: white;
   overflow-y: scroll;
@@ -119,7 +118,7 @@ export default function Card({
   initialItemList,
   items,
   alertOptions,
-  alertSucces,
+  alertSuccess,
 }) {
   const [searchInput, setSearchInput] = useState("");
   const [selectedItems, setSelectedItems] = useAtom(initialItemList);
@@ -139,6 +138,7 @@ export default function Card({
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Ja, löschen!",
+      cancelButtonText: "abbrechen",
       ...alertOptions,
     }).then((result) => {
       if (result.value) {
@@ -147,7 +147,7 @@ export default function Card({
           title: "Gelöscht!",
           text: "Your items have been deleted.",
           icon: "success",
-          ...alertSucces,
+          ...alertSuccess,
         });
       }
     });

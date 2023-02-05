@@ -77,7 +77,7 @@ export default function Settings() {
           initialItemList={initialAdditives}
           items={additives}
           alertOptions={{ title: "Alle Additive löschen?" }}
-          alertSucces={{ title: "Alle Additive wurden gelöscht" }}
+          alertSucces={{ text: "Alle Additive wurden gelöscht" }}
         />
       ) : (
         <Card

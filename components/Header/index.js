@@ -9,12 +9,10 @@ export const HeaderWrapper = styled.header`
   color: white;
   font-size: 2rem;
   text-align: center;
-
   box-shadow: 0px 0px 10px 2px rgb(0, 0, 0);
   background: #6bba6d;
   width: 100%;
   height: 50px;
-
   justify-content: center;
 `;
 
