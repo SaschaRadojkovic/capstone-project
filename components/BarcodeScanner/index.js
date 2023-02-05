@@ -33,9 +33,9 @@ export default function BarcodeScanner() {
       const { width, height, devicePixelRatio } = getWindowDimensions();
       console.log("dpr", devicePixelRatio);
 
-      setWidth(width / (devicePixelRatio * 0.5));
+      setWidth(width / (devicePixelRatio * (devicePixelRatio / 3)));
 
-      setheight(width / (devicePixelRatio * 0.5));
+      setheight(width / (devicePixelRatio * (devicePixelRatio / 3)));
       setPixelRatio(devicePixelRatio);
     }
     handleResize();
