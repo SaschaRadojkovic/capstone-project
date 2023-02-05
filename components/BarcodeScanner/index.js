@@ -35,7 +35,7 @@ export default function BarcodeScanner() {
       const ctx = canvas.getContext("2d");
       const { width, height, devicePixelRatio } = getWindowDimensions();
       console.log("dpr", devicePixelRatio);
-      const size = width; //((width / devicePixelRatio) * 1.8);
+      const size = width * 0.9; //((width / devicePixelRatio) * 1.8);
       setWidth(size);
 
       setheight(size);
