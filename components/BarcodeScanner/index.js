@@ -27,15 +27,19 @@ export default function BarcodeScanner() {
   const [width, setWidth] = useState();
   const [height, setheight] = useState();
   const [pixelRatio, setPixelRatio] = useState();
+  const canvasRef = useRef(null);
 
   useEffect(() => {
     function handleResize() {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
       const { width, height, devicePixelRatio } = getWindowDimensions();
       console.log("dpr", devicePixelRatio);
       const size = width; //((width / devicePixelRatio) * 1.8);
       setWidth(size);
 
       setheight(size);
+      ctx.scale(devicePixelRatio, devicePixelRatio);
       setPixelRatio(devicePixelRatio);
     }
     handleResize();
@@ -61,6 +65,7 @@ export default function BarcodeScanner() {
           {/*class name drawing buffer is used by quagga
            https://github.com/ericblade/quagga2/search?q=drawingBuffer */}
           <StyledCanvas
+            ref={canvasRef}
             className="drawingBuffer"
             width={width}
             height={height}
