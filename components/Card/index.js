@@ -4,7 +4,6 @@ import { RESET } from "jotai/utils";
 import Swal from "sweetalert2";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
-// import lbImg from "../../public/lb.jpg";
 
 const StyledContainer = styled.div``;
 
