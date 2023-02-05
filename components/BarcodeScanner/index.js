@@ -71,8 +71,7 @@ export default function BarcodeScanner() {
             height={height}
           />
         </StyledSection>
-        pr: {pixelRatio}
-        w: {width}
+
         <Scanner
           errorRate={0.55}
           scannerRef={scannerRef}
