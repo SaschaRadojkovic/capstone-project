@@ -9,13 +9,15 @@ const Scanner = dynamic(() => import("@/components/Scanner"), {
 
 const StyledSection = styled.div`
   // white-space: nowrap;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
 `;
 
 const StyledCanvas = styled.canvas`
   // width: 300px;
   // height: 300px;
-  position: absolute;
-  top: 50px;
 `;
 
 export default function BarcodeScanner() {
@@ -27,11 +29,12 @@ export default function BarcodeScanner() {
 
   useEffect(() => {
     function handleResize() {
-      const { width, height } = getWindowDimensions();
+      const { width, height, devicePixelRatio } = getWindowDimensions();
+      console.log("dpr", devicePixelRatio);
 
-      setWidth(width);
+      setWidth(width / window.devicePixelRatio);
 
-      setheight(height);
+      setheight(height / window.devicePixelRatio);
     }
     handleResize();
 
@@ -66,7 +69,7 @@ export default function BarcodeScanner() {
           errorRate={0.55}
           scannerRef={scannerRef}
           onDetected={handleDetected}
-          constraints={{ width: width / 2, height: height / 2 }}
+          constraints={{ width, height }}
         />
       </>
     </>

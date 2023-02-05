@@ -11,10 +11,11 @@ const Box = styled.div`
 `;
 
 export function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
+  const { innerWidth: width, innerHeight: height, devicePixelRatio } = window;
   return {
     width,
     height,
+    devicePixelRatio,
   };
 }
 
