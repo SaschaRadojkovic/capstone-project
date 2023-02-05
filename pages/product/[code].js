@@ -6,11 +6,7 @@ import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import { useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
-import dynamic from "next/dynamic";
 import { SVGIcon } from "@/components/SVGIcon";
-const BgImage = dynamic(() => import("@/components/BGImage"), {
-  ssr: false,
-});
 
 const StyledImage = styled(Image)`
   margin: 2rem;
