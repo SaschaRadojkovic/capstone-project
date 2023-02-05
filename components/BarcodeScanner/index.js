@@ -8,18 +8,17 @@ const Scanner = dynamic(() => import("@/components/Scanner"), {
 });
 
 const StyledSection = styled.div`
-  // white-space: nowrap;
-  position: absolute;
-  top: 50px;
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+
   left: 0;
   right: 0;
 `;
 
 const StyledCanvas = styled.canvas`
+  border-radius: 0.4rem;
   position: absolute;
-  // background: black;
-  // width: 300px;
-  // height: 300px;
 `;
 
 export default function BarcodeScanner() {
