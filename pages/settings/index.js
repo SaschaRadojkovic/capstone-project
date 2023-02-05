@@ -30,7 +30,7 @@ const StyledButton = styled.button`
 const StyledButtonWrapper = styled.div`
   display: flex;
   position: fixed;
-  bottom: 100px;
+  bottom: 60px;
   width: calc(100vw - 4rem);
   gap: 1rem;
 `;

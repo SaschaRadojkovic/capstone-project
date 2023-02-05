@@ -17,7 +17,7 @@ const StyledUl = styled.ul`
   list-style: none;
   background: white;
   overflow-y: scroll;
-  max-height: 30vh;
+  max-height: 25vh;
   width: 100%;
   min-width: 300px;
   border-radius: 0.4rem;
