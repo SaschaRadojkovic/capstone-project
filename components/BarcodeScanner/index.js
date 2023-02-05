@@ -12,6 +12,8 @@ const StyledSection = styled.div`
 `;
 
 const StyledCanvas = styled.canvas`
+  width: 300px;
+  height: 300px;
   position: absolute;
   top: 50px;
 `;
@@ -53,17 +55,14 @@ export default function BarcodeScanner() {
         <StyledSection ref={scannerRef}>
           {/*class name drawing buffer is used by quagga
            https://github.com/ericblade/quagga2/search?q=drawingBuffer */}
-          <StyledCanvas
-            className="drawingBuffer"
-            width={width}
-            height={height}
-          />
+          <StyledCanvas className="drawingBuffer" />
         </StyledSection>
 
         <Scanner
           errorRate={0.55}
           scannerRef={scannerRef}
           onDetected={handleDetected}
+          constraints={{ width, height }}
         />
       </>
     </>

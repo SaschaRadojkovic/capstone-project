@@ -21,6 +21,8 @@ function getMedianOfCodeErrors(decodedCodes) {
 
 const defaultConstraints = {
   aspectRatio: { ideal: 1 },
+  width: 300,
+  height: 300,
 };
 
 const defaultLocatorSettings = {
