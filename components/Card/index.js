@@ -11,9 +11,6 @@ const StyledUl = styled.ul`
   padding: 10px;
   margin-top: 10px;
 
-  // margin-left: 3.5rem;
-  // margin-right: 3.5rem;
-
   list-style: none;
   background: white;
   overflow-y: scroll;
@@ -37,7 +34,6 @@ const StyledSearchListUl = styled.ul`
   position: absolute;
   top: 12.3rem;
   border-radius: 0.4rem;
-
   width: calc(100vw - 3rem);
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
 `;
@@ -47,14 +43,12 @@ const StyledDiv = styled.li`
   flex-direction: column;
 `;
 const StyledDeleteButton = styled.button`
-  // margin-top: -0.4rem;
   background: none;
   border: none;
   padding: 0;
   font-size: inherit;
   cursor: pointer;
   color: inherit;
-  // position: absolute;
   right: 0;
 `;
 const StyledAddButton = styled.button`
@@ -151,7 +145,7 @@ export default function Card({ initialItemList, items }) {
   return (
     <>
       <StyledContent>
-        <p>Wähle deine Allergene und Additive</p>
+        <p>Wähle Sie Ihre Allergene und Additive</p>
 
         <StyledSearchbar
           onSubmit={(event) => {
