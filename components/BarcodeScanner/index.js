@@ -12,8 +12,8 @@ const StyledSection = styled.div`
 `;
 
 const StyledCanvas = styled.canvas`
-  width: 300px;
-  height: 300px;
+  // width: 300px;
+  // height: 300px;
   position: absolute;
   top: 50px;
 `;
@@ -57,8 +57,8 @@ export default function BarcodeScanner() {
            https://github.com/ericblade/quagga2/search?q=drawingBuffer */}
           <StyledCanvas
             className="drawingBuffer"
-            width={width}
-            height={height}
+            width={width / 2}
+            height={height / 2}
           />
         </StyledSection>
 
@@ -66,7 +66,7 @@ export default function BarcodeScanner() {
           errorRate={0.55}
           scannerRef={scannerRef}
           onDetected={handleDetected}
-          constraints={{ width, height }}
+          constraints={{ width: width / 2, height: height / 2 }}
         />
       </>
     </>
