@@ -26,6 +26,7 @@ export default function BarcodeScanner() {
   const router = useRouter();
   const [width, setWidth] = useState();
   const [height, setheight] = useState();
+  const [pixelRatio, setPixelRatio] = useState();
 
   useEffect(() => {
     function handleResize() {
@@ -35,6 +36,7 @@ export default function BarcodeScanner() {
       setWidth(width / (devicePixelRatio * 0.5));
 
       setheight(width / (devicePixelRatio * 0.5));
+      setPixelRatio(devicePixelRatio);
     }
     handleResize();
 
@@ -64,6 +66,7 @@ export default function BarcodeScanner() {
             height={height}
           />
         </StyledSection>
+        {pixelRatio}
 
         <Scanner
           errorRate={0.55}
