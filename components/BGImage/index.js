@@ -7,10 +7,10 @@ import styled from "styled-components";
 const Box = styled.div`
   position: fixed;
   z-index: -1;
-  top: 60px;
+  top: 40px;
 `;
 
-function getWindowDimensions() {
+export function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
@@ -23,14 +23,6 @@ function BGImage() {
   const [height, setheight] = useState();
 
   useEffect(() => {
-    const { width, height } = getWindowDimensions();
-
-    setWidth(width);
-
-    setheight(height);
-  }, []);
-
-  useEffect(() => {
     function handleResize() {
       const { width, height } = getWindowDimensions();
 
@@ -38,6 +30,7 @@ function BGImage() {
 
       setheight(height);
     }
+    handleResize();
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

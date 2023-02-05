@@ -41,7 +41,6 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps}></Component>
         <BgImage />
         <Footer />
-        <NavBar />
       </SWRConfig>
     </>
   );

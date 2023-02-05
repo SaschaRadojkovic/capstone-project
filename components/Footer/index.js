@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavBar } from "../Navigation";
 
 export const FooterWrapper = styled.footer`
   bottom: 0;
@@ -6,10 +7,14 @@ export const FooterWrapper = styled.footer`
   box-shadow: 1px 1px 10px;
   background: #6bba6d;
   width: 100%;
-  height: 80px;
+  height: 50px;
   position: fixed;
 `;
 
 export function Footer() {
-  return <FooterWrapper />;
+  return (
+    <FooterWrapper>
+      <NavBar />
+    </FooterWrapper>
+  );
 }

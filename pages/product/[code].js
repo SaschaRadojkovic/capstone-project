@@ -30,10 +30,9 @@ const StyledProductCard = styled.section`
 `;
 const StyledBackButton = styled.div`
   position: fixed;
-  left: -1rem;
-  top: 0rem;
-
-  z-index: 1;
+  left: 0.1rem;
+  top: 0.3rem;
+  color: white;
 `;
 
 const NoProduct = styled.p`
@@ -76,7 +75,7 @@ export default function DetailPage() {
             router.push("/barcodeScanner");
           }}
         >
-          <SVGIcon variant="back" width="80px" />
+          <SVGIcon variant="back" width="50px" />
         </span>
       </StyledBackButton>
     );

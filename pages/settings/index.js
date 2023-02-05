@@ -12,16 +12,6 @@ const BgImage = dynamic(() => import("../../components/BGImage"), {
 
 const StyledWrapper = styled.div`
   margin: 1.5rem;
-  // z-index: 2;
-  // width: 100%;
-  // height: 100%;
-  // position: fixed;
-  // justify-content: center;
-  // align-items: center;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
 `;
 
 const StyledButton = styled.button`

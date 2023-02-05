@@ -17,7 +17,7 @@ const StyledUl = styled.ul`
   list-style: none;
   background: white;
   overflow-y: scroll;
-  max-height: 350px;
+  max-height: 40vh;
   width: 100%;
   min-width: 300px;
   border-radius: 0.4rem;
@@ -104,6 +104,21 @@ const StyledRow = styled.div`
 const StyledText = styled.div`
   margin-top: 0.5rem;
   width: 96%;
+`;
+
+const StyledButtonWrapper = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledButton = styled.div`
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
+  color: inherit;
 `;
 
 export default function Card({ initialItemList, items }) {
@@ -201,43 +216,47 @@ export default function Card({ initialItemList, items }) {
           ? "No search results"
           : null}
         <StyledContainer>
-          <StyledUl>
-            {selectedItems.map((selectedItem, index) => {
-              return (
-                <StyledDiv key={selectedItem.name}>
-                  <StyledRow>
-                    <StyledText>{selectedItem.name}</StyledText>
-                    <StyledDeleteButton
-                      variant="delete"
-                      width="30px"
-                      type="button"
-                      onClick={() => {
-                        if (selectedItems.length === 1) {
-                          setSelectedItems(RESET);
-                        } else {
-                          const newSelectedItems = selectedItems.filter(
-                            (item) => item.name !== selectedItem.name
-                          );
-                          setSelectedItems(newSelectedItems);
-                        }
-                      }}
-                    >
-                      <SVGIcon variant="delete" width="26px" />
-                    </StyledDeleteButton>
-                  </StyledRow>
+          {selectedItems && selectedItems.length > 0 && (
+            <StyledUl>
+              {selectedItems.map((selectedItem, index) => {
+                return (
+                  <StyledDiv key={selectedItem.name}>
+                    <StyledRow>
+                      <StyledText>{selectedItem.name}</StyledText>
+                      <StyledDeleteButton
+                        variant="delete"
+                        width="30px"
+                        type="button"
+                        onClick={() => {
+                          if (selectedItems.length === 1) {
+                            setSelectedItems(RESET);
+                          } else {
+                            const newSelectedItems = selectedItems.filter(
+                              (item) => item.name !== selectedItem.name
+                            );
+                            setSelectedItems(newSelectedItems);
+                          }
+                        }}
+                      >
+                        <SVGIcon variant="delete" width="26px" />
+                      </StyledDeleteButton>
+                    </StyledRow>
 
-                  {index !== items.length - 1 && <Line />}
-                </StyledDiv>
-              );
-              {
-              }
-            })}
-          </StyledUl>
+                    {index !== selectedItems.length - 1 && <Line />}
+                  </StyledDiv>
+                );
+                {
+                }
+              })}
+            </StyledUl>
+          )}
         </StyledContainer>
 
-        <section>
-          <button onClick={deleteAllAlert}>Alle Löschen</button>
-        </section>
+        <StyledButtonWrapper>
+          <StyledButton onClick={deleteAllAlert}>
+            <SVGIcon variant="deleteAll" width="60px" />
+          </StyledButton>
+        </StyledButtonWrapper>
         <br />
       </StyledContent>
     </>
