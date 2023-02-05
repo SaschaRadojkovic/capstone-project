@@ -107,7 +107,7 @@ const StyledText = styled.div`
 `;
 
 const StyledButtonWrapper = styled.div`
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
 `;
