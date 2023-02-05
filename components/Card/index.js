@@ -115,7 +115,12 @@ const StyledButton = styled.div`
   color: inherit;
 `;
 
-export default function Card({ initialItemList, items }) {
+export default function Card({
+  initialItemList,
+  items,
+  alertOptions,
+  alertSucces,
+}) {
   const [searchInput, setSearchInput] = useState("");
   const [selectedItems, setSelectedItems] = useAtom(initialItemList);
 
@@ -127,17 +132,23 @@ export default function Card({ initialItemList, items }) {
 
   function deleteAllAlert() {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Sind Sie sicher?",
+      text: "Sie können das nicht rückgängig machen!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Ja, löschen!",
+      ...alertOptions,
     }).then((result) => {
       if (result.value) {
         setSelectedItems(RESET);
-        Swal.fire("Deleted!", "Your items have been deleted.", "success");
+        Swal.fire({
+          title: "Gelöscht!",
+          text: "Your items have been deleted.",
+          icon: "success",
+          ...alertSucces,
+        });
       }
     });
   }
@@ -251,7 +262,6 @@ export default function Card({ initialItemList, items }) {
             <SVGIcon variant="deleteAll" width="60px" />
           </StyledButton>
         </StyledButtonWrapper>
-        <br />
       </StyledContent>
     </>
   );

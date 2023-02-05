@@ -73,9 +73,18 @@ export default function Settings() {
       </StyledWrapper>
 
       {showAdditives ? (
-        <Card initialItemList={initialAdditives} items={additives} />
+        <Card
+          initialItemList={initialAdditives}
+          items={additives}
+          alertOptions={{ title: "Alle Additive löschen?" }}
+          alertSucces={{ title: "Alle Additive wurden gelöscht" }}
+        />
       ) : (
-        <Card initialItemList={initialAllergens} items={allergens} />
+        <Card
+          initialItemList={initialAllergens}
+          items={allergens}
+          alertOptions={{ title: "Alle Allergene löschen?" }}
+        />
       )}
     </>
   );

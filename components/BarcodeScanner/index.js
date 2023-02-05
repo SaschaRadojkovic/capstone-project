@@ -26,21 +26,19 @@ export default function BarcodeScanner() {
   const router = useRouter();
   const [width, setWidth] = useState();
   const [height, setheight] = useState();
-  const [pixelRatio, setPixelRatio] = useState();
-  const canvasRef = useRef(null);
 
+  const canvasRef = useRef(null);
+  //https://www.kirupa.com/canvas/canvas_high_dpi_retina.htm
   useEffect(() => {
     function handleResize() {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
-      const { width, height, devicePixelRatio } = getWindowDimensions();
-      console.log("dpr", devicePixelRatio);
-      const size = width; //((width / devicePixelRatio) * 1.8);
+      const { width, devicePixelRatio } = getWindowDimensions();
+      const size = width;
       setWidth(size);
 
       setheight(size);
       ctx.scale(devicePixelRatio, devicePixelRatio);
-      setPixelRatio(devicePixelRatio);
     }
     handleResize();
 
@@ -55,7 +53,7 @@ export default function BarcodeScanner() {
     setScanning(false);
     router.push(`/product/${_result.codeResult.code}`);
   }
-  console.log("width", width);
+
   return (
     <>
       {result && <p>{result}</p>}
