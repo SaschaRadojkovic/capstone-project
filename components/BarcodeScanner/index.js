@@ -8,10 +8,9 @@ const Scanner = dynamic(() => import("@/components/Scanner"), {
 });
 
 const StyledSection = styled.div`
-  margin-top: 8rem;
+  margin-top: 6rem;
   display: flex;
   justify-content: center;
-
   left: 0;
   right: 0;
 `;
@@ -33,9 +32,9 @@ export default function BarcodeScanner() {
       const { width, height, devicePixelRatio } = getWindowDimensions();
       console.log("dpr", devicePixelRatio);
 
-      setWidth(width / devicePixelRatio);
+      setWidth((width / devicePixelRatio) * 1.6);
 
-      setheight(height / devicePixelRatio);
+      setheight(height);
     }
     handleResize();
 
