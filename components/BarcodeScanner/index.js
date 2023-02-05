@@ -55,7 +55,11 @@ export default function BarcodeScanner() {
         <StyledSection ref={scannerRef}>
           {/*class name drawing buffer is used by quagga
            https://github.com/ericblade/quagga2/search?q=drawingBuffer */}
-          <StyledCanvas className="drawingBuffer" />
+          <StyledCanvas
+            className="drawingBuffer"
+            width={width}
+            height={height}
+          />
         </StyledSection>
 
         <Scanner
