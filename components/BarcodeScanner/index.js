@@ -16,6 +16,8 @@ const StyledSection = styled.div`
 `;
 
 const StyledCanvas = styled.canvas`
+  position: absolute;
+  // background: black;
   // width: 300px;
   // height: 300px;
 `;
@@ -32,9 +34,9 @@ export default function BarcodeScanner() {
       const { width, height, devicePixelRatio } = getWindowDimensions();
       console.log("dpr", devicePixelRatio);
 
-      setWidth(width / window.devicePixelRatio);
+      setWidth(width / devicePixelRatio);
 
-      setheight(height / window.devicePixelRatio);
+      setheight(height / devicePixelRatio);
     }
     handleResize();
 
