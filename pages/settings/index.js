@@ -77,13 +77,14 @@ export default function Settings() {
           initialItemList={initialAdditives}
           items={additives}
           alertOptions={{ title: "Alle Additive löschen?" }}
-          alertSucces={{ text: "Alle Additive wurden gelöscht" }}
+          alertSuccess={{ text: "Alle Additive wurden gelöscht" }}
         />
       ) : (
         <Card
           initialItemList={initialAllergens}
           items={allergens}
           alertOptions={{ title: "Alle Allergene löschen?" }}
+          alertSuccess={{ text: "Alle Allergene wurden gelöscht" }}
         />
       )}
     </>
