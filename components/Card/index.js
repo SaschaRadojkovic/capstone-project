@@ -17,7 +17,7 @@ const StyledUl = styled.ul`
   width: 100%;
   min-width: 300px;
   border-radius: 0.4rem;
-  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
   overflow-x: hidden;
 `;
 
@@ -34,7 +34,7 @@ const StyledSearchListUl = styled.ul`
   top: 12.3rem;
   border-radius: 0.4rem;
   width: calc(100vw - 3rem);
-  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const StyledDiv = styled.li`
@@ -91,7 +91,6 @@ const StyledAutoComplete = styled.div`
 
 const StyledRow = styled.div`
   display: flex;
-  flex-direction: row;
 `;
 
 const StyledText = styled.div`
@@ -156,7 +155,7 @@ export default function Card({
   return (
     <>
       <StyledContent>
-        <p>Wähle Sie Ihre Allergene und Additive</p>
+        <p>Wählen Sie Ihre Allergene und Additive</p>
 
         <StyledSearchbar
           onSubmit={(event) => {

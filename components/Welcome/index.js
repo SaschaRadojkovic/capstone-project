@@ -7,11 +7,11 @@ const WelcomeWrapper = styled.div`
   margin-right: 4rem;
   text-align: right;
 `;
-const StyledH1 = styled.h1`
+const StyledHeading = styled.h1`
   font-weight: bold;
   font-size: 1.5rem;
 `;
-const StyledP2 = styled.p`
+const StyledPararaph = styled.p`
   background: red;
   padding: 1rem;
   text-align: center;
@@ -22,9 +22,9 @@ export function Welcome() {
   return (
     <>
       <WelcomeWrapper>
-        <StyledH1>Herzlich Willkommen bei Eatable</StyledH1>
+        <StyledHeading>Herzlich Willkommen bei Eatable</StyledHeading>
         <p>
-          Diese App dient dazu Nahrungsmittel mit einem simplem Barcodescan
+          Diese App dient dazu Nahrungsmittel mit einem simplen Barcodescan
           <br />
           nach unerwünschten Zusatzstoffen/
           <br />
@@ -33,12 +33,12 @@ export function Welcome() {
           wählen Sie in den Einstellungen Ihr &quot;Kryptonit&quot; .
         </p>
       </WelcomeWrapper>
-      <StyledP2>
+      <StyledPararaph>
         Es besteht immer die Möglichkeit, dass Daten über Allergene fehlen,
         unvollständig oder falsch sind oder dass sich die Zusammensetzung des
         Produkts geändert hat. Wenn Sie allergisch sind, überprüfen Sie immer
         die Angaben auf der tatsächlichen Produktverpackung.
-      </StyledP2>
+      </StyledPararaph>
     </>
   );
 }

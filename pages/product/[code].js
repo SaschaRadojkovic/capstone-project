@@ -38,14 +38,19 @@ const StyledProductCard = styled.section`
   margin-left: 2rem;
   margin-right: 2rem;
   border-radius: 0.7rem;
-  box-shadow: 0px 0px 10px 2px rgba(128, 128, 128, 0.25);
+  box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.25);
   height: 50%;
 `;
-const StyledBackButton = styled.div`
+const StyledBackButton = styled.button`
   position: fixed;
   left: 0.1rem;
   top: 0.3rem;
   color: white;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
 `;
 
 const NoProduct = styled.p`
@@ -64,7 +69,7 @@ const StyledIngredientsCard = styled.div`
   margin-left: 4rem;
   margin-right: 4rem;
   border-radius: 0.4rem;
-  box-shadow: 0px 0px 10px 2px rgba(128, 128, 128, 0.25);
+  box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.25);
   height: 50%;
 `;
 const StyledInsideCard = styled.div`
@@ -110,14 +115,12 @@ export default function DetailPage() {
 
   function BackToScanner() {
     return (
-      <StyledBackButton>
-        <span
-          onClick={() => {
-            router.push("/barcodeScanner");
-          }}
-        >
-          <SVGIcon variant="back" width="50px" />
-        </span>
+      <StyledBackButton
+        onClick={() => {
+          router.push("/barcodeScanner");
+        }}
+      >
+        <SVGIcon variant="back" width="50px" />
       </StyledBackButton>
     );
   }
@@ -125,7 +128,7 @@ export default function DetailPage() {
     return (
       <>
         <BackToScanner />
-        <p>...läd</p>
+        <p>...lädt!</p>
       </>
     );
   }
@@ -133,7 +136,7 @@ export default function DetailPage() {
     return (
       <>
         <BackToScanner />
-        <NoProduct>Scan Nochmal!</NoProduct>
+        <NoProduct>Scanne Nochmal!</NoProduct>
       </>
     );
   }
@@ -183,7 +186,6 @@ export default function DetailPage() {
               <StyledProductName>
                 {data.product.product_name}{" "}
               </StyledProductName>
-
               {/* if user have not chosen additives show message */}
               <StyledInsideCard>
                 <StyledImage
@@ -203,7 +205,9 @@ export default function DetailPage() {
                       )}
                     </StyledPAdditives>
                   ) : (
-                    <p>keine Zusatzstoffe in den Einstellungen gewählt</p>
+                    <p>
+                      Sie haben keine Zusatzstoffe in den Einstellungen gewählt!
+                    </p>
                   )}
                   {/* if user have not chosen allergens show message */}
                   {allergensFromStorage.length > 0 ? (
@@ -216,7 +220,9 @@ export default function DetailPage() {
                       )}
                     </StyledPAllergens>
                   ) : (
-                    <p>keine Allergene in den Einstellunegn gewählt</p>
+                    <p>
+                      Sie haben keine Allergene in den Einstellunegn gewählt!
+                    </p>
                   )}
                 </StyledCheck>
               </StyledInsideCard>
