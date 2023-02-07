@@ -1,35 +1,54 @@
+import { StyledDeleteButton } from "@/components/Card";
+import { SVGIcon } from "@/components/SVGIcon";
 import { useAtom } from "jotai";
-import Image from "next/image";
-import styled from "styled-components";
-import { initialProducts } from "../product/[code]";
-
-const StyledImage = styled(Image)`
-  margin: 2rem;
-  width: 25%;
-  height: 25%;
-  object-fit: cover;
-`;
+import { RESET } from "jotai/utils";
+import {
+  initialProducts,
+  StyledAllCards,
+  StyledImage,
+  StyledProductCard,
+  StyledProductName,
+} from "../product/[code]";
 
 export default function Products() {
-  const [products] = useAtom(initialProducts);
+  const [products, setProducts] = useAtom(initialProducts);
+
   console.log("products", products);
   return (
     <>
-      <ul>
+      <StyledAllCards>
         {products.map((product) => {
           return (
-            <li key={product.code}>
-              {product.name}
+            <StyledProductCard key={product.code}>
+              <StyledDeleteButton
+                variant="delete"
+                width="30px"
+                type="button"
+                onClick={() => {
+                  if (products.length === 1) {
+                    setProducts(RESET);
+                  } else {
+                    const newProducts = products.filter(
+                      (item) => item.name !== product.name
+                    );
+                    setProducts(newProducts);
+                  }
+                }}
+              >
+                <SVGIcon variant="delete" width="26px" />
+              </StyledDeleteButton>
+
+              <StyledProductName>{product.name}</StyledProductName>
               <StyledImage
                 width={1000}
                 height={1000}
                 src={product.url}
                 alt={product.name}
               />
-            </li>
+            </StyledProductCard>
           );
         })}
-      </ul>
+      </StyledAllCards>
     </>
   );
 }

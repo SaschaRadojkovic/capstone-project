@@ -37,6 +37,7 @@ const StyledProductCard = styled.section`
   background-color: white;
   margin-left: 2rem;
   margin-right: 2rem;
+  margin-bottom: 2rem;
   border-radius: 0.7rem;
   box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.25);
   height: 50%;
@@ -107,6 +108,7 @@ const StyledPararaph = styled.p`
   font-size: 0.7rem;
   background: orange;
 `;
+export { StyledImage, StyledProductCard, StyledProductName, StyledAllCards };
 
 //getting additives from Localstorage with atom from jotai
 const initialAdditives = atomWithStorage("additives", [], {
@@ -214,14 +216,18 @@ export default function DetailPage() {
               <StyledInsideCard>
                 <button
                   onClick={() => {
-                    setSavedProducts([
-                      {
-                        name: data.product.product_name,
-                        url: data.product.image_front_url,
-                        code: code,
-                      },
-                      ...savedProducts,
-                    ]);
+                    if (
+                      !savedProducts.some((product) => product.code === code)
+                    ) {
+                      setSavedProducts([
+                        {
+                          name: data.product.product_name,
+                          url: data.product.image_front_url,
+                          code: code,
+                        },
+                        ...savedProducts,
+                      ]);
+                    }
                   }}
                 >
                   speichern
