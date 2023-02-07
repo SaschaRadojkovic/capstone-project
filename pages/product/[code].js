@@ -7,7 +7,6 @@ import { useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import { SVGIcon } from "@/components/SVGIcon";
-import { TEMPORARY_REDIRECT_STATUS } from "next/dist/shared/lib/constants";
 
 const StyledImage = styled(Image)`
   margin: 2rem;
@@ -120,7 +119,7 @@ const initialAllergens = atomWithStorage("allergens", [], {
   delayInit: true,
 });
 
-const initialProducts = atomWithStorage("products", [], {
+export const initialProducts = atomWithStorage("products", [], {
   ...createJSONStorage(() => localStorage),
   delayInit: true,
 });
@@ -128,7 +127,7 @@ const initialProducts = atomWithStorage("products", [], {
 export default function DetailPage() {
   const [additivesFromStorage] = useAtom(initialAdditives);
   const [allergensFromStorage] = useAtom(initialAllergens);
-  const [products, setProducts] = useAtom(initialProducts);
+  const [savedProducts, setSavedProducts] = useAtom(initialProducts);
   console.log("initialProducts", initialProducts);
   const router = useRouter();
   const { code } = router.query;
@@ -215,12 +214,13 @@ export default function DetailPage() {
               <StyledInsideCard>
                 <button
                   onClick={() => {
-                    setProducts([
+                    setSavedProducts([
                       {
                         name: data.product.product_name,
                         url: data.product.image_front_url,
+                        code: code,
                       },
-                      ...products,
+                      ...savedProducts,
                     ]);
                   }}
                 >
