@@ -1,18 +1,23 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import styled from "styled-components";
+import { SVGIcon } from "../SVGIcon";
+
+export const NavBarWrapper = styled.div`
+  display: flex;
+  padding-top: 0.3rem;
+`;
 
 const NavbarLink = styled(Link)`
+  display: flex;
+  flex: 0 0 33.33%;
+  justify-content: center;
   color: black;
   text-decoration: none;
-  padding: 0.2rem;
-  background: ${(props) => (props.active === "on" ? "grey" : "lightgrey")};
-  align-items: center;
-  font-size: 2rem;
+  color: ${(props) => (props.active === "on" ? "white" : "black")};
   transition: background 0.5s, color 0.5s;
   &:hover {
     color: white;
-    background: grey;
   }
 `;
 
@@ -20,19 +25,22 @@ export function NavBar() {
   const { pathname } = useRouter();
 
   return (
-    <>
+    <NavBarWrapper>
+      <NavbarLink active={pathname === "/" ? "on" : "off"} href="/">
+        <SVGIcon variant="information" width="40px" />
+      </NavbarLink>
       <NavbarLink
         active={pathname === "/barcodeScanner" ? "on" : "off"}
         href="/barcodeScanner"
       >
-        scan
+        <SVGIcon variant="scanner" width="40px" />
       </NavbarLink>
       <NavbarLink
         active={pathname === "/settings" ? "on" : "off"}
         href="/settings"
       >
-        settings
+        <SVGIcon variant="settings" width="40px" />
       </NavbarLink>
-    </>
+    </NavBarWrapper>
   );
 }

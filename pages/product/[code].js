@@ -6,12 +6,89 @@ import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import { useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
+import { SVGIcon } from "@/components/SVGIcon";
 
 const StyledImage = styled(Image)`
+  margin: 2rem;
   width: 25%;
   height: 25%;
   object-fit: cover;
 `;
+
+const StyledProductName = styled.h2`
+  padding-top: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+`;
+
+const StyledCheck = styled.div`
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100px;
+  width: 200px;
+  padding-top: 20px;
+  padding-right: 2rem;
+  margin-top: 2rem;
+`;
+const StyledProductCard = styled.section`
+  background-color: white;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.25);
+  height: 50%;
+`;
+const StyledBackButton = styled.button`
+  position: fixed;
+  left: 0.1rem;
+  top: 0.3rem;
+  color: white;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
+`;
+
+const NoProduct = styled.p`
+  font-size: 35px;
+  left: 5rem;
+  top: 200px;
+  position: absolute;
+  z-index: 4;
+`;
+const StyledAllCards = styled.div`
+  margin-top: 4rem;
+`;
+const StyledIngredientsCard = styled.div`
+  margin-top: 0.5rem;
+  background-color: white;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.25);
+  height: 50%;
+`;
+const StyledInsideCard = styled.div`
+  display: flex;
+`;
+const StyledPAdditives = styled.p`
+  display: flex;
+`;
+const StyledPAllergens = styled.p`
+  display: flex;
+`;
+
+const StyledAdditivesH3 = styled.p`
+  font-weight: bold;
+`;
+const StyledAllergensH3 = styled.p`
+  font-weight: bold;
+`;
+
 //getting additives from Localstorage with atom from jotai
 const initialAdditives = atomWithStorage("additives", [], {
   ...createJSONStorage(() => localStorage),
@@ -38,20 +115,20 @@ export default function DetailPage() {
 
   function BackToScanner() {
     return (
-      <button
+      <StyledBackButton
         onClick={() => {
           router.push("/barcodeScanner");
         }}
       >
-        <span>◀︎</span>
-      </button>
+        <SVGIcon variant="back" width="50px" />
+      </StyledBackButton>
     );
   }
   if (!data) {
     return (
       <>
         <BackToScanner />
-        <p>loading</p>
+        <p>...lädt!</p>
       </>
     );
   }
@@ -59,7 +136,7 @@ export default function DetailPage() {
     return (
       <>
         <BackToScanner />
-        <p>Product not found</p>
+        <NoProduct>Scanne Nochmal!</NoProduct>
       </>
     );
   }
@@ -70,9 +147,11 @@ export default function DetailPage() {
     id: item,
   }));
 
-  const additivesArray = data.product.additives_original_tags ? data.product.additives_original_tags.map((item) => ({
-    id: item,
-  })) : [];
+  const additivesArray = data.product.additives_original_tags
+    ? data.product.additives_original_tags.map((item) => ({
+        id: item,
+      }))
+    : [];
 
   function Allergens() {
     return (
@@ -102,69 +181,84 @@ export default function DetailPage() {
 
       {data && data.product ? (
         <>
-          <h2>{data.product.product_name} </h2>
-          {/* if user have not chosen additives show message */}
-          {additivesFromStorage.length > 0 ? (
-            <p>
-              Additive:
-              {filteredAdditives.length > 0 ? (
-                <span> ❌</span>
-              ) : (
-                <span> ✅</span>
-              )}
-            </p>
-          ) : (
-            <p>choose your additives</p>
-          )}
-          {/* if user have not chosen allergens show message */}
-          {allergensFromStorage.length > 0 ? (
-            <p>
-              Allergene:
-              {filteredAllergens.length > 0 ? (
-                <span> ❌</span>
-              ) : (
-                <span> ✅</span>
-              )}
-            </p>
-          ) : (
-            <p>choose your allergens</p>
-          )}
-
-          <StyledImage
-            width={1000}
-            height={1000}
-            src={data.product.image_front_url}
-            alt={data.product.product_name}
-          />
-
-          <p>{data.product.brands}</p>
-          {/* show allergens and additives */}
-          <section>
-            <h3>Additives</h3>
-            {data.product && data.product.additives_original_tags ? (
-              data.product.additives_original_tags.map((additive) => (
-                <Additives
-                  key={additive}
-                  additive={
-                    additives.tags.find((addi) => {
-                      return addi.id === additive;
-                    })?.name
-                  }
+          <StyledAllCards>
+            <StyledProductCard>
+              <StyledProductName>
+                {data.product.product_name}{" "}
+              </StyledProductName>
+              {/* if user have not chosen additives show message */}
+              <StyledInsideCard>
+                <StyledImage
+                  width={1000}
+                  height={1000}
+                  src={data.product.image_front_url}
+                  alt={data.product.product_name}
                 />
-              ))
-            ) : (
-              <p>No additives listed</p>
-            )}
-          </section>
-          <section>
-            <h3>Allergens</h3>
-            <Allergens />
-          </section>
+                <StyledCheck>
+                  {additivesFromStorage.length > 0 ? (
+                    <StyledPAdditives>
+                      Additive:
+                      {filteredAdditives.length > 0 ? (
+                        <span> ❌</span>
+                      ) : (
+                        <span> ✅</span>
+                      )}
+                    </StyledPAdditives>
+                  ) : (
+                    <p>
+                      Sie haben keine Zusatzstoffe in den Einstellungen gewählt!
+                    </p>
+                  )}
+                  {/* if user have not chosen allergens show message */}
+                  {allergensFromStorage.length > 0 ? (
+                    <StyledPAllergens>
+                      Allergene:
+                      {filteredAllergens.length > 0 ? (
+                        <span> ❌</span>
+                      ) : (
+                        <span> ✅</span>
+                      )}
+                    </StyledPAllergens>
+                  ) : (
+                    <p>
+                      Sie haben keine Allergene in den Einstellunegn gewählt!
+                    </p>
+                  )}
+                </StyledCheck>
+              </StyledInsideCard>
+
+              <p>Hersteller:{data.product.brands}</p>
+            </StyledProductCard>
+            {/* show allergens and additives */}
+            <StyledIngredientsCard>
+              <StyledAdditivesH3>Additive</StyledAdditivesH3>
+
+              {data.product && data.product.additives_original_tags ? (
+                data.product.additives_original_tags.map((additive) => (
+                  <Additives
+                    key={additive}
+                    additive={
+                      additives.tags.find((addi) => {
+                        return addi.id === additive;
+                      })?.name
+                    }
+                  />
+                ))
+              ) : (
+                <p>keine Additive gelistet</p>
+              )}
+            </StyledIngredientsCard>
+            <StyledIngredientsCard>
+              <StyledAllergensH3>Allergene</StyledAllergensH3>
+
+              <Allergens />
+            </StyledIngredientsCard>
+          </StyledAllCards>
         </>
       ) : (
         <>
           <BackToScanner />
-          <p>Product not found</p>
+          <p>Scanne Nochmal!</p>
         </>
       )}
     </>
