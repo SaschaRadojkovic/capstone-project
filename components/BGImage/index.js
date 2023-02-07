@@ -44,7 +44,7 @@ function BGImage() {
           src="/lb.jpg"
           width={width}
           height={height}
-          alt="a knive and leafs on a wooden table"
+          alt="ein messer und kräuter auf einem schneidebrett"
           priority={true}
         />
       </Box>

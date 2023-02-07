@@ -7,6 +7,7 @@ import { useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import { SVGIcon } from "@/components/SVGIcon";
+import { TEMPORARY_REDIRECT_STATUS } from "next/dist/shared/lib/constants";
 
 const StyledImage = styled(Image)`
   margin: 2rem;
@@ -76,17 +77,36 @@ const StyledInsideCard = styled.div`
   display: flex;
 `;
 const StyledPAdditives = styled.p`
+border 1px solid black;
   display: flex;
+  flex:0 0 50%;
 `;
 const StyledPAllergens = styled.p`
+
+
+border 1px solid black;
   display: flex;
+
+  height:2rem;
+  flex:0 0 50%;
+
 `;
 
 const StyledAdditivesH3 = styled.p`
-  font-weight: bold;
+  font-weight: normal;
 `;
 const StyledAllergensH3 = styled.p`
-  font-weight: bold;
+  font-weight: normal;
+`;
+
+const StyledPararaph = styled.p`
+  display: flex;
+  flex: 0 0 50%;
+  border: 1px solid red;
+  padding: 0.5rem;
+  font-weight: normal;
+  font-size: 0.7rem;
+  background: orange;
 `;
 
 //getting additives from Localstorage with atom from jotai
@@ -99,10 +119,17 @@ const initialAllergens = atomWithStorage("allergens", [], {
   ...createJSONStorage(() => localStorage),
   delayInit: true,
 });
+
+const initialProducts = atomWithStorage("products", [], {
+  ...createJSONStorage(() => localStorage),
+  delayInit: true,
+});
+
 export default function DetailPage() {
   const [additivesFromStorage] = useAtom(initialAdditives);
   const [allergensFromStorage] = useAtom(initialAllergens);
-
+  const [products, setProducts] = useAtom(initialProducts);
+  console.log("initialProducts", initialProducts);
   const router = useRouter();
   const { code } = router.query;
   const { data } = useSWR(
@@ -183,11 +210,22 @@ export default function DetailPage() {
         <>
           <StyledAllCards>
             <StyledProductCard>
-              <StyledProductName>
-                {data.product.product_name}{" "}
-              </StyledProductName>
+              <StyledProductName>{data.product.product_name}</StyledProductName>
               {/* if user have not chosen additives show message */}
               <StyledInsideCard>
+                <button
+                  onClick={() => {
+                    setProducts([
+                      {
+                        name: data.product.product_name,
+                        url: data.product.image_front_url,
+                      },
+                      ...products,
+                    ]);
+                  }}
+                >
+                  speichern
+                </button>
                 <StyledImage
                   width={1000}
                   height={1000}
@@ -199,30 +237,30 @@ export default function DetailPage() {
                     <StyledPAdditives>
                       Additive:
                       {filteredAdditives.length > 0 ? (
-                        <span> ❌</span>
+                        <SVGIcon variant="bad" width="20px" color="red" />
                       ) : (
-                        <span> ✅</span>
+                        <SVGIcon variant="good" width="20px" color="#1bde4f" />
                       )}
                     </StyledPAdditives>
                   ) : (
-                    <p>
+                    <StyledPararaph>
                       Sie haben keine Zusatzstoffe in den Einstellungen gewählt!
-                    </p>
+                    </StyledPararaph>
                   )}
                   {/* if user have not chosen allergens show message */}
                   {allergensFromStorage.length > 0 ? (
                     <StyledPAllergens>
                       Allergene:
                       {filteredAllergens.length > 0 ? (
-                        <span> ❌</span>
+                        <SVGIcon variant="bad" width="20px" color="red" />
                       ) : (
-                        <span> ✅</span>
+                        <SVGIcon variant="good" width="20px" color="#1bde4f" />
                       )}
                     </StyledPAllergens>
                   ) : (
-                    <p>
+                    <StyledPararaph>
                       Sie haben keine Allergene in den Einstellunegn gewählt!
-                    </p>
+                    </StyledPararaph>
                   )}
                 </StyledCheck>
               </StyledInsideCard>
@@ -258,7 +296,7 @@ export default function DetailPage() {
       ) : (
         <>
           <BackToScanner />
-          <p>Scanne Nochmal!</p>
+          <p>Scannen Sie noch einmal!</p>
         </>
       )}
     </>
