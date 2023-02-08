@@ -8,24 +8,33 @@ import styled from "styled-components";
 import { initialProducts } from "../product/[code]";
 
 const StyledAllCards = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  margin-left: 0.5rem;
   width: 97vw;
   margin-top: 4rem;
-  gap: 1rem;
+  //   padding-right: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  //   width: calc(95vw - 4rem);
+  //   margin-top: 4rem;
+  //   margin-left: 2rem;
+  //   margin-right: 2rem;
+  gap: 0.5rem;
 `;
 const StyledImage = styled(Image)`
-  width: 200px;
-  height: 200px;
+  width: 135px;
+  height: 135px;
   object-fit: contain;
 `;
 const StyledProductCard = styled.section`
+  witdh: 50%;
+  //   margin-left: 3%;
+  //   width: 80%;
   background-color: white;
-  margin-left: 1rem;
-  margin-right: -0.7rem;
+  //   margin-left: 1rem;
+  //   margin-right: -0.7rem;
   border-radius: 0.4rem;
-  box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
-  height: 100%;
+  //   box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
+  //   height: 100%;
 `;
 const StyledProductName = styled.h2`
   border-radius: 0.4rem 0.4rem 0 0;
@@ -39,7 +48,7 @@ const StyledProductName = styled.h2`
 const StyledDeleteButton = styled.button`
   background: none;
   border: none;
-  padding: 0;
+  //   padding: 0;
   font-size: inherit;
   cursor: pointer;
   color: inherit;
@@ -48,7 +57,7 @@ const StyledDeleteButton = styled.button`
 const StyledDetailsButton = styled.button`
   background: none;
   border: none;
-  padding: 0;
+  //   padding: 0;
   font-size: inherit;
   cursor: pointer;
   color: inherit;
