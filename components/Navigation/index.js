@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
 

@@ -28,6 +28,7 @@ const StyledProductCard = styled.section`
   height: 100%;
 `;
 const StyledProductName = styled.h2`
+  border-radius: 0.4rem 0.4rem 0 0;
   background: #ffcc80;
   padding: 0.5rem;
   font-weight: bold;

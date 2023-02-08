@@ -9,7 +9,6 @@ import additives from "../../additives.json";
 import { SVGIcon } from "@/components/SVGIcon";
 
 const StyledImage = styled(Image)`
-  margin: 2rem;
   width: 200px;
   height: 200px;
   object-fit: contain;
@@ -43,6 +42,7 @@ const StyledProductCard = styled.section`
   margin-bottom: 2rem;
   border-radius: 0.4rem;
   box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
+  max-height: 310px;
 `;
 const StyledBackButton = styled.button`
   position: fixed;
@@ -78,7 +78,6 @@ const StyledIngredientsCard = styled.div`
 `;
 const StyledInsideCard = styled.div`
   display: flex;
-  justify-content: flex-end;
 `;
 const StyledPAdditives = styled.p`
   display: flex;
@@ -99,7 +98,6 @@ const StyledAdditivesH3 = styled.p`
 `;
 const StyledAllergensH3 = styled.p`
   padding: 0.5rem;
-  border-radius: 0.4rem 0.4rem 0 0;
 
   text-align: center;
   font-weight: bold;
@@ -127,10 +125,10 @@ const StyledButtonDiv = styled.div`
   justify-content: flex-end;
 `;
 const StyledParagraphBold = styled.p`
+  border-radius: 0 0 0.4rem 0.4rem;
   padding: 10px;
   font-weight: bold;
   background: #ffcc80;
-  //   border-radius: 0 0 0.4rem 0.4rem;
 `;
 const StyledBrand = styled.p`
   font-weight: normal;
@@ -239,7 +237,6 @@ export default function DetailPage() {
             <StyledProductCard>
               <StyledProductName>{data.product.product_name}</StyledProductName>
               <StyledButtonDiv>
-                {" "}
                 <StyledSaveButton
                   onClick={() => {
                     if (
@@ -306,11 +303,10 @@ export default function DetailPage() {
                   )}
                 </StyledCheck>
               </StyledInsideCard>
-              {/* <StyledParagraphBold>
-                {" "}
+              <StyledParagraphBold>
                 Hersteller:
                 <StyledBrand>{data.product.brands}</StyledBrand>
-              </StyledParagraphBold> */}
+              </StyledParagraphBold>
             </StyledProductCard>
             {/* show allergens and additives */}
             <StyledIngredientsCard>
@@ -333,7 +329,6 @@ export default function DetailPage() {
             </StyledIngredientsCard>
             <StyledIngredientsCard>
               <StyledAllergensH3>Allergene</StyledAllergensH3>
-
               <Allergens />
             </StyledIngredientsCard>
           </StyledAllCards>
