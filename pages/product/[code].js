@@ -119,6 +119,7 @@ const StyledSaveButton = styled.button`
   padding: 0;
   font-size: inherit;
   cursor: pointer;
+  color: inherit;
 `;
 const StyledButtonDiv = styled.div`
   display: flex;
