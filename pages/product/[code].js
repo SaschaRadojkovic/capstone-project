@@ -64,9 +64,7 @@ const NoProduct = styled.p`
   z-index: 4;
 `;
 const StyledAllCards = styled.div`
-  display: grid;
   margin-top: 4rem;
-  height: 60vh;
 `;
 const StyledIngredientsCard = styled.div`
   margin-top: 0.5rem;

@@ -8,16 +8,11 @@ import styled from "styled-components";
 import { initialProducts } from "../product/[code]";
 
 const StyledAllCards = styled.div`
-  margin-left: 0.5rem;
+  margin-left: 0.4rem;
   width: 97vw;
   margin-top: 4rem;
-  //   padding-right: 2rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  //   width: calc(95vw - 4rem);
-  //   margin-top: 4rem;
-  //   margin-left: 2rem;
-  //   margin-right: 2rem;
   gap: 0.5rem;
 `;
 const StyledImage = styled(Image)`
