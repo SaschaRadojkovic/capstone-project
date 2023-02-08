@@ -48,7 +48,7 @@ const StyledProductName = styled.h2`
 const StyledDeleteButton = styled.button`
   background: none;
   border: none;
-  //   padding: 0;
+  padding: 0;
   font-size: inherit;
   cursor: pointer;
   color: inherit;
@@ -57,7 +57,7 @@ const StyledDeleteButton = styled.button`
 const StyledDetailsButton = styled.button`
   background: none;
   border: none;
-  //   padding: 0;
+  padding: 0;
   font-size: inherit;
   cursor: pointer;
   color: inherit;
