@@ -51,6 +51,7 @@ const StyledDetailsButton = styled.button`
   padding: 0;
   font-size: inherit;
   cursor: pointer;
+  color: inherit;
 `;
 
 const StyledButtonPosition = styled.div`
