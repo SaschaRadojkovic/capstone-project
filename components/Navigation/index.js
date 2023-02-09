@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
 
@@ -10,7 +10,7 @@ export const NavBarWrapper = styled.div`
 
 const NavbarLink = styled(Link)`
   display: flex;
-  flex: 0 0 33.33%;
+  flex-grow: 1;
   justify-content: center;
   color: black;
   text-decoration: none;
@@ -34,6 +34,12 @@ export function NavBar() {
         href="/barcodeScanner"
       >
         <SVGIcon variant="scanner" width="40px" />
+      </NavbarLink>
+      <NavbarLink
+        active={pathname === "/saved" ? "on" : "off"}
+        href="/products"
+      >
+        <SVGIcon variant="saved" width="40px" />
       </NavbarLink>
       <NavbarLink
         active={pathname === "/settings" ? "on" : "off"}

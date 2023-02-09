@@ -1,18 +1,23 @@
 import styled from "styled-components";
 
 const WelcomeWrapper = styled.div`
-  margin-top: 5rem;
+  background: grey;
+  color: white;
   margin: 5rem;
   margin-left: 5rem;
   margin-right: 4rem;
   text-align: right;
+  opacity: 0.7;
+  padding: 10px;
 `;
 const StyledHeading = styled.h1`
+  color: white;
   font-weight: bold;
   font-size: 1.5rem;
 `;
 const StyledPararaph = styled.p`
-  background: red;
+  margin-top: -3.8rem;
+  background: #ff5722;
   padding: 1rem;
   text-align: center;
   opacity: 0.8;

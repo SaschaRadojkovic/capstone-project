@@ -113,6 +113,8 @@ const StyledButton = styled.div`
   color: inherit;
 `;
 
+export { StyledDeleteButton };
+
 export default function Card({
   initialItemList,
   items,

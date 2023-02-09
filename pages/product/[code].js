@@ -9,17 +9,18 @@ import additives from "../../additives.json";
 import { SVGIcon } from "@/components/SVGIcon";
 
 const StyledImage = styled(Image)`
-  margin: 2rem;
-  width: 25%;
-  height: 25%;
-  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 `;
 
 const StyledProductName = styled.h2`
-  padding-top: 1rem;
+  padding-block: 0.5rem;
   font-weight: bold;
   font-size: 1.2rem;
   text-align: center;
+  background: #ffcc80;
+  border-radius: 0.4rem 0.4rem 0 0;
 `;
 
 const StyledCheck = styled.div`
@@ -37,9 +38,10 @@ const StyledProductCard = styled.section`
   background-color: white;
   margin-left: 2rem;
   margin-right: 2rem;
-  border-radius: 0.7rem;
-  box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.25);
-  height: 50%;
+  margin-bottom: 2rem;
+  border-radius: 0.4rem;
+  box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
+  max-height: 310px;
 `;
 const StyledBackButton = styled.button`
   position: fixed;
@@ -69,24 +71,64 @@ const StyledIngredientsCard = styled.div`
   margin-left: 4rem;
   margin-right: 4rem;
   border-radius: 0.4rem;
-  box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.25);
-  height: 50%;
+  box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
 `;
 const StyledInsideCard = styled.div`
   display: flex;
 `;
 const StyledPAdditives = styled.p`
   display: flex;
+  flex-grow: 1;
 `;
 const StyledPAllergens = styled.p`
   display: flex;
+  flex-grow: 1;
 `;
 
 const StyledAdditivesH3 = styled.p`
+  border-radius: 0.4rem 0.4rem 0 0;
+  padding: 0.5rem;
+
+  text-align: center;
   font-weight: bold;
 `;
 const StyledAllergensH3 = styled.p`
+  padding: 0.5rem;
+
+  text-align: center;
   font-weight: bold;
+`;
+
+const StyledParagraph = styled.p`
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid red;
+  padding: 0.5rem;
+  font-weight: normal;
+  font-size: 0.7rem;
+  background: orange;
+`;
+
+const StyledSaveButton = styled.button`
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
+  color: inherit;
+`;
+const StyledButtonDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+const StyledParagraphBold = styled.p`
+  border-radius: 0 0 0.4rem 0.4rem;
+  padding: 10px;
+  font-weight: bold;
+  background: #ffcc80;
+`;
+const StyledBrand = styled.p`
+  font-weight: normal;
 `;
 
 //getting additives from Localstorage with atom from jotai
@@ -99,9 +141,16 @@ const initialAllergens = atomWithStorage("allergens", [], {
   ...createJSONStorage(() => localStorage),
   delayInit: true,
 });
+
+export const initialProducts = atomWithStorage("products", [], {
+  ...createJSONStorage(() => localStorage),
+  delayInit: true,
+});
+
 export default function DetailPage() {
   const [additivesFromStorage] = useAtom(initialAdditives);
   const [allergensFromStorage] = useAtom(initialAllergens);
+  const [savedProducts, setSavedProducts] = useAtom(initialProducts);
 
   const router = useRouter();
   const { code } = router.query;
@@ -117,7 +166,7 @@ export default function DetailPage() {
     return (
       <StyledBackButton
         onClick={() => {
-          router.push("/barcodeScanner");
+          router.back();
         }}
       >
         <SVGIcon variant="back" width="50px" />
@@ -173,6 +222,10 @@ export default function DetailPage() {
     return allergensArray.some((allerg) => allerg.id === allergen.id);
   });
 
+  const checkExistingProducts = savedProducts.some(
+    (product) => product.code === code
+  );
+
   return (
     <>
       <BackToScanner />
@@ -183,9 +236,32 @@ export default function DetailPage() {
         <>
           <StyledAllCards>
             <StyledProductCard>
-              <StyledProductName>
-                {data.product.product_name}{" "}
-              </StyledProductName>
+              <StyledProductName>{data.product.product_name}</StyledProductName>
+              <StyledButtonDiv>
+                <StyledSaveButton
+                  onClick={() => {
+                    if (!checkExistingProducts) {
+                      setSavedProducts([
+                        {
+                          name: data.product.product_name,
+                          url: data.product.image_front_url,
+                          code: code,
+                        },
+                        ...savedProducts,
+                      ]);
+                    }
+                  }}
+                >
+                  <SVGIcon
+                    variant={
+                      checkExistingProducts
+                        ? "saveButtonFilled"
+                        : "saveButtonOutlined"
+                    }
+                    width="26px"
+                  />
+                </StyledSaveButton>
+              </StyledButtonDiv>
               {/* if user have not chosen additives show message */}
               <StyledInsideCard>
                 <StyledImage
@@ -199,35 +275,37 @@ export default function DetailPage() {
                     <StyledPAdditives>
                       Additive:
                       {filteredAdditives.length > 0 ? (
-                        <span> ❌</span>
+                        <SVGIcon variant="bad" width="20px" color="red" />
                       ) : (
-                        <span> ✅</span>
+                        <SVGIcon variant="good" width="20px" color="#1bde4f" />
                       )}
                     </StyledPAdditives>
                   ) : (
-                    <p>
+                    <StyledParagraph>
                       Sie haben keine Zusatzstoffe in den Einstellungen gewählt!
-                    </p>
+                    </StyledParagraph>
                   )}
                   {/* if user have not chosen allergens show message */}
                   {allergensFromStorage.length > 0 ? (
                     <StyledPAllergens>
                       Allergene:
                       {filteredAllergens.length > 0 ? (
-                        <span> ❌</span>
+                        <SVGIcon variant="bad" width="20px" color="red" />
                       ) : (
-                        <span> ✅</span>
+                        <SVGIcon variant="good" width="20px" color="#1bde4f" />
                       )}
                     </StyledPAllergens>
                   ) : (
-                    <p>
+                    <StyledParagraph>
                       Sie haben keine Allergene in den Einstellunegn gewählt!
-                    </p>
+                    </StyledParagraph>
                   )}
                 </StyledCheck>
               </StyledInsideCard>
-
-              <p>Hersteller:{data.product.brands}</p>
+              <StyledParagraphBold>
+                Hersteller:
+                <StyledBrand>{data.product.brands}</StyledBrand>
+              </StyledParagraphBold>
             </StyledProductCard>
             {/* show allergens and additives */}
             <StyledIngredientsCard>
@@ -250,7 +328,6 @@ export default function DetailPage() {
             </StyledIngredientsCard>
             <StyledIngredientsCard>
               <StyledAllergensH3>Allergene</StyledAllergensH3>
-
               <Allergens />
             </StyledIngredientsCard>
           </StyledAllCards>
@@ -258,7 +335,7 @@ export default function DetailPage() {
       ) : (
         <>
           <BackToScanner />
-          <p>Scanne Nochmal!</p>
+          <p>Scannen Sie noch einmal!</p>
         </>
       )}
     </>
