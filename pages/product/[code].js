@@ -82,7 +82,6 @@ const StyledPAdditives = styled.p`
 `;
 const StyledPAllergens = styled.p`
   display: flex;
-  height: 2rem;
   flex-grow: 1;
 `;
 
@@ -102,7 +101,7 @@ const StyledAllergensH3 = styled.p`
 
 const StyledParagraph = styled.p`
   display: flex;
-  fle-grow: 1;
+  flex-grow: 1;
   border: 1px solid red;
   padding: 0.5rem;
   font-weight: normal;
