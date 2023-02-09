@@ -2,6 +2,7 @@ import { SVGIcon } from "@/components/SVGIcon";
 import { useAtom } from "jotai";
 import { RESET } from "jotai/utils";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
@@ -22,14 +23,9 @@ const StyledImage = styled(Image)`
 `;
 const StyledProductCard = styled.section`
   witdh: 50%;
-  //   margin-left: 3%;
-  //   width: 80%;
   background-color: white;
-  //   margin-left: 1rem;
-  //   margin-right: -0.7rem;
   border-radius: 0.4rem;
-  //   box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
-  //   height: 100%;
+  box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
 `;
 const StyledProductName = styled.h2`
   border-radius: 0.4rem 0.4rem 0 0;
@@ -49,12 +45,7 @@ const StyledDeleteButton = styled.button`
   color: inherit;
 `;
 
-const StyledDetailsButton = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: inherit;
-  cursor: pointer;
+const StyledLink = styled(Link)`
   color: inherit;
 `;
 
@@ -62,8 +53,6 @@ const StyledButtonPosition = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-
-const StyledInsideCard = styled.div``;
 
 export default function Products() {
   const [products, setProducts] = useAtom(initialProducts);
@@ -77,13 +66,9 @@ export default function Products() {
             <StyledProductCard key={product.code}>
               <StyledProductName>{product.name}</StyledProductName>
               <StyledButtonPosition>
-                <StyledDetailsButton
-                  onClick={() => {
-                    router.push(`/product/${product.code}`);
-                  }}
-                >
+                <StyledLink href={`/product/${product.code}`}>
                   <SVGIcon variant="details" width="26px" />
-                </StyledDetailsButton>
+                </StyledLink>
                 <StyledDeleteButton
                   variant="delete"
                   width="30px"
@@ -102,14 +87,14 @@ export default function Products() {
                   <SVGIcon variant="delete" width="26px" />
                 </StyledDeleteButton>
               </StyledButtonPosition>
-              <StyledInsideCard>
+              <div>
                 <StyledImage
                   width={1000}
                   height={1000}
                   src={product.url}
                   alt={product.name}
                 />
-              </StyledInsideCard>
+              </div>
             </StyledProductCard>
           );
         })}

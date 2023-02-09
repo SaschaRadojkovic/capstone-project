@@ -15,8 +15,7 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledProductName = styled.h2`
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-block: 0.5rem;
   font-weight: bold;
   font-size: 1.2rem;
   text-align: center;
@@ -36,7 +35,7 @@ const StyledCheck = styled.div`
   margin-top: 2rem;
 `;
 const StyledProductCard = styled.section`
-  background-color: #f5f5f5;
+  background-color: white;
   margin-left: 2rem;
   margin-right: 2rem;
   margin-bottom: 2rem;
@@ -79,12 +78,12 @@ const StyledInsideCard = styled.div`
 `;
 const StyledPAdditives = styled.p`
   display: flex;
-  flex: 0 0 50%;
+  flex-grow: 1;
 `;
 const StyledPAllergens = styled.p`
   display: flex;
   height: 2rem;
-  flex: 0 0 50%;
+  flex-grow: 1;
 `;
 
 const StyledAdditivesH3 = styled.p`
@@ -103,7 +102,7 @@ const StyledAllergensH3 = styled.p`
 
 const StyledParagraph = styled.p`
   display: flex;
-  flex: 0 0 50%;
+  fle-grow: 1;
   border: 1px solid red;
   padding: 0.5rem;
   font-weight: normal;
@@ -224,6 +223,10 @@ export default function DetailPage() {
     return allergensArray.some((allerg) => allerg.id === allergen.id);
   });
 
+  const checkExistingProducts = savedProducts.some(
+    (product) => product.code === code
+  );
+
   return (
     <>
       <BackToScanner />
@@ -238,9 +241,7 @@ export default function DetailPage() {
               <StyledButtonDiv>
                 <StyledSaveButton
                   onClick={() => {
-                    if (
-                      !savedProducts.some((product) => product.code === code)
-                    ) {
+                    if (!checkExistingProducts) {
                       setSavedProducts([
                         {
                           name: data.product.product_name,
@@ -254,7 +255,7 @@ export default function DetailPage() {
                 >
                   <SVGIcon
                     variant={
-                      savedProducts.some((product) => product.code === code)
+                      checkExistingProducts
                         ? "saveButtonFilled"
                         : "saveButtonOutlined"
                     }

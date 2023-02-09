@@ -10,7 +10,7 @@ export const NavBarWrapper = styled.div`
 
 const NavbarLink = styled(Link)`
   display: flex;
-  flex: 0 0 25%;
+  flex-grow: 1;
   justify-content: center;
   color: black;
   text-decoration: none;
