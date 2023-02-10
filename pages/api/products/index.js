@@ -12,7 +12,8 @@ export default async function handler(request, response) {
   if (request.method === "POST") {
     try {
       const productData = request.body;
-      console.log("request", productData);
+
+      console.log("request", JSON.stringify(productData));
       const product = new Product(productData);
       await product.save();
       response.status(201).json({ status: "product created" });
@@ -20,8 +21,5 @@ export default async function handler(request, response) {
       console.error(error);
       response.status(400).json({ error: error.message });
     }
-  }
-  if (request.method === "PUT") {
-    console.log(`want to update product.New Product:${request.body}`);
   }
 }

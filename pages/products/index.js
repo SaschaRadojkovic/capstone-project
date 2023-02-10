@@ -4,7 +4,9 @@ import { RESET } from "jotai/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import styled from "styled-components";
+import useSWR from "swr";
 
 import { initialProducts } from "../product/[code]";
 
@@ -62,46 +64,57 @@ export default function Products() {
   const [products, setProducts] = useAtom(initialProducts);
   const router = useRouter();
 
+  const { data: storedProducts, mutate: changeProducts } =
+    useSWR(`/api/products`);
+
+  async function handleDeleteProduct(id) {
+    try {
+      await fetch(`/api/products/${id}`, {
+        method: "DELETE",
+      });
+      changeProducts();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  useEffect(() => {
+    setProducts(storedProducts);
+  }, [storedProducts, setProducts]);
+
   return (
     <>
       <StyledAllCards>
-        {products.map((product) => {
-          return (
-            <StyledProductCard key={product.code}>
-              <StyledProductName>{product.name}</StyledProductName>
-              <StyledButtonPosition>
-                <StyledLink href={`/product/${product.code}`}>
-                  <SVGIcon variant="details" width="26px" />
-                </StyledLink>
-                <StyledDeleteButton
-                  variant="delete"
-                  width="30px"
-                  type="button"
-                  onClick={() => {
-                    if (products.length === 1) {
-                      setProducts(RESET);
-                    } else {
-                      const newProducts = products.filter(
-                        (item) => item.name !== product.name
-                      );
-                      setProducts(newProducts);
-                    }
-                  }}
-                >
-                  <SVGIcon variant="delete" width="26px" />
-                </StyledDeleteButton>
-              </StyledButtonPosition>
-              <div>
-                <StyledImage
-                  width={1000}
-                  height={1000}
-                  src={product.url}
-                  alt={product.name}
-                />
-              </div>
-            </StyledProductCard>
-          );
-        })}
+        {products &&
+          products.map((product) => {
+            return (
+              <StyledProductCard key={product.code}>
+                <StyledProductName>{product.name}</StyledProductName>
+                <StyledButtonPosition>
+                  <StyledLink href={`/product/${product.code}`}>
+                    <SVGIcon variant="details" width="26px" />
+                  </StyledLink>
+                  <StyledDeleteButton
+                    variant="delete"
+                    width="30px"
+                    type="button"
+                    onClick={() => {
+                      handleDeleteProduct(product._id);
+                    }}
+                  >
+                    <SVGIcon variant="delete" width="26px" />
+                  </StyledDeleteButton>
+                </StyledButtonPosition>
+                <div>
+                  <StyledImage
+                    width={1000}
+                    height={1000}
+                    src={product.url}
+                    alt={product.name}
+                  />
+                </div>
+              </StyledProductCard>
+            );
+          })}
       </StyledAllCards>
     </>
   );

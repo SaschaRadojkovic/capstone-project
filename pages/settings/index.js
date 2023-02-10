@@ -1,10 +1,11 @@
 import { useState } from "react";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
-import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import Card from "@/components/Card";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
+import { atom } from "jotai";
+import useSWR from "swr";
 
 const BgImage = dynamic(() => import("../../components/BGImage"), {
   ssr: false,
@@ -39,15 +40,9 @@ const StyledContent = styled.div`
   margin-top: 8rem;
 `;
 
-const initialAdditives = atomWithStorage("additives", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
+export const initialAdditives = atom([]);
 
-const initialAllergens = atomWithStorage("allergens", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
+export const initialAllergens = atom([]);
 
 export default function Settings() {
   const [showAdditives, setShowAdditives] = useState(true);
@@ -78,6 +73,7 @@ export default function Settings() {
           items={additives}
           alertOptions={{ title: "Alle Additive löschen?" }}
           alertSuccess={{ text: "Alle Additive wurden gelöscht" }}
+          model={"additives"}
         />
       ) : (
         <Card
@@ -85,6 +81,7 @@ export default function Settings() {
           items={allergens}
           alertOptions={{ title: "Alle Allergene löschen?" }}
           alertSuccess={{ text: "Alle Allergene wurden gelöscht" }}
+          model={"allergens"}
         />
       )}
     </>

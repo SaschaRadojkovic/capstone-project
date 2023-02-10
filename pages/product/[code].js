@@ -3,10 +3,12 @@ import useSWR from "swr";
 import Image from "next/image";
 import styled from "styled-components";
 import { atomWithStorage, createJSONStorage } from "jotai/utils";
-import { useAtom } from "jotai";
+import { atom, useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import { SVGIcon } from "@/components/SVGIcon";
+import { useEffect } from "react";
+import { initialAdditives, initialAllergens } from "../settings";
 
 const StyledImage = styled(Image)`
   width: 200px;
@@ -131,25 +133,9 @@ const StyledBrand = styled.p`
   font-weight: normal;
 `;
 
-//getting additives from Localstorage with atom from jotai
-const initialAdditives = atomWithStorage("additives", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
-//getting  allergens from Localstorage with atom from jotai
-const initialAllergens = atomWithStorage("allergens", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
-
-export const initialProducts = atomWithStorage("products", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
+export const initialProducts = atom([]);
 
 export default function DetailPage() {
-  const [additivesFromStorage] = useAtom(initialAdditives);
-  const [allergensFromStorage] = useAtom(initialAllergens);
   const [savedProducts, setSavedProducts] = useAtom(initialProducts);
 
   const router = useRouter();
@@ -157,6 +143,34 @@ export default function DetailPage() {
   const { data } = useSWR(
     `https://de.openfoodfacts.org/api/v0/product/${code}.json`
   );
+
+  const { data: storedProducts, mutate: changeProducts } =
+    useSWR(`/api/products`);
+
+  const { data: additivesFromServer = [] } = useSWR(`/api/additives`);
+
+  const { data: allergensFromServer = [] } = useSWR(`/api/allergens`);
+
+  console.log("sp", savedProducts);
+
+  useEffect(() => {
+    setSavedProducts(storedProducts);
+  }, [storedProducts, setSavedProducts]);
+
+  async function handleSaveProduct(product) {
+    try {
+      await fetch(`/api/products`, {
+        method: "POST",
+        body: JSON.stringify(product),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      changeProducts();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
   function Additives({ additive }) {
     return <div>{additive}</div>;
@@ -214,17 +228,17 @@ export default function DetailPage() {
     );
   }
 
-  const filteredAdditives = additivesFromStorage.filter((additive) => {
+  const filteredAdditives = additivesFromServer.filter((additive) => {
     return additivesArray.some((addi) => addi.id === additive.id);
   });
 
-  const filteredAllergens = allergensFromStorage.filter((allergen) => {
+  const filteredAllergens = allergensFromServer.filter((allergen) => {
     return allergensArray.some((allerg) => allerg.id === allergen.id);
   });
 
-  const checkExistingProducts = savedProducts.some(
-    (product) => product.code === code
-  );
+  const checkExistingProducts = savedProducts
+    ? savedProducts.some((product) => product.code === code)
+    : false;
 
   return (
     <>
@@ -239,17 +253,23 @@ export default function DetailPage() {
               <StyledProductName>{data.product.product_name}</StyledProductName>
               <StyledButtonDiv>
                 <StyledSaveButton
+                  key={data.product}
                   onClick={() => {
-                    if (!checkExistingProducts) {
-                      setSavedProducts([
-                        {
-                          name: data.product.product_name,
-                          url: data.product.image_front_url,
-                          code: code,
-                        },
-                        ...savedProducts,
-                      ]);
-                    }
+                    handleSaveProduct({
+                      name: data.product.product_name,
+                      url: data.product.image_front_url,
+                      code: code,
+                    });
+                    // if (!checkExistingProducts) {
+                    //   setSavedProducts([
+                    //     {
+                    //       name: data.product.product_name,
+                    //       url: data.product.image_front_url,
+                    //       code: code,
+                    //     },
+                    //     ...savedProducts,
+                    //   ]);
+                    // }
                   }}
                 >
                   <SVGIcon
@@ -271,7 +291,7 @@ export default function DetailPage() {
                   alt={data.product.product_name}
                 />
                 <StyledCheck>
-                  {additivesFromStorage.length > 0 ? (
+                  {additivesFromServer.length > 0 ? (
                     <StyledPAdditives>
                       Additive:
                       {filteredAdditives.length > 0 ? (
@@ -286,7 +306,7 @@ export default function DetailPage() {
                     </StyledParagraph>
                   )}
                   {/* if user have not chosen allergens show message */}
-                  {allergensFromStorage.length > 0 ? (
+                  {allergensFromServer.length > 0 ? (
                     <StyledPAllergens>
                       Allergene:
                       {filteredAllergens.length > 0 ? (

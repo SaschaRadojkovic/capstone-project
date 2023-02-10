@@ -1,9 +1,10 @@
 import { useAtom } from "jotai";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RESET } from "jotai/utils";
 import Swal from "sweetalert2";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
+import useSWR from "swr";
 
 const StyledContainer = styled.div``;
 
@@ -120,9 +121,31 @@ export default function Card({
   items,
   alertOptions,
   alertSuccess,
+  model,
 }) {
   const [searchInput, setSearchInput] = useState("");
   const [selectedItems, setSelectedItems] = useAtom(initialItemList);
+
+  const { data: storedModel, mutate: changeModel } = useSWR(`/api/${model}`);
+
+  async function handleSaveItem(item) {
+    try {
+      await fetch(`/api/${model}`, {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      changeModel();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  useEffect(() => {
+    setSelectedItems(storedModel);
+  }, [storedModel, setSelectedItems]);
 
   const filteredItems = items.tags.filter(
     (item) =>
@@ -174,7 +197,8 @@ export default function Card({
               selectedItem &&
               !selectedItems.find((item) => item.name === selectedItem.name)
             )
-              setSelectedItems([...selectedItems, selectedItem]);
+              // setSelectedItems([...selectedItems, selectedItem]);
+              handleSaveItem(selectedItem);
           }}
         >
           {/* input section */}
