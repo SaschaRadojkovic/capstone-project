@@ -19,13 +19,6 @@ export default async function handler(request, response) {
     return response.status(200).json(createProduct);
   }
 
-  if (request.method === "PATCH") {
-    const updatedProduct = await Product.findByIdAndUpdate(id, {
-      $set: request.body,
-    });
-    console.log(updatedProduct);
-    return response.status(200).json({ status: "Product updated" });
-  }
   if (request.method === "DELETE") {
     const deletedProduct = await Product.findByIdAndDelete(id);
     return response.status(200).json({ status: "Product deleted" });
