@@ -1,18 +1,22 @@
 import dbConnect from "../../../db/connect";
 import Product from "../../../db/models/Product";
+import { getToken } from "next-auth/jwt";
+const secret = process.env.NEXTAUTH_SECRET;
 
 export default async function handler(request, response) {
   await dbConnect();
+  const token = await getToken({ req: request, secret });
+  console.log("JSON Web Token", token);
 
   if (request.method === "GET") {
-    const products = await Product.find().sort("name");
+    const products = await Product.find({ userId: token.sub }).sort("name");
 
     return response.status(200).json(products);
   }
   if (request.method === "POST") {
     try {
-      const productData = request.body;
-
+      let productData = request.body;
+      productData.userId = token.sub;
       console.log("request", JSON.stringify(productData));
       const product = new Product(productData);
       await product.save();

@@ -7,7 +7,12 @@ export const authOptions = {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
+
     // ...add more providers here
   ],
+  pages: {
+    signIn: "/",
+  },
+  //   secret:process.env.jwt
 };
 export default NextAuth(authOptions);

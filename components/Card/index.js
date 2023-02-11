@@ -127,6 +127,7 @@ export default function Card({
   const [selectedItems, setSelectedItems] = useAtom(initialItemList);
 
   const { data: storedModel, mutate: changeModel } = useSWR(`/api/${model}`);
+  console.log("sm", storedModel);
 
   async function handleSaveItem(item) {
     try {
@@ -136,6 +137,27 @@ export default function Card({
         headers: {
           "Content-Type": "application/json",
         },
+      });
+      changeModel();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  async function handleDeleteItem(id) {
+    try {
+      await fetch(`/api/${model}/${id}`, {
+        method: "DELETE",
+      });
+      changeModel();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  async function handleDeleteAll(model) {
+    try {
+      await fetch(`/api/${model}`, {
+        method: "DELETE",
       });
       changeModel();
     } catch (error) {
@@ -166,7 +188,7 @@ export default function Card({
       ...alertOptions,
     }).then((result) => {
       if (result.value) {
-        setSelectedItems(RESET);
+        handleDeleteAll(model);
         Swal.fire({
           title: "Gelöscht!",
           text: "Your items have been deleted.",
@@ -258,14 +280,15 @@ export default function Card({
                         width="30px"
                         type="button"
                         onClick={() => {
-                          if (selectedItems.length === 1) {
-                            setSelectedItems(RESET);
-                          } else {
-                            const newSelectedItems = selectedItems.filter(
-                              (item) => item.name !== selectedItem.name
-                            );
-                            setSelectedItems(newSelectedItems);
-                          }
+                          handleDeleteItem(selectedItem._id);
+                          // if (selectedItems.length === 1) {
+                          //   setSelectedItems(RESET);
+                          // } else {
+                          //   const newSelectedItems = selectedItems.filter(
+                          //     (item) => item.name !== selectedItem.name
+                          //   );
+                          //   setSelectedItems(newSelectedItems);
+                          // }
                         }}
                       >
                         <SVGIcon variant="delete" width="26px" />

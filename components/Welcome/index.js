@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 const WelcomeWrapper = styled.div`
@@ -22,6 +23,9 @@ const StyledPararaph = styled.p`
   text-align: center;
   opacity: 0.8;
 `;
+const StyledLink = styled(Link)`
+  color: white;
+`;
 
 export function Welcome() {
   return (
@@ -35,9 +39,17 @@ export function Welcome() {
           <br />
           Additiven oder bestimmten Allergenen zu durchsuchen.
           <br />
-          wählen Sie in den Einstellungen Ihr &quot;Kryptonit&quot; .
+          Wählen Sie in den Einstellungen Ihr
+          <StyledLink href={"https://de.wikipedia.org/wiki/Kryptonit"}>
+            &quot;Kryptonit&quot;
+          </StyledLink>
+          .
+          <br />
+          <br />
+          Um dieses Angebot nutzen zu können, müssen Sie sich einloggen!
         </p>
       </WelcomeWrapper>
+
       <StyledPararaph>
         Es besteht immer die Möglichkeit, dass Daten über Allergene fehlen,
         unvollständig oder falsch sind oder dass sich die Zusammensetzung des

@@ -2,13 +2,11 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import Image from "next/image";
 import styled from "styled-components";
-import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import { atom, useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import { SVGIcon } from "@/components/SVGIcon";
 import { useEffect } from "react";
-import { initialAdditives, initialAllergens } from "../settings";
 
 const StyledImage = styled(Image)`
   width: 200px;
@@ -123,7 +121,7 @@ const StyledButtonDiv = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-const StyledParagraphBold = styled.p`
+const StyledParagraphBold = styled.div`
   border-radius: 0 0 0.4rem 0.4rem;
   padding: 10px;
   font-weight: bold;
@@ -253,6 +251,7 @@ export default function DetailPage() {
               <StyledProductName>{data.product.product_name}</StyledProductName>
               <StyledButtonDiv>
                 <StyledSaveButton
+                  type="button"
                   key={data.product}
                   onClick={() => {
                     handleSaveProduct({
@@ -260,16 +259,6 @@ export default function DetailPage() {
                       url: data.product.image_front_url,
                       code: code,
                     });
-                    // if (!checkExistingProducts) {
-                    //   setSavedProducts([
-                    //     {
-                    //       name: data.product.product_name,
-                    //       url: data.product.image_front_url,
-                    //       code: code,
-                    //     },
-                    //     ...savedProducts,
-                    //   ]);
-                    // }
                   }}
                 >
                   <SVGIcon

@@ -1,27 +1,20 @@
 import dbConnect from "@/db/connect";
-import Additve from "@/db/models/Additve";
+import Additive from "@/db/models/Additive";
+import { getToken } from "next-auth/jwt";
+
+const secret = process.env.NEXTAUTH_SECRET;
 
 export default async function handler(request, response) {
   await dbConnect();
+  const token = await getToken({ req: request, secret });
   const { id } = request.query;
 
-  if (request.method === "GET") {
-    const additve = await Additve.findById(id);
-
-    if (!additve) {
-      return response.status(404).json({ status: "Not Found" });
-    }
-
-    return response.status(200).json(additve);
-  }
-  if (request.method === "POST") {
-    const createAdditve = await Additve.create(id);
-    return response.status(200).json(createAdditve);
-  }
-
   if (request.method === "DELETE") {
-    const deletedAdditve = await Additve.findByIdAndDelete(id);
-    return response.status(200).json({ status: "Additve deleted" });
+    const deletedAdditive = await Additive.findOneAndDelete({
+      _id: id,
+      userId: token.sub,
+    });
+    return response.status(200).json({ status: "Additive deleted" });
   }
 
   return response.status(405).json({ status: "Method not allowed" });

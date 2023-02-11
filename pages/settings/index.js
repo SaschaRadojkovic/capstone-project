@@ -7,6 +7,9 @@ import dynamic from "next/dynamic";
 import { atom } from "jotai";
 import useSWR from "swr";
 
+import { SVGIcon } from "@/components/SVGIcon";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const BgImage = dynamic(() => import("../../components/BGImage"), {
   ssr: false,
 });
@@ -47,6 +50,7 @@ export const initialAllergens = atom([]);
 export default function Settings() {
   const [showAdditives, setShowAdditives] = useState(true);
 
+  // if (session) {
   return (
     <>
       <StyledWrapper>
