@@ -1,13 +1,11 @@
 import { SVGIcon } from "@/components/SVGIcon";
 import { useAtom } from "jotai";
-import { RESET } from "jotai/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
-
 import { initialProducts } from "../product/[code]";
 
 const StyledAllCards = styled.div`
@@ -34,11 +32,12 @@ const StyledProductCard = styled.section`
   box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
 `;
 const StyledProductName = styled.h2`
+  height: 2.3rem;
   border-radius: 0.4rem 0.4rem 0 0;
   background: #ffcc80;
   padding: 0.5rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: ${(props) => (props.length > 12 ? "0.8rem" : "1rem")};
   text-align: center;
 `;
 
@@ -88,7 +87,9 @@ export default function Products() {
           products.map((product) => {
             return (
               <StyledProductCard key={product.code}>
-                <StyledProductName>{product.name}</StyledProductName>
+                <StyledProductName length={product.name.length}>
+                  {product.name}
+                </StyledProductName>
                 <StyledButtonPosition>
                   <StyledLink href={`/product/${product.code}`}>
                     <SVGIcon variant="details" width="26px" />

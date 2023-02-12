@@ -1,6 +1,27 @@
 import { SVGIcon } from "@/components/SVGIcon";
 import { Welcome } from "@/components/Welcome";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+import styled from "styled-components";
+
+const StyledLogButton = styled.button`
+  position: fixed;
+  top: 0.65rem;
+  right: 0.2rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
+  color: ${(props) => (props.variant === "black" ? "black" : "white")};
+`;
+const StyledImage = styled(Image)`
+  border: 3px solid white;
+  position: fixed;
+  top: 0.47rem;
+  right: 2.5rem;
+  border-radius: 50%;
+`;
 
 export default function HomePage() {
   const { data: session } = useSession();
@@ -9,19 +30,32 @@ export default function HomePage() {
     return (
       <>
         <Welcome />
-        <button type="button" onClick={() => signOut("github")}>
-          <SVGIcon variant="logout" width="40px" />
-        </button>
+        <StyledLogButton
+          type="button"
+          variant="white"
+          onClick={() => signOut("github")}
+        >
+          <SVGIcon variant="logout" width="30px" />
+        </StyledLogButton>
+        <StyledImage
+          src={session.user.image}
+          alt="user image"
+          width="35"
+          height="35"
+        />
       </>
     );
   } else {
     return (
       <>
         <Welcome />
-        <button type="button" onClick={() => signIn("github")}>
-          <SVGIcon variant="login" width="40px" />
-        </button>
-        <p>login</p>
+        <StyledLogButton
+          type="button"
+          variant="black"
+          onClick={() => signIn("github")}
+        >
+          <SVGIcon variant="login" width="30px" />
+        </StyledLogButton>
       </>
     );
   }

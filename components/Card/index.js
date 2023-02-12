@@ -6,8 +6,6 @@ import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
 import useSWR from "swr";
 
-const StyledContainer = styled.div``;
-
 const StyledUl = styled.ul`
   padding: 10px;
   margin-top: 10px;
@@ -127,7 +125,6 @@ export default function Card({
   const [selectedItems, setSelectedItems] = useAtom(initialItemList);
 
   const { data: storedModel, mutate: changeModel } = useSWR(`/api/${model}`);
-  console.log("sm", storedModel);
 
   async function handleSaveItem(item) {
     try {
@@ -267,7 +264,7 @@ export default function Card({
         {filteredItems.length === 0 && searchInput.length > 0
           ? "No search results"
           : null}
-        <StyledContainer>
+        <div>
           {selectedItems && selectedItems.length > 0 && (
             <StyledUl>
               {selectedItems.map((selectedItem, index) => {
@@ -281,14 +278,6 @@ export default function Card({
                         type="button"
                         onClick={() => {
                           handleDeleteItem(selectedItem._id);
-                          // if (selectedItems.length === 1) {
-                          //   setSelectedItems(RESET);
-                          // } else {
-                          //   const newSelectedItems = selectedItems.filter(
-                          //     (item) => item.name !== selectedItem.name
-                          //   );
-                          //   setSelectedItems(newSelectedItems);
-                          // }
                         }}
                       >
                         <SVGIcon variant="delete" width="26px" />
@@ -303,7 +292,7 @@ export default function Card({
               })}
             </StyledUl>
           )}
-        </StyledContainer>
+        </div>
 
         <StyledButtonWrapper>
           <StyledButton onClick={deleteAllAlert}>

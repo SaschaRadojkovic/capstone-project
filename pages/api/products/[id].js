@@ -1,5 +1,7 @@
 import dbConnect from "../../../db/connect";
 import Product from "../../../db/models/Product";
+import { getToken } from "next-auth/jwt";
+
 const secret = process.env.NEXTAUTH_SECRET;
 
 export default async function handler(request, response) {

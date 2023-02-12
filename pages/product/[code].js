@@ -88,13 +88,11 @@ const StyledPAllergens = styled.p`
 const StyledAdditivesH3 = styled.p`
   border-radius: 0.4rem 0.4rem 0 0;
   padding: 0.5rem;
-
   text-align: center;
   font-weight: bold;
 `;
 const StyledAllergensH3 = styled.p`
   padding: 0.5rem;
-
   text-align: center;
   font-weight: bold;
 `;
@@ -149,8 +147,6 @@ export default function DetailPage() {
 
   const { data: allergensFromServer = [] } = useSWR(`/api/allergens`);
 
-  console.log("sp", savedProducts);
-
   useEffect(() => {
     setSavedProducts(storedProducts);
   }, [storedProducts, setSavedProducts]);
@@ -197,7 +193,7 @@ export default function DetailPage() {
     return (
       <>
         <BackToScanner />
-        <NoProduct>Scanne Nochmal!</NoProduct>
+        <NoProduct>Scannen Sie noch einmal!</NoProduct>
       </>
     );
   }

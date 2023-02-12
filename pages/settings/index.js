@@ -3,16 +3,7 @@ import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import Card from "@/components/Card";
 import styled from "styled-components";
-import dynamic from "next/dynamic";
 import { atom } from "jotai";
-import useSWR from "swr";
-
-import { SVGIcon } from "@/components/SVGIcon";
-import { useSession, signIn, signOut } from "next-auth/react";
-
-const BgImage = dynamic(() => import("../../components/BGImage"), {
-  ssr: false,
-});
 
 const StyledWrapper = styled.div`
   margin: 1.5rem;
@@ -50,7 +41,6 @@ export const initialAllergens = atom([]);
 export default function Settings() {
   const [showAdditives, setShowAdditives] = useState(true);
 
-  // if (session) {
   return (
     <>
       <StyledWrapper>

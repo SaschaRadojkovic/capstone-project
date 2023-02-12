@@ -15,39 +15,15 @@ export const HeaderWrapper = styled.header`
   height: 50px;
   justify-content: center;
 `;
-// const StyledLoginIcon = styled(SVGIcon)``;
-
-// const StyledLoginButton = styled.button`
-//   position: absolute;
-//   right: 0;
-//   top: 0.37rem;
-//   background: none;
-//   border: none;
-//   padding: 0;
-//   font-size: inherit;
-//   cursor: pointer;
-//   color: inherit;
-// `;
 
 const StyledTitle = styled.h1`
   margin-top: 0.94rem;
 `;
 export function Header() {
-  // const { data: session } = useSession;
-  // console.log("CLIEN_SESSION", session);
   return (
     <HeaderWrapper>
       <SVGIcon variant="logo" width="40px"></SVGIcon>
-
       <StyledTitle>eatable</StyledTitle>
-      {/* <StyledButton
-        type="button"
-        onClick={() => {
-          signIn();
-        }}
-      >
-        <StyledLoginIcon variant="login" width="40px" />
-      </StyledButton> */}
     </HeaderWrapper>
   );
 }
