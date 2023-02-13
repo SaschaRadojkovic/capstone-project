@@ -2,11 +2,9 @@ import dbConnect from "@/db/connect";
 import Additive from "@/db/models/Additive";
 import { getToken } from "next-auth/jwt";
 
-const secret = process.env.NEXTAUTH_SECRET;
-
 export default async function handler(request, response) {
   await dbConnect();
-  const token = await getToken({ req: request, secret });
+  const token = await getToken({ req: request });
 
   if (request.method === "GET") {
     const additives = await Additive.find({ userId: token.sub }).sort("name");
@@ -15,8 +13,7 @@ export default async function handler(request, response) {
   }
   if (request.method === "POST") {
     try {
-      let additiveData = request.body;
-      additiveData.userId = token.sub;
+      const additiveData = { ...request.body, userId: token.sub };
 
       console.log("request", JSON.stringify(additiveData));
       const additive = new Additive(additiveData);

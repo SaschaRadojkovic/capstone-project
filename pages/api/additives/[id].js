@@ -2,11 +2,9 @@ import dbConnect from "@/db/connect";
 import Additive from "@/db/models/Additive";
 import { getToken } from "next-auth/jwt";
 
-const secret = process.env.NEXTAUTH_SECRET;
-
 export default async function handler(request, response) {
   await dbConnect();
-  const token = await getToken({ req: request, secret });
+  const token = await getToken({ req: request });
   const { id } = request.query;
 
   if (request.method === "DELETE") {

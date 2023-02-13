@@ -41,7 +41,7 @@ export default function HomePage() {
         </StyledLogButton>
         <StyledImage
           src={session.user.image}
-          alt="user image"
+          alt={session.user.image}
           width="35"
           height="35"
         />

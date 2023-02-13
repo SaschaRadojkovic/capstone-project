@@ -3,7 +3,6 @@ import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import Card from "@/components/Card";
 import styled from "styled-components";
-import { atom } from "jotai";
 
 const StyledWrapper = styled.div`
   margin: 1.5rem;
@@ -34,10 +33,6 @@ const StyledContent = styled.div`
   margin-top: 8rem;
 `;
 
-export const initialAdditives = atom([]);
-
-export const initialAllergens = atom([]);
-
 export default function Settings() {
   const [showAdditives, setShowAdditives] = useState(true);
 
@@ -63,7 +58,6 @@ export default function Settings() {
 
       {showAdditives ? (
         <Card
-          initialItemList={initialAdditives}
           items={additives}
           alertOptions={{ title: "Alle Additive löschen?" }}
           alertSuccess={{ text: "Alle Additive wurden gelöscht" }}
@@ -71,7 +65,6 @@ export default function Settings() {
         />
       ) : (
         <Card
-          initialItemList={initialAllergens}
           items={allergens}
           alertOptions={{ title: "Alle Allergene löschen?" }}
           alertSuccess={{ text: "Alle Allergene wurden gelöscht" }}

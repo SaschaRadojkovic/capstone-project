@@ -2,11 +2,9 @@ import dbConnect from "@/db/connect";
 import Allergen from "@/db/models/Allergen";
 import { getToken } from "next-auth/jwt";
 
-const secret = process.env.NEXTAUTH_SECRET;
-
 export default async function handler(request, response) {
   await dbConnect();
-  const token = await getToken({ req: request, secret });
+  const token = await getToken({ req: request });
 
   if (request.method === "GET") {
     const allergens = await Allergen.find({ userId: token.sub }).sort("name");

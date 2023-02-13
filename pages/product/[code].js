@@ -2,11 +2,9 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import Image from "next/image";
 import styled from "styled-components";
-import { atom, useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import { SVGIcon } from "@/components/SVGIcon";
-import { useEffect } from "react";
 
 const StyledImage = styled(Image)`
   width: 200px;
@@ -129,11 +127,7 @@ const StyledBrand = styled.p`
   font-weight: normal;
 `;
 
-export const initialProducts = atom([]);
-
 export default function DetailPage() {
-  const [savedProducts, setSavedProducts] = useAtom(initialProducts);
-
   const router = useRouter();
   const { code } = router.query;
   const { data } = useSWR(
@@ -146,10 +140,6 @@ export default function DetailPage() {
   const { data: additivesFromServer = [] } = useSWR(`/api/additives`);
 
   const { data: allergensFromServer = [] } = useSWR(`/api/allergens`);
-
-  useEffect(() => {
-    setSavedProducts(storedProducts);
-  }, [storedProducts, setSavedProducts]);
 
   async function handleSaveProduct(product) {
     try {
@@ -230,8 +220,8 @@ export default function DetailPage() {
     return allergensArray.some((allerg) => allerg.id === allergen.id);
   });
 
-  const checkExistingProducts = savedProducts
-    ? savedProducts.some((product) => product.code === code)
+  const checkExistingProducts = storedProducts
+    ? storedProducts.some((product) => product.code === code)
     : false;
 
   return (

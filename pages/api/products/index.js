@@ -1,12 +1,10 @@
 import dbConnect from "../../../db/connect";
 import Product from "../../../db/models/Product";
 import { getToken } from "next-auth/jwt";
-const secret = process.env.NEXTAUTH_SECRET;
 
 export default async function handler(request, response) {
   await dbConnect();
-  const token = await getToken({ req: request, secret });
-  console.log("JSON Web Token", token);
+  const token = await getToken({ req: request });
 
   if (request.method === "GET") {
     const products = await Product.find({ userId: token.sub }).sort("name");

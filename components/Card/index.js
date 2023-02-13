@@ -1,6 +1,4 @@
-import { useAtom } from "jotai";
-import React, { useEffect, useState } from "react";
-import { RESET } from "jotai/utils";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
@@ -114,15 +112,8 @@ const StyledButton = styled.div`
 
 export { StyledDeleteButton };
 
-export default function Card({
-  initialItemList,
-  items,
-  alertOptions,
-  alertSuccess,
-  model,
-}) {
+export default function Card({ items, alertOptions, alertSuccess, model }) {
   const [searchInput, setSearchInput] = useState("");
-  const [selectedItems, setSelectedItems] = useAtom(initialItemList);
 
   const { data: storedModel, mutate: changeModel } = useSWR(`/api/${model}`);
 
@@ -161,10 +152,6 @@ export default function Card({
       console.error(error.message);
     }
   }
-
-  useEffect(() => {
-    setSelectedItems(storedModel);
-  }, [storedModel, setSelectedItems]);
 
   const filteredItems = items.tags.filter(
     (item) =>
@@ -214,9 +201,8 @@ export default function Card({
             if (
               //makes reselection impossible
               selectedItem &&
-              !selectedItems.find((item) => item.name === selectedItem.name)
+              !storedModel.find((item) => item.name === selectedItem.name)
             )
-              // setSelectedItems([...selectedItems, selectedItem]);
               handleSaveItem(selectedItem);
           }}
         >
@@ -265,9 +251,9 @@ export default function Card({
           ? "No search results"
           : null}
         <div>
-          {selectedItems && selectedItems.length > 0 && (
+          {storedModel && storedModel.length > 0 && (
             <StyledUl>
-              {selectedItems.map((selectedItem, index) => {
+              {storedModel.map((selectedItem, index) => {
                 return (
                   <StyledDiv key={selectedItem.name}>
                     <StyledRow>
@@ -284,7 +270,7 @@ export default function Card({
                       </StyledDeleteButton>
                     </StyledRow>
 
-                    {index !== selectedItems.length - 1 && <Line />}
+                    {index !== storedModel.length - 1 && <Line />}
                   </StyledDiv>
                 );
                 {

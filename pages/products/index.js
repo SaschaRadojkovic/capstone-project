@@ -1,12 +1,9 @@
 import { SVGIcon } from "@/components/SVGIcon";
-import { useAtom } from "jotai";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
-import { initialProducts } from "../product/[code]";
 
 const StyledAllCards = styled.div`
   margin-left: 0.4rem;
@@ -60,7 +57,6 @@ const StyledButtonPosition = styled.div`
 `;
 
 export default function Products() {
-  const [products, setProducts] = useAtom(initialProducts);
   const router = useRouter();
 
   const { data: storedProducts, mutate: changeProducts } =
@@ -68,7 +64,7 @@ export default function Products() {
 
   async function handleDeleteProduct(id) {
     try {
-      await fetch(`/api/products/${id}`, {
+      await fetch(`/api/storedProducts/${id}`, {
         method: "DELETE",
       });
       changeProducts();
@@ -76,15 +72,12 @@ export default function Products() {
       console.error(error.message);
     }
   }
-  useEffect(() => {
-    setProducts(storedProducts);
-  }, [storedProducts, setProducts]);
 
   return (
     <>
       <StyledAllCards>
-        {products &&
-          products.map((product) => {
+        {storedProducts &&
+          storedProducts.map((product) => {
             return (
               <StyledProductCard key={product.code}>
                 <StyledProductName length={product.name.length}>
