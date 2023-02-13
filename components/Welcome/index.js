@@ -70,7 +70,7 @@ export function Welcome() {
       <>
         <WelcomeWrapper>
           <StyledHeading>
-            Herzlich Willkommen {convertToProperName(session.user.name)} bei
+            Herzlich Willkommen, {convertToProperName(session.user.name)} bei
             Eatable
           </StyledHeading>
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const StyledLogButton = styled.button`
+  z-index: 1;
   position: fixed;
   top: 0.65rem;
   right: 0.2rem;
@@ -16,6 +17,7 @@ const StyledLogButton = styled.button`
   color: ${(props) => (props.variant === "black" ? "black" : "white")};
 `;
 const StyledImage = styled(Image)`
+  z-index: 1;
   border: 3px solid white;
   position: fixed;
   top: 0.47rem;

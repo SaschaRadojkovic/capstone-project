@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
 
 export const HeaderWrapper = styled.header`
+  z-index: 1;
   display: flex;
   position: fixed;
   top: 0;
