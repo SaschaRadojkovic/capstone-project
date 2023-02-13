@@ -64,7 +64,7 @@ export default function Products() {
 
   async function handleDeleteProduct(id) {
     try {
-      await fetch(`/api/storedProducts/${id}`, {
+      await fetch(`/api/products/${id}`, {
         method: "DELETE",
       });
       changeProducts();
