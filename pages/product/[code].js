@@ -274,14 +274,14 @@ export default function DetailPage() {
                       Additive:
                       {filteredAdditives.length > 0 ? (
                         <SVGIcon
-                          aria-label={variant}
+                          aria-label="bad"
                           variant="bad"
                           width="20px"
                           color="red"
                         />
                       ) : (
                         <SVGIcon
-                          aria-label={variant}
+                          aria-label="good"
                           variant="good"
                           width="20px"
                           color="#1bde4f"
@@ -299,14 +299,14 @@ export default function DetailPage() {
                       Allergene:
                       {filteredAllergens.length > 0 ? (
                         <SVGIcon
-                          aria-label={variant}
+                          aria-label="bad"
                           variant="bad"
                           width="20px"
                           color="red"
                         />
                       ) : (
                         <SVGIcon
-                          aria-label={variant}
+                          aria-label="good"
                           variant="good"
                           width="20px"
                           color="#1bde4f"

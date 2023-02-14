@@ -89,7 +89,7 @@ export default function Products() {
                     href={`/product/${product.code}`}
                   >
                     <SVGIcon
-                      aria-label={variant}
+                      aria-label="link to product details"
                       variant="details"
                       width="26px"
                     />
@@ -104,7 +104,7 @@ export default function Products() {
                     }}
                   >
                     <SVGIcon
-                      aria-label={variant}
+                      aria-label="delete product"
                       variant="delete"
                       width="26px"
                     />

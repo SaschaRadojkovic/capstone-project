@@ -261,7 +261,7 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
                     <StyledRow>
                       <StyledText>{selectedItem.name}</StyledText>
                       <StyledDeleteButton
-                        aria-label={variant}
+                        aria-label="delete items"
                         variant="delete"
                         width="30px"
                         type="button"

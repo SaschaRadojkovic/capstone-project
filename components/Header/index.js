@@ -21,14 +21,9 @@ const StyledTitle = styled.h1`
   margin-top: 0.94rem;
 `;
 export function Header() {
-  const { data: session } = useSession();
   return (
     <HeaderWrapper>
-      <SVGIcon
-        aria-label={session.user.image}
-        variant="logo"
-        width="40px"
-      ></SVGIcon>
+      <SVGIcon aria-label="user image" variant="logo" width="40px"></SVGIcon>
       <StyledTitle>eatable</StyledTitle>
     </HeaderWrapper>
   );
