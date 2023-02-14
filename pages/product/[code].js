@@ -164,7 +164,7 @@ export default function DetailPage() {
     return (
       <StyledBackButton
         type="button"
-        aria-label="go to previous page"
+        aria-label="zurück zur vorherigen Seite"
         onClick={() => {
           router.back();
         }}
@@ -239,7 +239,7 @@ export default function DetailPage() {
               <StyledProductName>{data.product.product_name}</StyledProductName>
               <StyledButtonDiv>
                 <StyledSaveButton
-                  aria-label="save product"
+                  aria-label="Produkt speichern"
                   type="button"
                   key={data.product}
                   onClick={() => {
@@ -274,14 +274,14 @@ export default function DetailPage() {
                       Additive:
                       {filteredAdditives.length > 0 ? (
                         <SVGIcon
-                          aria-label="bad"
+                          aria-label="Produkt enthält ausgewählte Additive"
                           variant="bad"
                           width="20px"
                           color="red"
                         />
                       ) : (
                         <SVGIcon
-                          aria-label="good"
+                          aria-label="Produkt enthält keine ausgewählten Additive"
                           variant="good"
                           width="20px"
                           color="#1bde4f"
@@ -299,14 +299,14 @@ export default function DetailPage() {
                       Allergene:
                       {filteredAllergens.length > 0 ? (
                         <SVGIcon
-                          aria-label="bad"
+                          aria-label="Produkt enthält ausgewählte Allergene"
                           variant="bad"
                           width="20px"
                           color="red"
                         />
                       ) : (
                         <SVGIcon
-                          aria-label="good"
+                          aria-label="Produkt enthält keine  ausgewählten Allergene"
                           variant="good"
                           width="20px"
                           color="#1bde4f"

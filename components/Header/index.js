@@ -23,7 +23,11 @@ const StyledTitle = styled.h1`
 export function Header() {
   return (
     <HeaderWrapper>
-      <SVGIcon aria-label="user image" variant="logo" width="40px"></SVGIcon>
+      <SVGIcon
+        aria-label="Ihr Benutzer Bild"
+        variant="logo"
+        width="40px"
+      ></SVGIcon>
       <StyledTitle>eatable</StyledTitle>
     </HeaderWrapper>
   );

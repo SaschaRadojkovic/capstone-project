@@ -13,8 +13,7 @@ export default async function handler(request, response) {
   }
   if (request.method === "POST") {
     try {
-      let allergenData = request.body;
-      allergenData.userId = token.sub;
+      const allergenData = { ...request.body, userId: token.sub };
 
       const allergen = new Allergen(allergenData);
       await allergen.save();

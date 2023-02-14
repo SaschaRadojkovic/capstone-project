@@ -244,7 +244,7 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
             )}
           </StyledAutoComplete>
 
-          <StyledAddButton aria-label="add" type="submit">
+          <StyledAddButton aria-label="hinzufügen" type="submit">
             +
           </StyledAddButton>
         </StyledSearchbar>
@@ -261,7 +261,7 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
                     <StyledRow>
                       <StyledText>{selectedItem.name}</StyledText>
                       <StyledDeleteButton
-                        aria-label="delete items"
+                        aria-label="lösche artikel "
                         variant="delete"
                         width="30px"
                         type="button"
@@ -285,7 +285,7 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
 
         <StyledButtonWrapper>
           <StyledButton
-            aria-label="delete all"
+            aria-label="lösche alle"
             type="button"
             onClick={deleteAllAlert}
           >

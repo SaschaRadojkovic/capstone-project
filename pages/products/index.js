@@ -85,17 +85,13 @@ export default function Products() {
                 </StyledProductName>
                 <StyledButtonPosition>
                   <StyledLink
-                    aria-label="link to product details"
+                    aria-label="link zu Produktdetails"
                     href={`/product/${product.code}`}
                   >
-                    <SVGIcon
-                      aria-label="link to product details"
-                      variant="details"
-                      width="26px"
-                    />
+                    <SVGIcon variant="details" width="26px" />
                   </StyledLink>
                   <StyledDeleteButton
-                    aria-label="delete product"
+                    aria-label="Lösche das Produkt"
                     variant="delete"
                     width="30px"
                     type="button"
@@ -103,11 +99,7 @@ export default function Products() {
                       handleDeleteProduct(product._id);
                     }}
                   >
-                    <SVGIcon
-                      aria-label="delete product"
-                      variant="delete"
-                      width="26px"
-                    />
+                    <SVGIcon variant="delete" width="26px" />
                   </StyledDeleteButton>
                 </StyledButtonPosition>
                 <div>
