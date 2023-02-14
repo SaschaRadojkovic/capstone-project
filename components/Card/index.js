@@ -1,11 +1,8 @@
-import { useAtom } from "jotai";
 import React, { useState } from "react";
-import { RESET } from "jotai/utils";
 import Swal from "sweetalert2";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
-
-const StyledContainer = styled.div``;
+import useSWR from "swr";
 
 const StyledUl = styled.ul`
   padding: 10px;
@@ -115,14 +112,46 @@ const StyledButton = styled.div`
 
 export { StyledDeleteButton };
 
-export default function Card({
-  initialItemList,
-  items,
-  alertOptions,
-  alertSuccess,
-}) {
+export default function Card({ items, alertOptions, alertSuccess, model }) {
   const [searchInput, setSearchInput] = useState("");
-  const [selectedItems, setSelectedItems] = useAtom(initialItemList);
+
+  const { data: storedModel, mutate: changeModel } = useSWR(`/api/${model}`);
+
+  async function handleSaveItem(item) {
+    try {
+      await fetch(`/api/${model}`, {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      changeModel();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  async function handleDeleteItem(id) {
+    try {
+      await fetch(`/api/${model}/${id}`, {
+        method: "DELETE",
+      });
+      changeModel();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+  async function handleDeleteAll(model) {
+    try {
+      await fetch(`/api/${model}`, {
+        method: "DELETE",
+      });
+      changeModel();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
   const filteredItems = items.tags.filter(
     (item) =>
@@ -143,7 +172,7 @@ export default function Card({
       ...alertOptions,
     }).then((result) => {
       if (result.value) {
-        setSelectedItems(RESET);
+        handleDeleteAll(model);
         Swal.fire({
           title: "Gelöscht!",
           text: "Your items have been deleted.",
@@ -172,9 +201,9 @@ export default function Card({
             if (
               //makes reselection impossible
               selectedItem &&
-              !selectedItems.find((item) => item.name === selectedItem.name)
+              !storedModel.find((item) => item.name === selectedItem.name)
             )
-              setSelectedItems([...selectedItems, selectedItem]);
+              handleSaveItem(selectedItem);
           }}
         >
           {/* input section */}
@@ -215,40 +244,36 @@ export default function Card({
             )}
           </StyledAutoComplete>
 
-          <StyledAddButton type="submit">+</StyledAddButton>
+          <StyledAddButton aria-label="hinzufügen" type="submit">
+            +
+          </StyledAddButton>
         </StyledSearchbar>
 
         {filteredItems.length === 0 && searchInput.length > 0
           ? "No search results"
           : null}
-        <StyledContainer>
-          {selectedItems && selectedItems.length > 0 && (
+        <div>
+          {storedModel && storedModel.length > 0 && (
             <StyledUl>
-              {selectedItems.map((selectedItem, index) => {
+              {storedModel.map((selectedItem, index) => {
                 return (
                   <StyledDiv key={selectedItem.name}>
                     <StyledRow>
                       <StyledText>{selectedItem.name}</StyledText>
                       <StyledDeleteButton
+                        aria-label="lösche artikel "
                         variant="delete"
                         width="30px"
                         type="button"
                         onClick={() => {
-                          if (selectedItems.length === 1) {
-                            setSelectedItems(RESET);
-                          } else {
-                            const newSelectedItems = selectedItems.filter(
-                              (item) => item.name !== selectedItem.name
-                            );
-                            setSelectedItems(newSelectedItems);
-                          }
+                          handleDeleteItem(selectedItem._id);
                         }}
                       >
                         <SVGIcon variant="delete" width="26px" />
                       </StyledDeleteButton>
                     </StyledRow>
 
-                    {index !== selectedItems.length - 1 && <Line />}
+                    {index !== storedModel.length - 1 && <Line />}
                   </StyledDiv>
                 );
                 {
@@ -256,10 +281,14 @@ export default function Card({
               })}
             </StyledUl>
           )}
-        </StyledContainer>
+        </div>
 
         <StyledButtonWrapper>
-          <StyledButton onClick={deleteAllAlert}>
+          <StyledButton
+            aria-label="lösche alle"
+            type="button"
+            onClick={deleteAllAlert}
+          >
             <SVGIcon variant="deleteAll" width="60px" />
           </StyledButton>
         </StyledButtonWrapper>

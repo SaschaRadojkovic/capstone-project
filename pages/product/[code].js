@@ -2,8 +2,6 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import Image from "next/image";
 import styled from "styled-components";
-import { atomWithStorage, createJSONStorage } from "jotai/utils";
-import { useAtom } from "jotai";
 import allergens from "../../allergens.json";
 import additives from "../../additives.json";
 import { SVGIcon } from "@/components/SVGIcon";
@@ -88,13 +86,11 @@ const StyledPAllergens = styled.p`
 const StyledAdditivesH3 = styled.p`
   border-radius: 0.4rem 0.4rem 0 0;
   padding: 0.5rem;
-
   text-align: center;
   font-weight: bold;
 `;
 const StyledAllergensH3 = styled.p`
   padding: 0.5rem;
-
   text-align: center;
   font-weight: bold;
 `;
@@ -121,7 +117,7 @@ const StyledButtonDiv = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-const StyledParagraphBold = styled.p`
+const StyledParagraphBold = styled.div`
   border-radius: 0 0 0.4rem 0.4rem;
   padding: 10px;
   font-weight: bold;
@@ -131,32 +127,34 @@ const StyledBrand = styled.p`
   font-weight: normal;
 `;
 
-//getting additives from Localstorage with atom from jotai
-const initialAdditives = atomWithStorage("additives", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
-//getting  allergens from Localstorage with atom from jotai
-const initialAllergens = atomWithStorage("allergens", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
-
-export const initialProducts = atomWithStorage("products", [], {
-  ...createJSONStorage(() => localStorage),
-  delayInit: true,
-});
-
 export default function DetailPage() {
-  const [additivesFromStorage] = useAtom(initialAdditives);
-  const [allergensFromStorage] = useAtom(initialAllergens);
-  const [savedProducts, setSavedProducts] = useAtom(initialProducts);
-
   const router = useRouter();
   const { code } = router.query;
   const { data } = useSWR(
     `https://de.openfoodfacts.org/api/v0/product/${code}.json`
   );
+
+  const { data: storedProducts, mutate: changeProducts } =
+    useSWR(`/api/products`);
+
+  const { data: additivesFromServer = [] } = useSWR(`/api/additives`);
+
+  const { data: allergensFromServer = [] } = useSWR(`/api/allergens`);
+
+  async function handleSaveProduct(product) {
+    try {
+      await fetch(`/api/products`, {
+        method: "POST",
+        body: JSON.stringify(product),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      changeProducts();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
   function Additives({ additive }) {
     return <div>{additive}</div>;
@@ -165,6 +163,8 @@ export default function DetailPage() {
   function BackToScanner() {
     return (
       <StyledBackButton
+        type="button"
+        aria-label="zurück zur vorherigen Seite"
         onClick={() => {
           router.back();
         }}
@@ -185,7 +185,7 @@ export default function DetailPage() {
     return (
       <>
         <BackToScanner />
-        <NoProduct>Scanne Nochmal!</NoProduct>
+        <NoProduct>Scannen Sie noch einmal!</NoProduct>
       </>
     );
   }
@@ -214,17 +214,17 @@ export default function DetailPage() {
     );
   }
 
-  const filteredAdditives = additivesFromStorage.filter((additive) => {
+  const filteredAdditives = additivesFromServer.filter((additive) => {
     return additivesArray.some((addi) => addi.id === additive.id);
   });
 
-  const filteredAllergens = allergensFromStorage.filter((allergen) => {
+  const filteredAllergens = allergensFromServer.filter((allergen) => {
     return allergensArray.some((allerg) => allerg.id === allergen.id);
   });
 
-  const checkExistingProducts = savedProducts.some(
-    (product) => product.code === code
-  );
+  const checkExistingProducts = storedProducts
+    ? storedProducts.some((product) => product.code === code)
+    : false;
 
   return (
     <>
@@ -239,17 +239,15 @@ export default function DetailPage() {
               <StyledProductName>{data.product.product_name}</StyledProductName>
               <StyledButtonDiv>
                 <StyledSaveButton
+                  aria-label="Produkt speichern"
+                  type="button"
+                  key={data.product}
                   onClick={() => {
-                    if (!checkExistingProducts) {
-                      setSavedProducts([
-                        {
-                          name: data.product.product_name,
-                          url: data.product.image_front_url,
-                          code: code,
-                        },
-                        ...savedProducts,
-                      ]);
-                    }
+                    handleSaveProduct({
+                      name: data.product.product_name,
+                      url: data.product.image_front_url,
+                      code: code,
+                    });
                   }}
                 >
                   <SVGIcon
@@ -271,13 +269,23 @@ export default function DetailPage() {
                   alt={data.product.product_name}
                 />
                 <StyledCheck>
-                  {additivesFromStorage.length > 0 ? (
+                  {additivesFromServer.length > 0 ? (
                     <StyledPAdditives>
                       Additive:
                       {filteredAdditives.length > 0 ? (
-                        <SVGIcon variant="bad" width="20px" color="red" />
+                        <SVGIcon
+                          aria-label="Produkt enthält ausgewählte Additive"
+                          variant="bad"
+                          width="20px"
+                          color="red"
+                        />
                       ) : (
-                        <SVGIcon variant="good" width="20px" color="#1bde4f" />
+                        <SVGIcon
+                          aria-label="Produkt enthält keine ausgewählten Additive"
+                          variant="good"
+                          width="20px"
+                          color="#1bde4f"
+                        />
                       )}
                     </StyledPAdditives>
                   ) : (
@@ -286,13 +294,23 @@ export default function DetailPage() {
                     </StyledParagraph>
                   )}
                   {/* if user have not chosen allergens show message */}
-                  {allergensFromStorage.length > 0 ? (
+                  {allergensFromServer.length > 0 ? (
                     <StyledPAllergens>
                       Allergene:
                       {filteredAllergens.length > 0 ? (
-                        <SVGIcon variant="bad" width="20px" color="red" />
+                        <SVGIcon
+                          aria-label="Produkt enthält ausgewählte Allergene"
+                          variant="bad"
+                          width="20px"
+                          color="red"
+                        />
                       ) : (
-                        <SVGIcon variant="good" width="20px" color="#1bde4f" />
+                        <SVGIcon
+                          aria-label="Produkt enthält keine  ausgewählten Allergene"
+                          variant="good"
+                          width="20px"
+                          color="#1bde4f"
+                        />
                       )}
                     </StyledPAllergens>
                   ) : (

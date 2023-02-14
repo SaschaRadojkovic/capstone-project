@@ -1,7 +1,9 @@
+import { useSession } from "next-auth/react";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
 
 export const HeaderWrapper = styled.header`
+  z-index: 1;
   display: flex;
   position: fixed;
   top: 0;
@@ -21,7 +23,11 @@ const StyledTitle = styled.h1`
 export function Header() {
   return (
     <HeaderWrapper>
-      <SVGIcon variant="logo" width="40px"></SVGIcon>
+      <SVGIcon
+        aria-label="Ihr Benutzer Bild"
+        variant="logo"
+        width="40px"
+      ></SVGIcon>
       <StyledTitle>eatable</StyledTitle>
     </HeaderWrapper>
   );

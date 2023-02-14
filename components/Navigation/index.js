@@ -26,22 +26,29 @@ export function NavBar() {
 
   return (
     <NavBarWrapper>
-      <NavbarLink active={pathname === "/" ? "on" : "off"} href="/">
+      <NavbarLink
+        aria-label="link to information"
+        active={pathname === "/" ? "on" : "off"}
+        href="/"
+      >
         <SVGIcon variant="information" width="40px" />
       </NavbarLink>
       <NavbarLink
+        aria-label="link to barcodescanner"
         active={pathname === "/barcodeScanner" ? "on" : "off"}
         href="/barcodeScanner"
       >
         <SVGIcon variant="scanner" width="40px" />
       </NavbarLink>
       <NavbarLink
+        aria-label="link to saved products"
         active={pathname === "/saved" ? "on" : "off"}
         href="/products"
       >
         <SVGIcon variant="saved" width="40px" />
       </NavbarLink>
       <NavbarLink
+        aria-label="link to settings"
         active={pathname === "/settings" ? "on" : "off"}
         href="/settings"
       >

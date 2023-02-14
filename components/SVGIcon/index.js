@@ -10,7 +10,7 @@ const paths = {
 
   delete: {
     path: "M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8.46,11.88L9.87,10.47L12,12.59L14.12,10.47L15.53,11.88L13.41,14L15.53,16.12L14.12,17.53L12,15.41L9.88,17.53L8.47,16.12L10.59,14L8.46,11.88M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z",
-    viewbox: "0 0 24 24",
+    viewbox: "0 1 24 24",
   },
   back: {
     path: "M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z",
@@ -58,11 +58,24 @@ const paths = {
     path: "M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,10.5A1.5,1.5 0 0,0 10.5,12A1.5,1.5 0 0,0 12,13.5A1.5,1.5 0 0,0 13.5,12A1.5,1.5 0 0,0 12,10.5M6.5,10.5A1.5,1.5 0 0,0 5,12A1.5,1.5 0 0,0 6.5,13.5A1.5,1.5 0 0,0 8,12A1.5,1.5 0 0,0 6.5,10.5M17.5,10.5A1.5,1.5 0 0,0 16,12A1.5,1.5 0 0,0 17.5,13.5A1.5,1.5 0 0,0 19,12A1.5,1.5 0 0,0 17.5,10.5Z",
     viewbox: "0 0 24 24",
   },
+  login: {
+    path: "M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z",
+    viewbox: "0 0 24 24",
+  },
+  logout: {
+    path: "M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z",
+    viewbox: "0 0 24 24",
+  },
 };
 
 export function SVGIcon({ variant, width, color = "currentColor" }) {
   return (
-    <svg viewBox={paths[variant].viewbox} width={width} fill={color}>
+    <svg
+      viewBox={paths[variant].viewbox}
+      width={width}
+      fill={color}
+      aria-label={variant}
+    >
       <title>{variant}</title>
       <path d={paths[variant].path} />
     </svg>

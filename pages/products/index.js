@@ -1,12 +1,9 @@
 import { SVGIcon } from "@/components/SVGIcon";
-import { useAtom } from "jotai";
-import { RESET } from "jotai/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-
-import { initialProducts } from "../product/[code]";
+import useSWR from "swr";
 
 const StyledAllCards = styled.div`
   margin-left: 0.4rem;
@@ -32,11 +29,12 @@ const StyledProductCard = styled.section`
   box-shadow: 1px 4px 10px 1px rgb(127, 133, 136);
 `;
 const StyledProductName = styled.h2`
+  height: 2.3rem;
   border-radius: 0.4rem 0.4rem 0 0;
   background: #ffcc80;
   padding: 0.5rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: ${(props) => (props.length > 12 ? "0.8rem" : "1rem")};
   text-align: center;
 `;
 
@@ -59,49 +57,62 @@ const StyledButtonPosition = styled.div`
 `;
 
 export default function Products() {
-  const [products, setProducts] = useAtom(initialProducts);
   const router = useRouter();
+
+  const { data: storedProducts, mutate: changeProducts } =
+    useSWR(`/api/products`);
+
+  async function handleDeleteProduct(id) {
+    try {
+      await fetch(`/api/products/${id}`, {
+        method: "DELETE",
+      });
+      changeProducts();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
   return (
     <>
       <StyledAllCards>
-        {products.map((product) => {
-          return (
-            <StyledProductCard key={product.code}>
-              <StyledProductName>{product.name}</StyledProductName>
-              <StyledButtonPosition>
-                <StyledLink href={`/product/${product.code}`}>
-                  <SVGIcon variant="details" width="26px" />
-                </StyledLink>
-                <StyledDeleteButton
-                  variant="delete"
-                  width="30px"
-                  type="button"
-                  onClick={() => {
-                    if (products.length === 1) {
-                      setProducts(RESET);
-                    } else {
-                      const newProducts = products.filter(
-                        (item) => item.name !== product.name
-                      );
-                      setProducts(newProducts);
-                    }
-                  }}
-                >
-                  <SVGIcon variant="delete" width="26px" />
-                </StyledDeleteButton>
-              </StyledButtonPosition>
-              <div>
-                <StyledImage
-                  width={1000}
-                  height={1000}
-                  src={product.url}
-                  alt={product.name}
-                />
-              </div>
-            </StyledProductCard>
-          );
-        })}
+        {storedProducts &&
+          storedProducts.map((product) => {
+            return (
+              <StyledProductCard key={product.code}>
+                <StyledProductName length={product.name.length}>
+                  {product.name}
+                </StyledProductName>
+                <StyledButtonPosition>
+                  <StyledLink
+                    aria-label="link zu Produktdetails"
+                    href={`/product/${product.code}`}
+                  >
+                    <SVGIcon variant="details" width="26px" />
+                  </StyledLink>
+                  <StyledDeleteButton
+                    aria-label="Lösche das Produkt"
+                    variant="delete"
+                    width="30px"
+                    type="button"
+                    onClick={() => {
+                      handleDeleteProduct(product._id);
+                    }}
+                  >
+                    <SVGIcon variant="delete" width="26px" />
+                  </StyledDeleteButton>
+                </StyledButtonPosition>
+                <div>
+                  <StyledImage
+                    width={1000}
+                    height={1000}
+                    src={product.url}
+                    alt={product.name}
+                  />
+                </div>
+              </StyledProductCard>
+            );
+          })}
       </StyledAllCards>
     </>
   );
