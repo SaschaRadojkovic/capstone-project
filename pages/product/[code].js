@@ -42,6 +42,7 @@ const StyledProductCard = styled.section`
   max-height: 310px;
 `;
 const StyledBackButton = styled.button`
+  z-index: 1;
   position: fixed;
   left: 0.1rem;
   top: 0.3rem;
@@ -64,7 +65,8 @@ const StyledAllCards = styled.div`
   margin-top: 4rem;
 `;
 const StyledIngredientsCard = styled.div`
-  margin-top: 0.5rem;
+  padding: 0.2rem;
+  margin: 1rem;
   background-color: white;
   margin-left: 4rem;
   margin-right: 4rem;
@@ -99,7 +101,7 @@ const StyledParagraph = styled.p`
   display: flex;
   flex-grow: 1;
   border: 1px solid red;
-  padding: 0.5rem;
+  padding: 0.1rem;
   font-weight: normal;
   font-size: 0.7rem;
   background: orange;
