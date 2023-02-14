@@ -163,6 +163,8 @@ export default function DetailPage() {
   function BackToScanner() {
     return (
       <StyledBackButton
+        type="button"
+        aria-label="go to previous page"
         onClick={() => {
           router.back();
         }}
@@ -237,6 +239,7 @@ export default function DetailPage() {
               <StyledProductName>{data.product.product_name}</StyledProductName>
               <StyledButtonDiv>
                 <StyledSaveButton
+                  aria-label="save product"
                   type="button"
                   key={data.product}
                   onClick={() => {
@@ -270,9 +273,19 @@ export default function DetailPage() {
                     <StyledPAdditives>
                       Additive:
                       {filteredAdditives.length > 0 ? (
-                        <SVGIcon variant="bad" width="20px" color="red" />
+                        <SVGIcon
+                          aria-label={variant}
+                          variant="bad"
+                          width="20px"
+                          color="red"
+                        />
                       ) : (
-                        <SVGIcon variant="good" width="20px" color="#1bde4f" />
+                        <SVGIcon
+                          aria-label={variant}
+                          variant="good"
+                          width="20px"
+                          color="#1bde4f"
+                        />
                       )}
                     </StyledPAdditives>
                   ) : (
@@ -285,9 +298,19 @@ export default function DetailPage() {
                     <StyledPAllergens>
                       Allergene:
                       {filteredAllergens.length > 0 ? (
-                        <SVGIcon variant="bad" width="20px" color="red" />
+                        <SVGIcon
+                          aria-label={variant}
+                          variant="bad"
+                          width="20px"
+                          color="red"
+                        />
                       ) : (
-                        <SVGIcon variant="good" width="20px" color="#1bde4f" />
+                        <SVGIcon
+                          aria-label={variant}
+                          variant="good"
+                          width="20px"
+                          color="#1bde4f"
+                        />
                       )}
                     </StyledPAllergens>
                   ) : (

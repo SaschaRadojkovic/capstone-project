@@ -70,7 +70,12 @@ const paths = {
 
 export function SVGIcon({ variant, width, color = "currentColor" }) {
   return (
-    <svg viewBox={paths[variant].viewbox} width={width} fill={color}>
+    <svg
+      viewBox={paths[variant].viewbox}
+      width={width}
+      fill={color}
+      aria-label={variant}
+    >
       <title>{variant}</title>
       <path d={paths[variant].path} />
     </svg>

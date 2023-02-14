@@ -15,7 +15,6 @@ export default async function handler(request, response) {
     try {
       const additiveData = { ...request.body, userId: token.sub };
 
-      console.log("request", JSON.stringify(additiveData));
       const additive = new Additive(additiveData);
       await additive.save();
       return response.status(201).json({ status: "additive created" });

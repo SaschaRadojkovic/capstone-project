@@ -15,7 +15,6 @@ export default async function handler(request, response) {
     try {
       let productData = request.body;
       productData.userId = token.sub;
-      console.log("request", JSON.stringify(productData));
       const product = new Product(productData);
       await product.save();
       response.status(201).json({ status: "product created" });

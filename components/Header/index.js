@@ -1,4 +1,4 @@
-// import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import styled from "styled-components";
 import { SVGIcon } from "../SVGIcon";
 
@@ -21,9 +21,14 @@ const StyledTitle = styled.h1`
   margin-top: 0.94rem;
 `;
 export function Header() {
+  const { data: session } = useSession();
   return (
     <HeaderWrapper>
-      <SVGIcon variant="logo" width="40px"></SVGIcon>
+      <SVGIcon
+        aria-label={session.user.image}
+        variant="logo"
+        width="40px"
+      ></SVGIcon>
       <StyledTitle>eatable</StyledTitle>
     </HeaderWrapper>
   );

@@ -33,6 +33,7 @@ export default function HomePage() {
       <>
         <Welcome />
         <StyledLogButton
+          aria-label="logout"
           type="button"
           variant="white"
           onClick={() => signOut("github")}
@@ -52,6 +53,7 @@ export default function HomePage() {
       <>
         <Welcome />
         <StyledLogButton
+          aria-label="login"
           type="button"
           variant="black"
           onClick={() => signIn("github")}
