@@ -6,8 +6,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 
 const StyledAllCards = styled.div`
-
-  margin-left: 0.4rem;
+ margin-left: 0.4rem;
   width: 97vw;
   margin-top: 4rem;
   margin-bottom:4rem;
@@ -26,6 +25,7 @@ const StyledImage = styled(Image)`
   object-fit: contain;
 `;
 const StyledProductCard = styled.section`
+  min-width: 150px;
   padding: 0.2rem;
   witdh: 50%;
   background-color: white;
@@ -36,7 +36,7 @@ const StyledProductName = styled.h2`
   height: 2.3rem;
   padding: 0.5rem;
   font-weight: bold;
-  font-size: ${(props) => (props.length > 12 ? "0.8rem" : "1rem")};
+  font-size: ${(props) => (props.length > 10 ? "0.8rem" : "1rem")};
   text-align: center;
 `;
 
@@ -62,7 +62,7 @@ const StyledHeaderDelete = styled.div`
   display: flex;
   background: #ffcc80;
   border-radius: 0.4rem 0.4rem 0 0;
-  height: 2.3rem;
+  height: fit-content;
   padding-bottom: 0.5rem;
   justify-content: flex-end;
 `;
