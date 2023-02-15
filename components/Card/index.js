@@ -25,6 +25,7 @@ const Line = styled.hr`
   border: none;
 `;
 const StyledSearchListUl = styled.ul`
+  margin-top: 0.7rem;
   overflow-y: scroll;
   max-height: 50vh;
   position: absolute;
