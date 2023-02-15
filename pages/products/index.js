@@ -9,6 +9,7 @@ const StyledAllCards = styled.div`
   margin-left: 0.4rem;
   width: 97vw;
   margin-top: 4rem;
+  margin-bottom:4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;

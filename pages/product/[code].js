@@ -63,6 +63,7 @@ const NoProduct = styled.p`
 `;
 const StyledAllCards = styled.div`
   margin-top: 4rem;
+  margin-bottom: 4rem;
 `;
 const StyledIngredientsCard = styled.div`
   padding: 0.2rem;
@@ -128,6 +129,10 @@ const StyledParagraphBold = styled.div`
 const StyledBrand = styled.p`
   font-weight: normal;
 `;
+const StyledItemText = styled.p`
+  margin: 0.2rem;
+  margin-left: 1rem;
+`;
 
 export default function DetailPage() {
   const router = useRouter();
@@ -159,7 +164,7 @@ export default function DetailPage() {
   }
 
   function Additives({ additive }) {
-    return <div>{additive}</div>;
+    return <StyledItemText>{additive}</StyledItemText>;
   }
 
   function BackToScanner() {
@@ -208,9 +213,9 @@ export default function DetailPage() {
     return (
       <div>
         {allergensArray.map((item) => (
-          <div key={item.id}>
+          <StyledItemText key={item.id}>
             {allergens.tags.find((aller) => aller.id === item.id)?.name}
-          </div>
+          </StyledItemText>
         ))}
       </div>
     );

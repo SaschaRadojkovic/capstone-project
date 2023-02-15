@@ -19,6 +19,7 @@ const StyledHeading = styled.h1`
 `;
 const StyledPararaph = styled.p`
   margin-top: -3.8rem;
+  margin-bottom: 4rem;
   background: #ff5722;
   padding: 1rem;
   text-align: center;
