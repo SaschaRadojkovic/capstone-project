@@ -250,7 +250,7 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
         </StyledSearchbar>
 
         {filteredItems.length === 0 && searchInput.length > 0
-          ? "No search results"
+          ? "keine Suchergebnisse"
           : null}
         <div>
           {storedModel && storedModel.length > 0 && (
@@ -261,7 +261,7 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
                     <StyledRow>
                       <StyledText>{selectedItem.name}</StyledText>
                       <StyledDeleteButton
-                        aria-label="lösche artikel "
+                        aria-label="lösche den Artikel "
                         variant="delete"
                         width="30px"
                         type="button"

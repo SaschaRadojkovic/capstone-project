@@ -13,12 +13,13 @@ const StyledImage = styled(Image)`
 `;
 
 const StyledProductName = styled.h2`
+  padding-left: 0.2rem;
+  display: flex;
+  flex-grow: 1;
   padding-block: 0.5rem;
   font-weight: bold;
   font-size: 1.2rem;
   text-align: center;
-  background: #ffcc80;
-  border-radius: 0.4rem 0.4rem 0 0;
 `;
 
 const StyledCheck = styled.div`
@@ -33,11 +34,7 @@ const StyledCheck = styled.div`
   margin-top: 2rem;
 `;
 const StyledProductCard = styled.section`
-  padding-top: 0.2rem;
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
-  min-height: 20.2rem;
-
+  padding: 0.2rem;
   background-color: white;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -83,10 +80,12 @@ const StyledInsideCard = styled.div`
   display: flex;
 `;
 const StyledPAdditives = styled.p`
+  margin-left: 0.5rem;
   display: flex;
   flex-grow: 1;
 `;
 const StyledPAllergens = styled.p`
+  margin-left: 0.5rem;
   display: flex;
   flex-grow: 1;
 `;
@@ -107,6 +106,9 @@ const StyledAllergensH3 = styled.p`
 `;
 
 const StyledParagraph = styled.p`
+  margin-top: -1rem;
+  margin-left: 0.5rem;
+  max-height: 4.5rem;
   display: flex;
   flex-grow: 1;
   border: 1px solid red;
@@ -141,6 +143,11 @@ const StyledBrand = styled.p`
 const StyledItemText = styled.p`
   margin: 0.2rem;
   margin-left: 1rem;
+`;
+const StyeledHeaderSave = styled.div`
+  display: flex;
+  background: #ffcc80;
+  border-radius: 0.4rem 0.4rem 0 0;
 `;
 
 export default function DetailPage() {
@@ -252,30 +259,36 @@ export default function DetailPage() {
         <>
           <StyledAllCards>
             <StyledProductCard>
-              <StyledProductName>{data.product.product_name}</StyledProductName>
-              <StyledButtonDiv>
-                <StyledSaveButton
-                  aria-label="Produkt speichern"
-                  type="button"
-                  key={data.product}
-                  onClick={() => {
-                    handleSaveProduct({
-                      name: data.product.product_name,
-                      url: data.product.image_front_url,
-                      code: code,
-                    });
-                  }}
-                >
-                  <SVGIcon
-                    variant={
-                      checkExistingProducts
-                        ? "saveButtonFilled"
-                        : "saveButtonOutlined"
-                    }
-                    width="26px"
-                  />
-                </StyledSaveButton>
-              </StyledButtonDiv>
+              <StyeledHeaderSave>
+                {" "}
+                <StyledProductName>
+                  {data.product.product_name}
+                </StyledProductName>
+                <StyledButtonDiv>
+                  <StyledSaveButton
+                    aria-label="Produkt speichern"
+                    type="button"
+                    key={data.product}
+                    onClick={() => {
+                      handleSaveProduct({
+                        name: data.product.product_name,
+                        url: data.product.image_front_url,
+                        code: code,
+                      });
+                    }}
+                  >
+                    <SVGIcon
+                      variant={
+                        checkExistingProducts
+                          ? "saveButtonFilled"
+                          : "saveButtonOutlined"
+                      }
+                      width="26px"
+                    />
+                  </StyledSaveButton>
+                </StyledButtonDiv>
+              </StyeledHeaderSave>
+
               {/* if user have not chosen additives show message */}
               <StyledInsideCard>
                 <StyledImage

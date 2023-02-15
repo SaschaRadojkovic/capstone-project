@@ -54,7 +54,7 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledButtonPosition = styled.div`
-  margin-top: 0.3rem;
+  margin-top: 0.6rem;
   display: flex;
   justify-content: flex-end;
 `;
@@ -92,7 +92,6 @@ export default function Products() {
             return (
               <StyledProductCard key={product.code}>
                 <StyledHeaderDelete>
-                  {" "}
                   <StyledProductName length={product.name.length}>
                     {product.name}
                   </StyledProductName>
