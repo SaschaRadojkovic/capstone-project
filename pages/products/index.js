@@ -6,6 +6,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 
 const StyledAllCards = styled.div`
+
   margin-left: 0.4rem;
   width: 97vw;
   margin-top: 4rem;
@@ -19,11 +20,13 @@ const StyledAllCards = styled.div`
         grid-template-columns: repeat(4, 1fr);
 `;
 const StyledImage = styled(Image)`
+  margin-top: 0.2rem;
   width: 135px;
   height: 135px;
   object-fit: contain;
 `;
 const StyledProductCard = styled.section`
+  padding: 0.2rem;
   witdh: 50%;
   background-color: white;
   border-radius: 0.4rem;
@@ -31,8 +34,6 @@ const StyledProductCard = styled.section`
 `;
 const StyledProductName = styled.h2`
   height: 2.3rem;
-  border-radius: 0.4rem 0.4rem 0 0;
-  background: #ffcc80;
   padding: 0.5rem;
   font-weight: bold;
   font-size: ${(props) => (props.length > 12 ? "0.8rem" : "1rem")};
@@ -53,7 +54,16 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledButtonPosition = styled.div`
+  margin-top: 0.3rem;
   display: flex;
+  justify-content: flex-end;
+`;
+const StyledHeaderDelete = styled.div`
+  display: flex;
+  background: #ffcc80;
+  border-radius: 0.4rem 0.4rem 0 0;
+  height: 2.3rem;
+  padding-bottom: 0.5rem;
   justify-content: flex-end;
 `;
 
@@ -81,28 +91,32 @@ export default function Products() {
           storedProducts.map((product) => {
             return (
               <StyledProductCard key={product.code}>
-                <StyledProductName length={product.name.length}>
-                  {product.name}
-                </StyledProductName>
-                <StyledButtonPosition>
-                  <StyledLink
-                    aria-label="link zu Produktdetails"
-                    href={`/product/${product.code}`}
-                  >
-                    <SVGIcon variant="details" width="26px" />
-                  </StyledLink>
-                  <StyledDeleteButton
-                    aria-label="Lösche das Produkt"
-                    variant="delete"
-                    width="30px"
-                    type="button"
-                    onClick={() => {
-                      handleDeleteProduct(product._id);
-                    }}
-                  >
-                    <SVGIcon variant="delete" width="26px" />
-                  </StyledDeleteButton>
-                </StyledButtonPosition>
+                <StyledHeaderDelete>
+                  {" "}
+                  <StyledProductName length={product.name.length}>
+                    {product.name}
+                  </StyledProductName>
+                  <StyledButtonPosition>
+                    <StyledLink
+                      aria-label="link zu Produktdetails"
+                      href={`/product/${product.code}`}
+                    >
+                      <SVGIcon variant="details" width="20px" />
+                    </StyledLink>
+                    <StyledDeleteButton
+                      aria-label="Lösche das Produkt"
+                      variant="delete"
+                      width="30px"
+                      type="button"
+                      onClick={() => {
+                        handleDeleteProduct(product._id);
+                      }}
+                    >
+                      <SVGIcon variant="delete" width="20px" />
+                    </StyledDeleteButton>
+                  </StyledButtonPosition>
+                </StyledHeaderDelete>
+
                 <div>
                   <StyledImage
                     width={1000}

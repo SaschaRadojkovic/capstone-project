@@ -33,6 +33,11 @@ const StyledCheck = styled.div`
   margin-top: 2rem;
 `;
 const StyledProductCard = styled.section`
+  padding-top: 0.2rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  min-height: 20.2rem;
+
   background-color: white;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -91,11 +96,14 @@ const StyledAdditivesH3 = styled.p`
   padding: 0.5rem;
   text-align: center;
   font-weight: bold;
+  background: #ffcc80;
 `;
 const StyledAllergensH3 = styled.p`
+  border-radius: 0.4rem 0.4rem 0 0;
   padding: 0.5rem;
   text-align: center;
   font-weight: bold;
+  background: #ffcc80;
 `;
 
 const StyledParagraph = styled.p`
@@ -106,6 +114,7 @@ const StyledParagraph = styled.p`
   font-weight: normal;
   font-size: 0.7rem;
   background: orange;
+  border-radius: 0.2rem;
 `;
 
 const StyledSaveButton = styled.button`
