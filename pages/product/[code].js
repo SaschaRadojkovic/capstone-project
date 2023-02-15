@@ -260,7 +260,6 @@ export default function DetailPage() {
           <StyledAllCards>
             <StyledProductCard>
               <StyeledHeaderSave>
-                {" "}
                 <StyledProductName>
                   {data.product.product_name}
                 </StyledProductName>
