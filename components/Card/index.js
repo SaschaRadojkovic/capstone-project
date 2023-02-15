@@ -110,6 +110,16 @@ const StyledButton = styled.div`
   color: inherit;
 `;
 
+const StyledParagraph = styled.p`
+  margin-bottom: 0.2rem;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+  background: grey;
+  color: white;
+  opacity: 0.8;
+  text-align: center;
+`;
+
 export { StyledDeleteButton };
 
 export default function Card({ items, alertOptions, alertSuccess, model }) {
@@ -186,7 +196,9 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
   return (
     <>
       <StyledContent>
-        <p>Wählen Sie Ihre Allergene und Additive</p>
+        <StyledParagraph>
+          Wählen Sie Ihre Allergene und Additive
+        </StyledParagraph>
 
         <StyledSearchbar
           onSubmit={(event) => {
