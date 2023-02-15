@@ -49,6 +49,7 @@ const StyledDeleteButton = styled.button`
   right: 0;
 `;
 const StyledAddButton = styled.button`
+  margin-top: 0.5rem;
   border: none;
   font-size: 2rem;
   color: white;
@@ -66,6 +67,7 @@ const StyledSearchList = styled.li`
 `;
 
 const StyledInput = styled.input`
+  margin-top: 0.5rem;
   width: calc(100vw - 6rem);
   border: 2px solid #ccc;
   border-radius: 0.4rem;
@@ -111,10 +113,10 @@ const StyledButton = styled.div`
   color: inherit;
 `;
 
-const StyledParagraph = styled.p`
-  margin-bottom: 0.2rem;
+const StyledParagraph = styled.label`
   border-radius: 0.4rem;
   padding: 0.5rem;
+  display: grid;
   background: grey;
   color: white;
   opacity: 0.8;
@@ -197,7 +199,7 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
   return (
     <>
       <StyledContent>
-        <StyledParagraph>
+        <StyledParagraph htmlFor="searchbar">
           Wählen Sie Ihre Allergene und Additive
         </StyledParagraph>
 
@@ -220,12 +222,12 @@ export default function Card({ items, alertOptions, alertSuccess, model }) {
           }}
         >
           {/* input section */}
-
-          <label htmlFor="searchBar"></label>
+          {/* 
+          <label htmlFor="searchBar"></label> */}
           <StyledAutoComplete>
             <StyledInput
               list="dliste"
-              id="searchBar"
+              id="searchbar"
               autoComplete="off"
               name="search"
               type="text"
