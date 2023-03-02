@@ -1,10 +1,16 @@
-# New Project
+# Eatable App
 
-This project was created from the neue fische next template.
+Eatable is a barcode scanner app that can help users look for additives and allergens in food. It utilizes a Mongo DB database and various NPM packages to provide a seamless experience for its users.
 
-## Development
+## Features
+- Scan barcodes to get information about the product
+- View additives and allergens present in the product
+- Create a personal profile to track preferences and allergies
 
-To run project commands locally, you need to install the dependencies using `npm i` first.
+## Installation
+
+- `git clone git@github.com:SaschaRadojkovic/capstone-project.git`
+- `npm install`
 
 You can then use the following commands:
 
@@ -14,3 +20,16 @@ You can then use the following commands:
 - `npm run test` to run the tests in watch mode (if available)
 
 > 💡 This project requires a bundler. You can use `npm run dev` to start the development server. You can then view the project in the browser at `http://localhost:3000`. The Live Preview Extension for Visual Studio Code will **not** work for this project.
+
+## Technologies
+- Next.js
+- MongoDB 
+- Mongoose
+- [Quagga Barcode Scanner](https://www.npmjs.com/package/quagga-scanner)
+- NPM Packages
+
+## Contributing
+Contributions are always welcome! Please feel free to submit a pull request or an issue.
+
+## License
+This project is licensed under the MIT License 
