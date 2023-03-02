@@ -1,3 +1,6 @@
+
+<img width="375" alt="Bildschirmfoto 2023-02-23 um 14 54 04" src="https://user-images.githubusercontent.com/16897094/222371330-f93b7631-5245-41fe-8586-bced6937fb3a.png">
+
 # Eatable App
 
 Eatable is a barcode scanner app that can help users look for additives and allergens in food. It utilizes a Mongo DB database and various NPM packages to provide a seamless experience for its users.
