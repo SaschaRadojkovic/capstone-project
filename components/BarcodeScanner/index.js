@@ -82,7 +82,7 @@ export default function BarcodeScanner() {
           scannerRef={scannerRef}
           onDetected={handleDetected}
           constraints={{ width, height }}
-          torch={torchOn} 
+          torch={setTorchOn} 
         />
           <button onClick={handleClick} style={{marginLeft:400}}>
         {torchOn ? "Turn Torch Off" : "Turn Torch On"}
