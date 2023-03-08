@@ -26,7 +26,7 @@ export default function BarcodeScanner() {
   const router = useRouter();
   const [width, setWidth] = useState();
   const [height, setheight] = useState();
-  const [torchOn, setTorchOn] = useState(false);
+  const [torchOn, setTorchOn] = useState(true);
 
   const canvasRef = useRef(null);
   //https://www.kirupa.com/canvas/canvas_high_dpi_retina.htm
@@ -82,7 +82,7 @@ export default function BarcodeScanner() {
           scannerRef={scannerRef}
           onDetected={handleDetected}
           constraints={{ width, height }}
-          torch={setTorchOn} 
+          torch={true} 
         />
           <button onClick={handleClick} style={{marginLeft:400}}>
         {torchOn ? "Turn Torch Off" : "Turn Torch On"}

@@ -46,7 +46,7 @@ function Scanner({
   numOfWorkers = 0,
   decoders = defaultDecoders,
   locate = true,
-  torch = false,
+  torch = true,
   errorRate = 0.5,
 }) {
   const errorCheck = useCallback(
