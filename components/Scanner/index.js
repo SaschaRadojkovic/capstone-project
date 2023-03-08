@@ -2,6 +2,8 @@
 import { useCallback, useLayoutEffect } from "react";
 import Quagga from "@ericblade/quagga2";
 
+
+
 function getMedian(arr) {
   const myArray = [...arr].sort((a, b) => a - b);
   const half = Math.floor(arr.length / 2);
@@ -17,6 +19,14 @@ function getMedianOfCodeErrors(decodedCodes) {
     .map((x) => x.error);
   const medianOfErrors = getMedian(errors);
   return medianOfErrors;
+}
+function onCapabilitiesReady(capabilities) {  
+  if (capabilities.torch) {
+    track.applyConstraints({
+      advanced: [{torch: true}]
+    })
+    .catch(e => console.log(e));
+  }
 }
 
 const defaultConstraints = {
@@ -43,6 +53,7 @@ function Scanner({
   numOfWorkers = 0,
   decoders = defaultDecoders,
   locate = true,
+  torch = true,
   errorRate = 0.5,
 }) {
   const errorCheck = useCallback(
@@ -76,6 +87,16 @@ function Scanner({
         numOfWorkers,
         decoder: { readers: decoders },
         locate,
+        ...(torch && {
+          // Set torch to true if it's enabled
+          inputStream: { ...constraints, ...(torch && {torch: true}) },
+        }),
+        // Pass the onCapabilitiesReady function to the init method
+        // to handle track capabilities
+        inputStreamConstraints: {
+          advanced: [{ width: 1920 }, { height: 1080 }],
+        },
+        onCapabilitiesReady: ({track}) => onCapabilitiesReady(track.getCapabilities(), track),
       },
       (err) => {
         if (err) {
