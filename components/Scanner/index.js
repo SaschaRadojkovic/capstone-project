@@ -53,7 +53,7 @@ function Scanner({
   numOfWorkers = 0,
   decoders = defaultDecoders,
   locate = true,
-  // torch = true,
+  torch = false,
   errorRate = 0.5,
 }) {
   const errorCheck = useCallback(
@@ -80,6 +80,7 @@ function Scanner({
             ...constraints,
             ...(cameraId && { deviceId: cameraId }),
             ...(!cameraId && { facingMode }),
+            ...(torch && { torch: true }),
           },
           target: scannerRef.current,
         },
@@ -87,16 +88,7 @@ function Scanner({
         numOfWorkers,
         decoder: { readers: decoders },
         locate,
-        // ...(torch && {
-          // Set torch to true if it's enabled
-        //   inputStream: { ...constraints, ...(torch && {torch: true}) },
-        // }),
-        // Pass the onCapabilitiesReady function to the init method
-        // to handle track capabilities
-        // inputStreamConstraints: {
-        //   advanced: [{ width: 1920 }, { height: 1080 }],
-        // },
-        // onCapabilitiesReady: ({track}) => onCapabilitiesReady(track.getCapabilities(), track),
+     
       },
       (err) => {
         if (err) {
@@ -104,7 +96,9 @@ function Scanner({
         }
         if (scannerRef && scannerRef.current) {
           Quagga.start();
-          Quagga.CameraAccess.enableTorch()
+          if (torch) {
+            Quagga.CameraAccess.enableTorch();
+          }
           if (onScannerReady) {
             onScannerReady();
           }
