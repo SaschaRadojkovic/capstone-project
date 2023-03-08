@@ -58,7 +58,7 @@ export default function BarcodeScanner() {
   }
 
   const handleClick = () => {
-    setTorchOn(!torchOn);
+    setTorchOn(prevTorchOn => !prevTorchOn);
   };
 
   return (
