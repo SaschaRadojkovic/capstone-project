@@ -30,6 +30,7 @@ export default function BarcodeScanner() {
   const canvasRef = useRef(null);
   //https://www.kirupa.com/canvas/canvas_high_dpi_retina.htm
   useEffect(() => {
+
     function handleResize() {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
@@ -44,6 +45,7 @@ export default function BarcodeScanner() {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+ 
   }, []);
 
   const scannerRef = useRef(null);

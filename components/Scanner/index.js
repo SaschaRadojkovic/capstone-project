@@ -20,14 +20,14 @@ function getMedianOfCodeErrors(decodedCodes) {
   const medianOfErrors = getMedian(errors);
   return medianOfErrors;
 }
-function onCapabilitiesReady(capabilities) {  
-  if (capabilities.torch) {
-    track.applyConstraints({
-      advanced: [{torch: true}]
-    })
-    .catch(e => console.log(e));
-  }
-}
+// function onCapabilitiesReady(capabilities) {  
+//   if (capabilities.torch) {
+//     track.applyConstraints({
+//       advanced: [{torch: true}]
+//     })
+//     .catch(e => console.log(e));
+//   }
+// }
 
 const defaultConstraints = {
   aspectRatio: { ideal: 1 },
@@ -53,7 +53,7 @@ function Scanner({
   numOfWorkers = 0,
   decoders = defaultDecoders,
   locate = true,
-  torch = true,
+  // torch = true,
   errorRate = 0.5,
 }) {
   const errorCheck = useCallback(
@@ -87,16 +87,16 @@ function Scanner({
         numOfWorkers,
         decoder: { readers: decoders },
         locate,
-        ...(torch && {
+        // ...(torch && {
           // Set torch to true if it's enabled
-          inputStream: { ...constraints, ...(torch && {torch: true}) },
-        }),
+        //   inputStream: { ...constraints, ...(torch && {torch: true}) },
+        // }),
         // Pass the onCapabilitiesReady function to the init method
         // to handle track capabilities
-        inputStreamConstraints: {
-          advanced: [{ width: 1920 }, { height: 1080 }],
-        },
-        onCapabilitiesReady: ({track}) => onCapabilitiesReady(track.getCapabilities(), track),
+        // inputStreamConstraints: {
+        //   advanced: [{ width: 1920 }, { height: 1080 }],
+        // },
+        // onCapabilitiesReady: ({track}) => onCapabilitiesReady(track.getCapabilities(), track),
       },
       (err) => {
         if (err) {
@@ -104,6 +104,7 @@ function Scanner({
         }
         if (scannerRef && scannerRef.current) {
           Quagga.start();
+          Quagga.CameraAccess.enableTorch()
           if (onScannerReady) {
             onScannerReady();
           }
