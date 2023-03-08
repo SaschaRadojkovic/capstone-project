@@ -2,6 +2,8 @@
 import { useCallback, useLayoutEffect } from "react";
 import Quagga from "@ericblade/quagga2";
 
+
+
 function getMedian(arr) {
   const myArray = [...arr].sort((a, b) => a - b);
   const half = Math.floor(arr.length / 2);
@@ -18,6 +20,7 @@ function getMedianOfCodeErrors(decodedCodes) {
   const medianOfErrors = getMedian(errors);
   return medianOfErrors;
 }
+
 
 const defaultConstraints = {
   aspectRatio: { ideal: 1 },
@@ -43,6 +46,7 @@ function Scanner({
   numOfWorkers = 0,
   decoders = defaultDecoders,
   locate = true,
+  torch = false,
   errorRate = 0.5,
 }) {
   const errorCheck = useCallback(
@@ -69,6 +73,7 @@ function Scanner({
             ...constraints,
             ...(cameraId && { deviceId: cameraId }),
             ...(!cameraId && { facingMode }),
+            ...(torch && { torch: true }),
           },
           target: scannerRef.current,
         },
@@ -76,6 +81,7 @@ function Scanner({
         numOfWorkers,
         decoder: { readers: decoders },
         locate,
+     
       },
       (err) => {
         if (err) {
@@ -83,6 +89,9 @@ function Scanner({
         }
         if (scannerRef && scannerRef.current) {
           Quagga.start();
+          if (torch) {
+            Quagga.CameraAccess.enableTorch();
+          }
           if (onScannerReady) {
             onScannerReady();
           }
