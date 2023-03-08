@@ -20,14 +20,7 @@ function getMedianOfCodeErrors(decodedCodes) {
   const medianOfErrors = getMedian(errors);
   return medianOfErrors;
 }
-// function onCapabilitiesReady(capabilities) {  
-//   if (capabilities.torch) {
-//     track.applyConstraints({
-//       advanced: [{torch: true}]
-//     })
-//     .catch(e => console.log(e));
-//   }
-// }
+
 
 const defaultConstraints = {
   aspectRatio: { ideal: 1 },
